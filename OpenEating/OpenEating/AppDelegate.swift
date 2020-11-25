@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
       // ...
       if (error == nil) {
         // Perform any operations on signed in user here.
+        // check if document for this user already exists, make new document for each new user
       } else {
         print("\(error.localizedDescription)")
       }
