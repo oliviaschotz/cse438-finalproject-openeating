@@ -120,6 +120,7 @@
 				D74155F42564692500242998 /* Frameworks */,
 				D74155F52564692500242998 /* Resources */,
 				E0C2E3A20F9BA25B57F3A222 /* [CP] Embed Pods Frameworks */,
+				42019ACEF4FC920D771DB650 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -178,6 +179,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		42019ACEF4FC920D771DB650 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OpenEating/Pods-OpenEating-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OpenEating/Pods-OpenEating-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OpenEating/Pods-OpenEating-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D81A032FF3B9DC753013D887 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
