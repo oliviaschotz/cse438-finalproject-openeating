@@ -83,7 +83,60 @@ class DietaryPrefsViewController: UIViewController {
         //something else to save the data
     }
     
-
+    @IBAction func clickPesc(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickPaleo(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickDairy(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickEgg(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickGluten(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickPeanut(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickSesame(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickShellfish(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickSoy(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickTreenut(_ sender: UIButton) {
+        clickedStyle(button: sender)
+        //something else to save the data
+    }
+    
+    @IBAction func clickNext(_ sender: UIButton) {
+        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
+    }
+    
     
 
     /*
