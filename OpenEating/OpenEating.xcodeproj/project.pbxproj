@@ -18,6 +18,9 @@
 		FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */; };
 		FD30391E256E311A00CBBDA2 /* DietaryPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */; };
 		FDC1EFBC256708B0003D6C4E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EFBB256708B0003D6C4E /* ProfileViewController.swift */; };
+		FDD5FC0E256ED130000A7512 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD5FC0D256ED130000A7512 /* HomeViewController.swift */; };
+		FDD5FC10256ED154000A7512 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD5FC0F256ED154000A7512 /* RecipeDetailsViewController.swift */; };
+		FDD5FC14256ED1AE000A7512 /* AcctDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD5FC13256ED1AE000A7512 /* AcctDetailsViewController.swift */; };
 		FDF4918C2565AFF6001CE8F5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF4918B2565AFF6001CE8F5 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpViewController.swift; sourceTree = "<group>"; };
 		FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPrefsViewController.swift; sourceTree = "<group>"; };
 		FDC1EFBB256708B0003D6C4E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FDD5FC0D256ED130000A7512 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FDD5FC0F256ED154000A7512 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		FDD5FC13256ED1AE000A7512 /* AcctDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcctDetailsViewController.swift; sourceTree = "<group>"; };
 		FDF4918B2565AFF6001CE8F5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,9 +102,12 @@
 				D74155FC2564692500242998 /* SceneDelegate.swift */,
 				D74155FE2564692500242998 /* ViewController.swift */,
 				D74156002564692500242998 /* Main.storyboard */,
+				FDD5FC13256ED1AE000A7512 /* AcctDetailsViewController.swift */,
+				FDD5FC0F256ED154000A7512 /* RecipeDetailsViewController.swift */,
 				FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */,
 				FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */,
 				FDC1EFBB256708B0003D6C4E /* ProfileViewController.swift */,
+				FDD5FC0D256ED130000A7512 /* HomeViewController.swift */,
 				FDF4918B2565AFF6001CE8F5 /* FavoritesViewController.swift */,
 				D74156032564692600242998 /* Assets.xcassets */,
 				D74156052564692600242998 /* LaunchScreen.storyboard */,
@@ -242,9 +251,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD5FC14256ED1AE000A7512 /* AcctDetailsViewController.swift in Sources */,
 				FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */,
+				FDD5FC10256ED154000A7512 /* RecipeDetailsViewController.swift in Sources */,
 				D74155FF2564692500242998 /* ViewController.swift in Sources */,
 				D74155FB2564692500242998 /* AppDelegate.swift in Sources */,
+				FDD5FC0E256ED130000A7512 /* HomeViewController.swift in Sources */,
 				FDC1EFBC256708B0003D6C4E /* ProfileViewController.swift in Sources */,
 				FDF4918C2565AFF6001CE8F5 /* FavoritesViewController.swift in Sources */,
 				D74155FD2564692500242998 /* SceneDelegate.swift in Sources */,
