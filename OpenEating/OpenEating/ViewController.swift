@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     //example: https://api.spoonacular.com/recipes/716429/information?apiKey=61de2798dcdc47c88f2279d7c23dad64&includeNutrition=true
     let api_key = "61de2798dcdc47c88f2279d7c23dad64"
     
+    @IBAction func clickNext(_ sender: UIButton) {
+        performSegue(withIdentifier: "WelcomeToProfileSetup", sender: UIButton.self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
