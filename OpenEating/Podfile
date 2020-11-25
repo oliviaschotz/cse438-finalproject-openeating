@@ -8,5 +8,7 @@ target 'OpenEating' do
   # Pods for OpenEating
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/Facebook'
 
 end
