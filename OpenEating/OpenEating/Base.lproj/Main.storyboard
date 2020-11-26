@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-kU-Qgp">
@@ -111,14 +111,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1957.5999999999999" y="116.00985221674877"/>
+            <point key="canvasLocation" x="1959" y="116"/>
         </scene>
         <!--Recipe Page-->
         <scene sceneID="arQ-nL-IHa">
             <objects>
-                <viewController title="Recipe Page" id="JkH-BR-1ze" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Recipe Page" automaticallyAdjustsScrollViewInsets="NO" id="JkH-BR-1ze" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qq1-bo-XeR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1829"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oB-w6-4nF">
@@ -412,7 +412,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0PS-A6-UXt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="fqy-JY-RDd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="548" y="-773"/>
+            <point key="canvasLocation" x="362" y="-774"/>
         </scene>
         <!--Profile Set Up-->
         <scene sceneID="x2M-kM-Mrh">
@@ -572,7 +572,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfT-Dl-Vav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1417" y="-773"/>
+            <point key="canvasLocation" x="1250" y="-774"/>
         </scene>
         <!--Set Up Preferences-->
         <scene sceneID="2HG-dl-btj">
@@ -1024,18 +1024,19 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <outlet property="treenutButton" destination="OfE-8E-Ggw" id="UeA-Hb-Q5W"/>
                         <outlet property="vegnButton" destination="RLi-Hl-wA5" id="tse-TH-G0n"/>
                         <outlet property="vegtButton" destination="7TI-uP-LKM" id="3cb-9j-r9y"/>
+                        <segue destination="qnN-MV-fq5" kind="show" identifier="PrefsToMain" id="nN1-YN-rj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOO-LY-iab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2270" y="-774"/>
+            <point key="canvasLocation" x="2121" y="-774"/>
         </scene>
         <!--Profile-->
         <scene sceneID="5CU-WZ-S9L">
             <objects>
-                <viewController id="ka7-Ro-iP8" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ka7-Ro-iP8" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N8h-M0-OMF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1362"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iVb-Zr-ALg">
@@ -1346,7 +1347,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sy-IN-PHp">
-                                                <rect key="frame" x="318" y="1195" width="19.333333333333314" height="97"/>
+                                                <rect key="frame" x="318" y="1216" width="19.333333333333314" height="55"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1490,7 +1491,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController title="Edit Account" id="05I-ZD-6gv" customClass="AcctDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45r-xQ-MMK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editAccountBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7Zw-1w-OFC">
@@ -1572,14 +1573,14 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4t2-o6-JsN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849" y="848"/>
+            <point key="canvasLocation" x="2846" y="1028"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="dOO-1c-UUg">
             <objects>
                 <viewController id="zj5-pf-iBj" customClass="FavoritesViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lCN-Va-Dub">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Favorites List Background" translatesAutoresizingMaskIntoConstraints="NO" id="riA-Iw-ek2">
@@ -1630,7 +1631,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUX-x8-RJF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="2169"/>
+            <point key="canvasLocation" x="1958" y="2001"/>
         </scene>
         <!--Home-->
         <scene sceneID="1UT-F3-Lzb">
@@ -1661,6 +1662,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="qnN-MV-fq5" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="lpI-pL-ZnR"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aiq-gS-nZg">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1698,7 +1700,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7c7-Qe-0c9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="849"/>
+            <point key="canvasLocation" x="1047" y="1028"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="09V-kc-MvJ">
@@ -1722,7 +1724,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BhQ-zj-KqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="1929"/>
+            <point key="canvasLocation" x="1046" y="2001"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xlZ-Xd-42Z">
@@ -1739,7 +1741,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="geU-FZ-YGv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="-774"/>
+            <point key="canvasLocation" x="-532" y="-774"/>
         </scene>
     </scenes>
     <resources>
