@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-kU-Qgp">
@@ -118,7 +118,7 @@
             <objects>
                 <viewController title="Recipe Page" id="JkH-BR-1ze" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qq1-bo-XeR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1829"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oB-w6-4nF">
@@ -1035,7 +1035,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController id="ka7-Ro-iP8" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N8h-M0-OMF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1362"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iVb-Zr-ALg">
@@ -1490,7 +1490,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController title="Edit Account" id="05I-ZD-6gv" customClass="AcctDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45r-xQ-MMK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editAccountBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7Zw-1w-OFC">
@@ -1579,7 +1579,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController id="zj5-pf-iBj" customClass="FavoritesViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lCN-Va-Dub">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Favorites List Background" translatesAutoresizingMaskIntoConstraints="NO" id="riA-Iw-ek2">
