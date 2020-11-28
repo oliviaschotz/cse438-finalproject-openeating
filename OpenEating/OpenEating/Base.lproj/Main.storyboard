@@ -334,7 +334,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         <!--Welcome Screen-->
         <scene sceneID="ShR-EF-PYd">
             <objects>
-                <viewController title="Welcome Screen" id="M5r-nN-H4e" sceneMemberID="viewController">
+                <viewController title="Welcome Screen" id="M5r-nN-H4e" customClass="ViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVs-lq-jM6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -384,7 +384,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="clickNext:" destination="fqy-JY-RDd" eventType="touchUpInside" id="HJ5-a5-cA3"/>
+                                            <action selector="clickNext:" destination="M5r-nN-H4e" eventType="touchUpInside" id="tYo-6T-D7O"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSm-6w-YE4">
@@ -437,6 +437,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                     <color key="titleColor" name="lightGreen"/>
                                 </state>
                                 <connections>
+                                    <action selector="clickSignIn:" destination="M5r-nN-H4e" eventType="touchUpInside" id="Lxt-ny-cp8"/>
                                     <action selector="clickSignIn:" destination="fqy-JY-RDd" eventType="touchUpInside" id="tVf-h1-stc"/>
                                 </connections>
                             </button>
@@ -1928,7 +1929,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nN1-YN-rj0"/>
+        <segue reference="d0N-KM-AJL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Favorites List Background" width="375" height="812"/>
