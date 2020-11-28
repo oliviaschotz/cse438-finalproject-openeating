@@ -27,6 +27,7 @@ class DietaryPrefsViewController: UIViewController {
     
     var buttons: [UIButton] = []
     //another array or two to actually save the data
+    var numClicks: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
