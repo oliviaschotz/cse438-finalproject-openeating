@@ -15,7 +15,6 @@ class ProfileSetUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
     @IBAction func clickCreateAcct(_ sender: UIButton) {
         performSegue(withIdentifier: "ProfSUToDietaryPrefs", sender: UIButton.self)
     }

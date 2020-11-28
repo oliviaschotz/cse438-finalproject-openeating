@@ -15,6 +15,16 @@ class LogInViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func clickSignIn(_ sender: UIButton) {
+        performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+    }
+    
+    @IBAction func clickBack(_ sender: UIButton) {
+        performSegue(withIdentifier: "SignInToWelcome", sender: UIButton.self)
+    }
+    
+    @IBAction func clickSignInGoogle(_ sender: UIButton) {
+    }
     
 
     /*

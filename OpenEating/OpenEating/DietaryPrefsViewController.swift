@@ -24,6 +24,7 @@ class DietaryPrefsViewController: UIViewController {
     @IBOutlet weak var soyButton: UIButton!
     @IBOutlet weak var treenutButton: UIButton!
     
+    
     var buttons: [UIButton] = []
     //another array or two to actually save the data
     
@@ -35,8 +36,8 @@ class DietaryPrefsViewController: UIViewController {
     }
     
     func addButtons() {
-        buttons.append(vegnButton)
         buttons.append(vegtButton)
+        buttons.append(vegnButton)
         buttons.append(ketoButton)
         buttons.append(pescButton)
         buttons.append(paleoButton)
@@ -55,86 +56,104 @@ class DietaryPrefsViewController: UIViewController {
             btn.layer.borderWidth = 2.0
             btn.layer.borderColor = UIColor.black.cgColor
         }
+        for _ in buttons {
+            numClicks.append(0)
+        }
     }
-       
-    func clickedStyle(button: UIButton) {
-           if button.isEnabled {
-               button.backgroundColor = UIColor(named: "darkGreen") ?? UIColor.black
-               button.layer.borderColor = UIColor(named: "darkGreen")?.cgColor ?? UIColor.black.cgColor
-           }
-           else {
-               button.layer.borderWidth = 2.0
-               button.layer.borderColor = UIColor.black.cgColor
-           }
+    
+    //count of clicks if odd = clicked,even = unclicked
+    func clickedStyle(button: UIButton, loc: Int) {
+        if numClicks[loc] % 2 == 0 {
+            button.backgroundColor = UIColor(named: "darkGreen") ?? UIColor.black
+            button.layer.borderColor = UIColor(named: "darkGreen")?.cgColor ?? UIColor.black.cgColor
+        }
+        else {
+            button.layer.borderWidth = 2.0
+            button.layer.borderColor = UIColor.black.cgColor
+            button.backgroundColor = UIColor.clear
+        }
     }
     
     @IBAction func clickVegt(_ sender: UIButton) {
-        clickedStyle(button: sender)
-        //something else to save the data
+        clickedStyle(button: sender, loc: 0)
+        numClicks[0] += 1
+        //something to save data
     }
     
     @IBAction func clickVegn(_ sender: UIButton) {
-        clickedStyle(button: sender)
-        //something else to save the data
+        clickedStyle(button: sender, loc: 1)
+        numClicks[1] += 1
+        //something to save data
     }
     
     @IBAction func clickKeto(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 2)
+        numClicks[2] += 1
         //something else to save the data
     }
     
     @IBAction func clickPesc(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 3)
+        numClicks[3] += 1
         //something else to save the data
     }
     
     @IBAction func clickPaleo(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 4)
+        numClicks[4] += 1
         //something else to save the data
     }
     
     @IBAction func clickDairy(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 5)
+        numClicks[5] += 1
         //something else to save the data
     }
     
     @IBAction func clickEgg(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 6)
+        numClicks[6] += 1
         //something else to save the data
     }
     
     @IBAction func clickGluten(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 7)
+        numClicks[7] += 1
         //something else to save the data
     }
     
     @IBAction func clickPeanut(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 8)
+        numClicks[8] += 1
         //something else to save the data
     }
     
     @IBAction func clickSesame(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 9)
+        numClicks[9] += 1
         //something else to save the data
     }
     
     @IBAction func clickShellfish(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 10)
+        numClicks[10] += 1
         //something else to save the data
     }
     
     @IBAction func clickSoy(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 11)
+        numClicks[11] += 1
         //something else to save the data
     }
     
     @IBAction func clickTreenut(_ sender: UIButton) {
-        clickedStyle(button: sender)
+        clickedStyle(button: sender, loc: 12)
+        numClicks[12] += 1
         //something else to save the data
     }
     
     @IBAction func clickNext(_ sender: UIButton) {
-        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
+    performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
     }
     
     

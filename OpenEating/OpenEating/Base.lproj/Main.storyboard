@@ -92,7 +92,7 @@
                                 </prototypes>
                             </tableView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J65-3g-uvb">
-                                <rect key="frame" x="-0.5" y="0.0" width="375.5" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -543,6 +543,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <integer key="value" value="26"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickCreateAcct:" destination="o0O-rf-t0d" eventType="touchUpInside" id="xSj-wb-Yhr"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-rZ-9Xp">
                                                 <rect key="frame" x="14" y="860.66666666666663" width="347" height="201.99999999999989"/>
@@ -650,11 +653,11 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController title="Set Up Preferences" automaticallyAdjustsScrollViewInsets="NO" id="2lw-3d-Gr1" customClass="DietaryPrefsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rG8-YO-0cV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1316"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xd-th-w5o">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1316"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuV-4N-32G" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
@@ -683,6 +686,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickVegt:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="eeX-GW-3Tn"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Icon" translatesAutoresizingMaskIntoConstraints="NO" id="KQz-Yh-ecV">
                                                 <rect key="frame" x="102.66666666666669" y="50" width="170" height="143"/>
@@ -705,6 +711,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickVegn:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="B1Q-e3-nwF"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7f-B0-HwX">
                                                 <rect key="frame" x="81" y="410.33333333333331" width="56" height="23.333333333333314"/>
@@ -726,6 +735,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickKeto:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="hqd-Ml-Ez9"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ketogenic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N73-dn-bKo">
                                                 <rect key="frame" x="81" y="460" width="91" height="24"/>
@@ -753,6 +765,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickPesc:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="OZm-dL-Caa"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pescetarian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vCG-oc-uoC">
                                                 <rect key="frame" x="81" y="510.33333333333331" width="106" height="23.333333333333314"/>
@@ -774,6 +789,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickPaleo:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="ndU-7M-CgP"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paleo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liO-FQ-bBA">
                                                 <rect key="frame" x="81" y="560" width="51" height="24"/>
@@ -805,6 +823,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickDairy:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="OPn-1I-dZP"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dairy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T44-Rd-h3k">
                                                 <rect key="frame" x="74" y="779" width="46" height="24"/>
@@ -826,6 +847,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickEgg:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="lKR-1b-pOQ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-m5-g1I">
                                                 <rect key="frame" x="74" y="829" width="36" height="24"/>
@@ -847,6 +871,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickGluten:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="kJe-AC-dRJ"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gluten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orq-5u-cXS">
                                                 <rect key="frame" x="74" y="879" width="59" height="24"/>
@@ -868,6 +895,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickPeanut:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="uHP-As-Zuv"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Peanut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-di-418">
                                                 <rect key="frame" x="74" y="929" width="63" height="24"/>
@@ -889,6 +919,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickSesame:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="Rau-Bq-d7Z"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sesame" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhb-qN-hHO">
                                                 <rect key="frame" x="74" y="979" width="73" height="24"/>
@@ -910,6 +943,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickShellfish:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="L6e-1w-xYg"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shellfish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYv-mq-oiN">
                                                 <rect key="frame" x="74" y="1029" width="76" height="24"/>
@@ -931,6 +967,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickSoy:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="GAe-WC-J8b"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Soy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDQ-zR-ekL">
                                                 <rect key="frame" x="74" y="1079" width="35" height="24"/>
@@ -952,6 +991,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickTreenut:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="Qn7-Er-bcA"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tree Nut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHf-Lu-BNh">
                                                 <rect key="frame" x="74" y="1129" width="75" height="24"/>
@@ -971,6 +1013,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                         <integer key="value" value="26"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clickNext:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="k76-Pd-WLU"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZL-0a-ngh">
                                                 <rect key="frame" x="244" y="1208.3333333333333" width="111" height="38.333333333333258"/>
@@ -1082,14 +1127,26 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <viewLayoutGuide key="safeArea" id="43v-cf-QzZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="NwE-5v-x3E"/>
-                    <size key="freeformSize" width="375" height="1300"/>
+                    <size key="freeformSize" width="375" height="1316"/>
                     <connections>
+                        <outlet property="dairyButton" destination="2DS-sm-hSl" id="KKA-4h-qCV"/>
+                        <outlet property="eggButton" destination="HdB-F6-UCl" id="TAF-nF-42h"/>
+                        <outlet property="ketoButton" destination="zhQ-7b-lHp" id="AnM-1w-w2S"/>
+                        <outlet property="paleoButton" destination="0S2-Nq-zeX" id="qWW-eZ-dba"/>
+                        <outlet property="peanutButton" destination="Axn-Zh-zqA" id="Tzd-KB-R8r"/>
+                        <outlet property="pescButton" destination="sX5-56-ztw" id="54U-so-TKv"/>
+                        <outlet property="sesameButton" destination="Xf8-HY-JeZ" id="b8g-Im-hnX"/>
+                        <outlet property="shellfishButton" destination="gxZ-kZ-8mz" id="StQ-O1-2vA"/>
+                        <outlet property="soyButton" destination="CoO-Bi-mje" id="Bp8-OD-S0d"/>
+                        <outlet property="treenutButton" destination="itR-dL-Kyk" id="a2Y-lG-5yl"/>
+                        <outlet property="vegnButton" destination="mgH-TR-Tr5" id="a52-ge-9hP"/>
+                        <outlet property="vegtButton" destination="7Th-2q-0eM" id="9Jv-Jt-Rsy"/>
                         <segue destination="qnN-MV-fq5" kind="show" identifier="PrefsToMain" id="nN1-YN-rj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOO-LY-iab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="-774"/>
+            <point key="canvasLocation" x="2120.8000000000002" y="-774.38423645320199"/>
         </scene>
         <!--Profile-->
         <scene sceneID="5CU-WZ-S9L">
@@ -1746,106 +1803,117 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         <scene sceneID="yMu-Ec-Q8P">
             <objects>
                 <viewController id="QEy-zI-jX4" customClass="LogInViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hvi-Wx-pJi">
+                    <view key="view" contentMode="scaleToFill" id="gOv-Q8-5AW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editAccountBackground" translatesAutoresizingMaskIntoConstraints="NO" id="QRE-cK-wMO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editAccountBackground" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-of-BdT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CQ-di-atc">
-                                <rect key="frame" x="16" y="516" width="174" height="55"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viM-BX-7Id">
+                                <rect key="frame" x="16" y="501" width="174" height="55"/>
                                 <color key="backgroundColor" name="darkGreen"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="BkQ-ja-pqI"/>
-                                    <constraint firstAttribute="width" constant="174" id="NSR-EF-gA0"/>
+                                    <constraint firstAttribute="height" constant="55" id="BDT-Gi-kYo"/>
+                                    <constraint firstAttribute="width" constant="174" id="ZB7-1d-g5v"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="26"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickSignIn:" destination="QEy-zI-jX4" eventType="touchUpInside" id="Z6q-hE-fv7"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYp-RT-6Vz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LZ-0e-0zJ">
                                 <rect key="frame" x="16" y="234.00000000000003" width="193" height="69.333333333333343"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="58"/>
                                 <color key="textColor" name="darkGray"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="aM9-0e-fhm">
-                                <rect key="frame" x="16" y="343" width="347" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="suS-sg-aOz">
+                                <rect key="frame" x="16" y="324" width="347" height="90"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUz-Mi-uKg">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W89-dV-pDR">
                                         <rect key="frame" x="0.0" y="0.0" width="347" height="34"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lW3-Ez-2Go">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-YT-pMx">
                                         <rect key="frame" x="0.0" y="56" width="347" height="34"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="347" id="OkN-VT-JgW"/>
+                                    <constraint firstAttribute="width" constant="347" id="ifL-Zd-63u"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voc-jk-EBa">
-                                <rect key="frame" x="50.666666666666657" y="524.33333333333337" width="105" height="38.333333333333371"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0k-nH-cKZ">
+                                <rect key="frame" x="50.666666666666657" y="509.33333333333331" width="105" height="38.333333333333314"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aKM-Tw-8V2">
-                                <rect key="frame" x="13" y="463" width="180" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-pJ-g3z">
+                                <rect key="frame" x="13" y="448" width="180" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="FIh-1G-Zr7"/>
+                                    <constraint firstAttribute="height" constant="43" id="9Jy-qS-wHm"/>
                                 </constraints>
                                 <state key="normal" image="signinGoogle"/>
+                                <connections>
+                                    <action selector="clickSignInGoogle:" destination="QEy-zI-jX4" eventType="touchUpInside" id="bK9-KQ-igr"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ee-Cr-n2K">
-                                <rect key="frame" x="16" y="301" width="285" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-bP-Tc0">
+                                <rect key="frame" x="13" y="44" width="86" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="bbY-49-2bo"/>
+                                    <constraint firstAttribute="height" constant="38" id="Vlj-qT-aCO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Don't have an account? Sign up">
-                                    <color key="titleColor" name="lightGreen"/>
-                                </state>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="clickBack:" destination="QEy-zI-jX4" eventType="touchUpInside" id="ads-20-nq3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aKM-Tw-8V2" firstAttribute="leading" secondItem="GKl-UV-Xvh" secondAttribute="leading" constant="13" id="0KK-HE-kSb"/>
-                            <constraint firstItem="gYp-RT-6Vz" firstAttribute="leading" secondItem="GKl-UV-Xvh" secondAttribute="leading" constant="16" id="0sN-ja-5em"/>
-                            <constraint firstItem="7Ee-Cr-n2K" firstAttribute="top" secondItem="GKl-UV-Xvh" secondAttribute="top" constant="257" id="6Ep-PK-0mQ"/>
-                            <constraint firstItem="aKM-Tw-8V2" firstAttribute="top" secondItem="aM9-0e-fhm" secondAttribute="bottom" constant="30" id="6Ii-eG-PzC"/>
-                            <constraint firstItem="GKl-UV-Xvh" firstAttribute="trailing" secondItem="gYp-RT-6Vz" secondAttribute="trailing" constant="166" id="A9l-4M-ASR"/>
-                            <constraint firstItem="8CQ-di-atc" firstAttribute="top" secondItem="aKM-Tw-8V2" secondAttribute="bottom" constant="10" id="Dbb-HK-kMQ"/>
-                            <constraint firstItem="gYp-RT-6Vz" firstAttribute="top" secondItem="GKl-UV-Xvh" secondAttribute="top" constant="190" id="I19-cm-TqG"/>
-                            <constraint firstItem="aKM-Tw-8V2" firstAttribute="centerX" secondItem="voc-jk-EBa" secondAttribute="centerX" id="OBq-u5-MrT"/>
-                            <constraint firstItem="voc-jk-EBa" firstAttribute="centerY" secondItem="8CQ-di-atc" secondAttribute="centerY" id="Q3X-Wd-89R"/>
-                            <constraint firstItem="aM9-0e-fhm" firstAttribute="leading" secondItem="gYp-RT-6Vz" secondAttribute="leading" id="W7c-UE-gkX"/>
-                            <constraint firstItem="7Ee-Cr-n2K" firstAttribute="leading" secondItem="gYp-RT-6Vz" secondAttribute="leading" id="ZnT-gx-NiH"/>
-                            <constraint firstItem="8CQ-di-atc" firstAttribute="leading" secondItem="gYp-RT-6Vz" secondAttribute="leading" id="dSd-Lc-AL3"/>
-                            <constraint firstItem="GKl-UV-Xvh" firstAttribute="bottom" secondItem="8CQ-di-atc" secondAttribute="bottom" constant="207" id="m7r-kM-DWZ"/>
-                            <constraint firstItem="voc-jk-EBa" firstAttribute="centerX" secondItem="8CQ-di-atc" secondAttribute="centerX" id="nc4-uL-2Ue"/>
-                            <constraint firstItem="GKl-UV-Xvh" firstAttribute="trailing" secondItem="7Ee-Cr-n2K" secondAttribute="trailing" constant="74" id="zI4-Hv-32h"/>
+                            <constraint firstItem="W8p-Zt-wa0" firstAttribute="trailing" secondItem="6LZ-0e-0zJ" secondAttribute="trailing" constant="166" id="5nq-xO-whM"/>
+                            <constraint firstItem="viM-BX-7Id" firstAttribute="leading" secondItem="6LZ-0e-0zJ" secondAttribute="leading" id="L2r-dH-C7E"/>
+                            <constraint firstItem="suS-sg-aOz" firstAttribute="leading" secondItem="6LZ-0e-0zJ" secondAttribute="leading" id="OXu-J9-uYc"/>
+                            <constraint firstItem="W8p-Zt-wa0" firstAttribute="trailing" secondItem="dAk-bP-Tc0" secondAttribute="trailing" constant="276" id="Sqn-Ry-xor"/>
+                            <constraint firstItem="dAk-bP-Tc0" firstAttribute="leading" secondItem="nfd-pJ-g3z" secondAttribute="leading" id="WQN-0P-5F4"/>
+                            <constraint firstItem="6LZ-0e-0zJ" firstAttribute="top" secondItem="W8p-Zt-wa0" secondAttribute="top" constant="190" id="c79-zw-QPR"/>
+                            <constraint firstItem="nfd-pJ-g3z" firstAttribute="top" secondItem="suS-sg-aOz" secondAttribute="bottom" constant="34" id="ddj-gh-ouV"/>
+                            <constraint firstItem="z0k-nH-cKZ" firstAttribute="centerX" secondItem="viM-BX-7Id" secondAttribute="centerX" id="hrf-mn-dpG"/>
+                            <constraint firstItem="W8p-Zt-wa0" firstAttribute="bottom" secondItem="viM-BX-7Id" secondAttribute="bottom" constant="222" id="iA3-Vf-MRK"/>
+                            <constraint firstItem="z0k-nH-cKZ" firstAttribute="centerY" secondItem="viM-BX-7Id" secondAttribute="centerY" id="l8D-Y4-BdQ"/>
+                            <constraint firstItem="viM-BX-7Id" firstAttribute="top" secondItem="nfd-pJ-g3z" secondAttribute="bottom" constant="10" id="oX5-hl-D6R"/>
+                            <constraint firstItem="6LZ-0e-0zJ" firstAttribute="leading" secondItem="W8p-Zt-wa0" secondAttribute="leading" constant="16" id="r4i-D3-v6K"/>
+                            <constraint firstItem="nfd-pJ-g3z" firstAttribute="centerX" secondItem="z0k-nH-cKZ" secondAttribute="centerX" id="shG-ao-fgL"/>
+                            <constraint firstItem="dAk-bP-Tc0" firstAttribute="top" secondItem="W8p-Zt-wa0" secondAttribute="top" id="t4g-tc-tyf"/>
+                            <constraint firstItem="nfd-pJ-g3z" firstAttribute="leading" secondItem="W8p-Zt-wa0" secondAttribute="leading" constant="13" id="ux0-ny-egH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GKl-UV-Xvh"/>
+                        <viewLayoutGuide key="safeArea" id="W8p-Zt-wa0"/>
                     </view>
                     <navigationItem key="navigationItem" id="wh8-ng-9hJ"/>
+                    <connections>
+                        <segue destination="qnN-MV-fq5" kind="show" identifier="SignInToHome" id="d0N-KM-AJL"/>
+                        <segue destination="1Eh-xb-HA7" kind="show" identifier="SignInToWelcome" id="2Hh-TV-k7P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFu-2h-ddE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1474.4000000000001" y="-36.206896551724142"/>
+            <point key="canvasLocation" x="-1703" y="-44"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xlZ-Xd-42Z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1Eh-xb-HA7" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="i0P-Uy-Q5k"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ptx-hY-edh">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1859,10 +1927,14 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <point key="canvasLocation" x="-532" y="-774"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nN1-YN-rj0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Favorites List Background" width="375" height="812"/>
         <image name="Menu" width="49" height="28"/>
         <image name="Profile Icon" width="79" height="79"/>
+        <image name="backButton" width="248" height="112"/>
         <image name="chickpeaPic" width="376" height="425"/>
         <image name="editAccountBackground" width="375" height="812"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
