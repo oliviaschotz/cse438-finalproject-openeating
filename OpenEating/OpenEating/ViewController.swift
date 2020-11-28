@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     @IBAction func clickNext(_ sender: UIButton) {
         performSegue(withIdentifier: "WelcomeToProfileSetup", sender: UIButton.self)
     }
-    
     @IBAction func clickSignIn(_ sender: UIButton) {
         performSegue(withIdentifier: "WelcomeToSignIn", sender: UIButton.self)
     }
+
     
     
     override func viewDidLoad() {
