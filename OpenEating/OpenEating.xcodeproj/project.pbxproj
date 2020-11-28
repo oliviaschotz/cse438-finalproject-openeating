@@ -15,6 +15,7 @@
 		D74156022564692500242998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156002564692500242998 /* Main.storyboard */; };
 		D74156042564692600242998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74156032564692600242998 /* Assets.xcassets */; };
 		D74156072564692600242998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156052564692600242998 /* LaunchScreen.storyboard */; };
+		FD169D0D2572E88F004EA4BD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD169D0C2572E88F004EA4BD /* LogInViewController.swift */; };
 		FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */; };
 		FD30391E256E311A00CBBDA2 /* DietaryPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */; };
 		FDC1EFBC256708B0003D6C4E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1EFBB256708B0003D6C4E /* ProfileViewController.swift */; };
@@ -38,6 +39,7 @@
 		D74156032564692600242998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74156062564692600242998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74156082564692600242998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD169D0C2572E88F004EA4BD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpViewController.swift; sourceTree = "<group>"; };
 		FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPrefsViewController.swift; sourceTree = "<group>"; };
 		FDC1EFBB256708B0003D6C4E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D74155FC2564692500242998 /* SceneDelegate.swift */,
 				D74155FE2564692500242998 /* ViewController.swift */,
 				D74156002564692500242998 /* Main.storyboard */,
+				FD169D0C2572E88F004EA4BD /* LogInViewController.swift */,
 				FDD5FC13256ED1AE000A7512 /* AcctDetailsViewController.swift */,
 				FDD5FC0F256ED154000A7512 /* RecipeDetailsViewController.swift */,
 				FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */,
@@ -253,6 +256,7 @@
 			files = (
 				FDD5FC14256ED1AE000A7512 /* AcctDetailsViewController.swift in Sources */,
 				FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */,
+				FD169D0D2572E88F004EA4BD /* LogInViewController.swift in Sources */,
 				FDD5FC10256ED154000A7512 /* RecipeDetailsViewController.swift in Sources */,
 				D74155FF2564692500242998 /* ViewController.swift in Sources */,
 				D74155FB2564692500242998 /* AppDelegate.swift in Sources */,
