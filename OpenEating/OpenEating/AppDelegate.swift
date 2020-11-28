@@ -14,19 +14,38 @@ import GoogleSignIn
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
+    var userEmail: String = ""
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-      // ...
-      if (error == nil) {
+   
+        if (error == nil) {
         // Perform any operations on signed in user here.
         // check if document for this user already exists, make new document for each new user
+        
+        // Get user email
+        userEmail = user.profile.email
+        print("User email: \(user.profile.email ?? "No Email")")
+        // Make user authentication and credentials
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                          accessToken: authentication.accessToken)
+        
+        print("authentication is \(authentication)")
+        print("credential is \(credential)")
+        
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+            if let error = error {
+                print("authentication error \(error.localizedDescription)")
+            }
+        }
+        
+        // Make document to store user preferences
+        
+        
       } else {
         print("\(error.localizedDescription)")
       }
-
-      guard let authentication = user.authentication else { return }
-        _ = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                        accessToken: authentication.accessToken)
+        
     }
 
 
@@ -36,9 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+            // "671555113764-9splhvfee8j5h460k63du7hjnutiuh82.apps.googleusercontent.com"
         GIDSignIn.sharedInstance().delegate = self
         
+        let db = Firestore.firestore()
+        print(db)
+        
         return true
+        
     }
 
     // MARK: UISceneSession Lifecycle
