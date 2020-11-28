@@ -1132,6 +1132,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                     <connections>
                         <outlet property="dairyButton" destination="2DS-sm-hSl" id="KKA-4h-qCV"/>
                         <outlet property="eggButton" destination="HdB-F6-UCl" id="TAF-nF-42h"/>
+                        <outlet property="glutenButton" destination="LSP-3U-G5t" id="Tzb-QK-qY6"/>
                         <outlet property="ketoButton" destination="zhQ-7b-lHp" id="AnM-1w-w2S"/>
                         <outlet property="paleoButton" destination="0S2-Nq-zeX" id="qWW-eZ-dba"/>
                         <outlet property="peanutButton" destination="Axn-Zh-zqA" id="Tzd-KB-R8r"/>
@@ -1929,7 +1930,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d0N-KM-AJL"/>
+        <segue reference="nN1-YN-rj0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Favorites List Background" width="375" height="812"/>
