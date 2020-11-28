@@ -41,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         // Make document to store user preferences
         
-        
       } else {
         print("\(error.localizedDescription)")
       }
