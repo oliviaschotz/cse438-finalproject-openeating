@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class ProfileSetUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
     }
     @IBAction func clickCreateAcct(_ sender: UIButton) {
         performSegue(withIdentifier: "ProfSUToDietaryPrefs", sender: UIButton.self)

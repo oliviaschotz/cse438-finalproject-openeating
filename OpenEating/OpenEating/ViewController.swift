@@ -34,8 +34,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance().signIn()
         
         // instead of 'userPreferences,' this will later be the user-specific document within the users collection that stores their preferences
         docRef = Firestore.firestore().document("users/userPreferences")

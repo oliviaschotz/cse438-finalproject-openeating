@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class LogInViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
+        
     }
     @IBAction func clickSignIn(_ sender: UIButton) {
         performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)

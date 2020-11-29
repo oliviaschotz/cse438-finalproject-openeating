@@ -582,14 +582,13 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZF-zX-lf3">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcK-sy-RaN" customClass="GIDSignInButton">
                                                 <rect key="frame" x="184" y="1095" width="180" height="43"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="43" id="AZR-u8-j8p"/>
-                                                    <constraint firstAttribute="width" constant="180" id="fxK-GK-cti"/>
+                                                    <constraint firstAttribute="height" constant="43" id="gGk-ti-A5d"/>
                                                 </constraints>
-                                                <state key="normal" image="signinGoogle"/>
-                                            </button>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -600,20 +599,21 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstAttribute="trailing" secondItem="VpX-8W-A8n" secondAttribute="trailing" constant="22" id="DjZ-ds-d0P"/>
                                             <constraint firstItem="ttG-f8-fvN" firstAttribute="leading" secondItem="TE7-Bg-eT5" secondAttribute="leading" constant="102" id="Fuq-KA-iy6"/>
                                             <constraint firstItem="F3P-ma-r9b" firstAttribute="centerX" secondItem="EtG-H0-5i0" secondAttribute="centerX" id="IOX-rF-clE"/>
-                                            <constraint firstItem="zZF-zX-lf3" firstAttribute="leading" secondItem="TE7-Bg-eT5" secondAttribute="leading" constant="184" id="Kzx-Hk-TVB"/>
                                             <constraint firstItem="F3P-ma-r9b" firstAttribute="centerX" secondItem="TE7-Bg-eT5" secondAttribute="centerX" id="SHj-wZ-g5o"/>
                                             <constraint firstItem="Kvd-k3-kDf" firstAttribute="top" secondItem="TE7-Bg-eT5" secondAttribute="top" constant="440" id="YLl-zP-Mmr"/>
                                             <constraint firstItem="ApE-wE-6uY" firstAttribute="top" secondItem="EtG-H0-5i0" secondAttribute="bottom" constant="68" id="a7L-RP-dxP"/>
-                                            <constraint firstItem="zZF-zX-lf3" firstAttribute="top" secondItem="o8b-rZ-9Xp" secondAttribute="bottom" constant="32.329999999999998" id="c2N-O7-Gc4"/>
+                                            <constraint firstAttribute="trailing" secondItem="YcK-sy-RaN" secondAttribute="trailing" constant="11" id="bGi-eF-aMc"/>
                                             <constraint firstItem="VpX-8W-A8n" firstAttribute="centerY" secondItem="ttG-f8-fvN" secondAttribute="centerY" id="cyz-Vk-SwZ"/>
+                                            <constraint firstItem="YcK-sy-RaN" firstAttribute="top" secondItem="o8b-rZ-9Xp" secondAttribute="bottom" constant="32.329999999999998" id="d5j-fj-POq"/>
                                             <constraint firstAttribute="trailing" secondItem="Kvd-k3-kDf" secondAttribute="trailing" constant="45" id="eUg-nY-xoI"/>
                                             <constraint firstItem="Kvd-k3-kDf" firstAttribute="top" secondItem="EtG-H0-5i0" secondAttribute="bottom" constant="14" id="g4l-BW-EYx"/>
                                             <constraint firstItem="F3P-ma-r9b" firstAttribute="centerX" secondItem="TE7-Bg-eT5" secondAttribute="centerX" id="g6z-wR-sF6"/>
                                             <constraint firstAttribute="trailing" secondItem="QlZ-Z1-oi2" secondAttribute="trailing" constant="12" id="iPK-Ox-cye"/>
-                                            <constraint firstItem="ttG-f8-fvN" firstAttribute="top" secondItem="zZF-zX-lf3" secondAttribute="bottom" constant="16" id="jRz-UA-srZ"/>
                                             <constraint firstAttribute="bottom" secondItem="ttG-f8-fvN" secondAttribute="bottom" constant="51" id="pK1-yr-LwR"/>
+                                            <constraint firstItem="ttG-f8-fvN" firstAttribute="top" secondItem="YcK-sy-RaN" secondAttribute="bottom" constant="16" id="rjk-qe-lW7"/>
                                             <constraint firstItem="o8b-rZ-9Xp" firstAttribute="top" secondItem="F3P-ma-r9b" secondAttribute="bottom" constant="43" id="u61-5u-qeb"/>
                                             <constraint firstItem="QlZ-Z1-oi2" firstAttribute="leading" secondItem="Kvd-k3-kDf" secondAttribute="leading" id="x3u-6J-ZgP"/>
+                                            <constraint firstItem="YcK-sy-RaN" firstAttribute="leading" secondItem="TE7-Bg-eT5" secondAttribute="leading" constant="184" id="xZG-4R-3Yy"/>
                                             <constraint firstItem="Kvd-k3-kDf" firstAttribute="leading" secondItem="TE7-Bg-eT5" secondAttribute="leading" constant="23" id="xl2-df-K5L"/>
                                         </constraints>
                                     </view>
@@ -647,7 +647,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfT-Dl-Vav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250" y="-774"/>
+            <point key="canvasLocation" x="1248.8" y="-774.38423645320199"/>
         </scene>
         <!--Set Up Preferences-->
         <scene sceneID="2HG-dl-btj">
@@ -1940,7 +1940,6 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
         <image name="profile set up pic" width="375" height="482"/>
         <image name="shareButton" width="595" height="615"/>
-        <image name="signinGoogle" width="191" height="46"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="thumbsUp" width="396" height="462"/>
