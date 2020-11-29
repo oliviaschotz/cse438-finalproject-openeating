@@ -106,6 +106,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="J65-3g-uvb" id="4Q7-kv-5Wc"/>
+                        <outlet property="tableView" destination="UaY-gT-aCV" id="zPe-Jy-Th8"/>
                         <segue destination="JkH-BR-1ze" kind="show" id="LDz-d1-Ebf"/>
                     </connections>
                 </viewController>
