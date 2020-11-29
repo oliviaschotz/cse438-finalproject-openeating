@@ -66,6 +66,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     func setupTableView(){
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     func fetchDataForTableView()
@@ -79,6 +80,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                 print("error")
                 return }
             recipeResults = theData.results
+            print(url)
         }
 
     func cacheInfo()
@@ -128,6 +130,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         cell.textLabel!.text = recipeResults[indexPath.row].title
         cell.imageView?.image = theImageCache[indexPath.row]
+        print(recipeResults[indexPath.row].title)
         return cell
     }
 
