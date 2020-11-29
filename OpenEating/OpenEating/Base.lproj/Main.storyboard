@@ -1859,18 +1859,8 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfd-pJ-g3z">
-                                <rect key="frame" x="13" y="448" width="180" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="9Jy-qS-wHm"/>
-                                </constraints>
-                                <state key="normal" image="signinGoogle"/>
-                                <connections>
-                                    <action selector="clickSignInGoogle:" destination="QEy-zI-jX4" eventType="touchUpInside" id="bK9-KQ-igr"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-bP-Tc0">
-                                <rect key="frame" x="13" y="44" width="86" height="38"/>
+                                <rect key="frame" x="-149" y="44" width="248" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Vlj-qT-aCO"/>
                                 </constraints>
@@ -1879,6 +1869,13 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                     <action selector="clickBack:" destination="QEy-zI-jX4" eventType="touchUpInside" id="ads-20-nq3"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40z-ig-xyj" customClass="GIDSignInButton">
+                                <rect key="frame" x="16" y="451" width="174" height="37"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="jyH-bj-Bff"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1886,17 +1883,16 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                             <constraint firstItem="viM-BX-7Id" firstAttribute="leading" secondItem="6LZ-0e-0zJ" secondAttribute="leading" id="L2r-dH-C7E"/>
                             <constraint firstItem="suS-sg-aOz" firstAttribute="leading" secondItem="6LZ-0e-0zJ" secondAttribute="leading" id="OXu-J9-uYc"/>
                             <constraint firstItem="W8p-Zt-wa0" firstAttribute="trailing" secondItem="dAk-bP-Tc0" secondAttribute="trailing" constant="276" id="Sqn-Ry-xor"/>
-                            <constraint firstItem="dAk-bP-Tc0" firstAttribute="leading" secondItem="nfd-pJ-g3z" secondAttribute="leading" id="WQN-0P-5F4"/>
+                            <constraint firstItem="40z-ig-xyj" firstAttribute="top" secondItem="suS-sg-aOz" secondAttribute="bottom" constant="37" id="WSU-Ey-9vd"/>
+                            <constraint firstItem="W8p-Zt-wa0" firstAttribute="trailing" secondItem="40z-ig-xyj" secondAttribute="trailing" constant="185" id="Wan-uZ-sBc"/>
+                            <constraint firstItem="40z-ig-xyj" firstAttribute="leading" secondItem="W8p-Zt-wa0" secondAttribute="leading" constant="16" id="bDS-ql-BM6"/>
                             <constraint firstItem="6LZ-0e-0zJ" firstAttribute="top" secondItem="W8p-Zt-wa0" secondAttribute="top" constant="190" id="c79-zw-QPR"/>
-                            <constraint firstItem="nfd-pJ-g3z" firstAttribute="top" secondItem="suS-sg-aOz" secondAttribute="bottom" constant="34" id="ddj-gh-ouV"/>
                             <constraint firstItem="z0k-nH-cKZ" firstAttribute="centerX" secondItem="viM-BX-7Id" secondAttribute="centerX" id="hrf-mn-dpG"/>
                             <constraint firstItem="W8p-Zt-wa0" firstAttribute="bottom" secondItem="viM-BX-7Id" secondAttribute="bottom" constant="222" id="iA3-Vf-MRK"/>
                             <constraint firstItem="z0k-nH-cKZ" firstAttribute="centerY" secondItem="viM-BX-7Id" secondAttribute="centerY" id="l8D-Y4-BdQ"/>
-                            <constraint firstItem="viM-BX-7Id" firstAttribute="top" secondItem="nfd-pJ-g3z" secondAttribute="bottom" constant="10" id="oX5-hl-D6R"/>
+                            <constraint firstItem="viM-BX-7Id" firstAttribute="top" secondItem="40z-ig-xyj" secondAttribute="bottom" constant="13" id="mtY-Sp-F9y"/>
                             <constraint firstItem="6LZ-0e-0zJ" firstAttribute="leading" secondItem="W8p-Zt-wa0" secondAttribute="leading" constant="16" id="r4i-D3-v6K"/>
-                            <constraint firstItem="nfd-pJ-g3z" firstAttribute="centerX" secondItem="z0k-nH-cKZ" secondAttribute="centerX" id="shG-ao-fgL"/>
                             <constraint firstItem="dAk-bP-Tc0" firstAttribute="top" secondItem="W8p-Zt-wa0" secondAttribute="top" id="t4g-tc-tyf"/>
-                            <constraint firstItem="nfd-pJ-g3z" firstAttribute="leading" secondItem="W8p-Zt-wa0" secondAttribute="leading" constant="13" id="ux0-ny-egH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W8p-Zt-wa0"/>
                     </view>
@@ -1908,7 +1904,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFu-2h-ddE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1703" y="-44"/>
+            <point key="canvasLocation" x="-1703.2" y="-44.334975369458128"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xlZ-Xd-42Z">
@@ -1930,7 +1926,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nN1-YN-rj0"/>
+        <segue reference="d0N-KM-AJL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Favorites List Background" width="375" height="812"/>
