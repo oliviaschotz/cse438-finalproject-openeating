@@ -1,0 +1,14 @@
+Here is what we have implemented up to this point:
+
+
+1. Complete storyboard
+Our storyboard is completely set up and almost all segues are present and functional. The data is not yet complete so some segues do not cause changes to internal state, but view controllers and tabs can be navigated between.
+
+2. Google sign-in
+The Google sign-in system is implemented but not connected to the app yet. A user can login to their correct google account and that login will persist when the simulator is restarted or the app is closed.
+
+3. Toggling preference buttons
+When a user clicks on the buttons for the dietary and allergy preferences, the click will toggle the button back and forth between selected and not, changing the style as well. A user can change the buttons as much as they want before proceeding.
+
+4. Recipe search
+A user can type something into the search bar, and the code will make a call to our recipe API with the search terms and fetch the results. These results are then loaded into the table with their images and titles. Styling not yet complete.
