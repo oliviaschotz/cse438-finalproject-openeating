@@ -50,6 +50,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         super.viewDidLoad()
         
         self.searchBar.delegate = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         let theSpinnerView = CGRect(x: view.frame.midX-15, y: view.frame.midY-15, width: 30, height: 30)
         spinner = UIActivityIndicatorView(frame: theSpinnerView)
@@ -127,7 +129,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "recipeCell")
         cell.textLabel!.text = recipeResults[indexPath.row].title
         cell.imageView?.image = theImageCache[indexPath.row]
         print(recipeResults[indexPath.row].title)
