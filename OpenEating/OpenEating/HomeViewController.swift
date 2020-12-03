@@ -129,11 +129,39 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "recipeCell")
-        cell.textLabel!.text = recipeResults[indexPath.row].title
-        cell.imageView?.image = theImageCache[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
+//            UITableViewCell(style: .subtitle, reuseIdentifier: "recipeCell") as! RecipeCell
+        cell.recipeName.text = recipeResults[indexPath.row].title
+        cell.recipeImage.image = theImageCache[indexPath.row]
         print(recipeResults[indexPath.row].title)
         return cell
+    }
+    
+    private func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        return CGFloat(278)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toRecipePage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.identifier == "toRecipePage") {
+
+            guard let indexPaths=self.tableView!.indexPathsForSelectedRows else {
+                return
+            }
+            let indexPath = indexPaths[0] as NSIndexPath
+            let selectedRecipe = recipeResults[indexPath.row]
+            
+            guard let recipeVC = segue.destination as? RecipeDetailsViewController else {
+                return
+            }
+            
+            recipeVC.recipeID = selectedRecipe.id ?? 0
+            recipeVC.image = theImageCache[indexPath.row]
+        }
     }
 
     /*
