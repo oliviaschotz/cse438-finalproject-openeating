@@ -98,12 +98,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         recipeName.text = theRecipe.title
         numLikes.text = String(describing: theRecipe.aggregateLikes!)
-        summary.text = theRecipe.summary
         
-        
-        var theInstructions = theRecipe.instructions
-        
-        instructions.text = theInstructions
+        summary.text = parseHTML(str: theRecipe.summary)
+        instructions.text = parseHTML(str: theRecipe.instructions)
         
         ingredients = theRecipe.extendedIngredients ?? []
     }
@@ -116,6 +113,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = UITableViewCell(style: .default, reuseIdentifier: "ingredientCell")
         cell.textLabel?.text = ingredients[indexPath.row].original
         return cell
+    }
+    
+//    for creating/using regex in swift: https://medium.com/@dkw5877/regular-expressions-in-swift-928561ad55c8
+    func parseHTML(str:String?) -> String? {
+        let pattern = "</*[a-z0-9]+>"
+        let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        
+        let parsedStr = regex.stringByReplacingMatches(in: str ?? "", options: [], range: NSRange(location: 0, length: str?.count ?? 0), withTemplate: "") as NSString
+
+        return parsedStr as String?
     }
     /*
     // MARK: - Navigation
