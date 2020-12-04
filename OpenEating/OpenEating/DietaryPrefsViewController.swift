@@ -105,8 +105,36 @@ class DietaryPrefsViewController: UIViewController {
                     print("Document successfully written!")
                 }
             }
+        
+//        let dataToSave: [String: Bool] =  ["vegeterian": isVegt, "vegan" : isVegn, "keto" : isKeto, "pescaterian" : isPesc, "paleo" : isPaleo, "dairyFree" : isDairy, "eggFree" : isEgg, "glutenFree" : isGluten, "peanutFree" : isPeanut, "sesameFree" : isSesame, "shellfishFree" : isShellFish, "soyFree" : isSoy, "treenutFree" : isTreeNut]
+//        docRef.setData(dataToSave) { (error) in
+//            if error != nil {
+//                print("error")
+//            } else {
+//                print("congrats")
+//            }
+//
+//        //self.addDocument()
+//
+//        }
 
         }
+    
+    @IBAction func saveData(_ sender: Any) {
+        
+//        let dataToSave: [String: Bool] =  ["vegeterian": isVegt, "vegan" : isVegn, "keto" : isKeto, "pescaterian" : isPesc, "paleo" : isPaleo, "dairyFree" : isDairy, "eggFree" : isEgg, "glutenFree" : isGluten, "peanutFree" : isPeanut, "sesameFree" : isSesame, "shellfishFree" : isShellFish, "soyFree" : isSoy, "treenutFree" : isTreeNut]
+//        docRef.setData(dataToSave) { (error) in
+//            if error != nil {
+//                print("error")
+//            } else {
+//                print("congrats")
+//            }
+//
+//        self.addDocument()
+//
+//        }
+    }
+    
     
     @IBAction func clickVegt(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 0)
@@ -317,6 +345,7 @@ class DietaryPrefsViewController: UIViewController {
     }
     
     @IBAction func clickNext(_ sender: UIButton) {
+        self.addDocument()
         performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
     }
     
@@ -333,3 +362,4 @@ class DietaryPrefsViewController: UIViewController {
     */
 
 }
+
