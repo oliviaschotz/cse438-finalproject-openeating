@@ -10,6 +10,7 @@ import UIKit
 
 class DietaryPrefsViewController: UIViewController {
     
+    // Food Preference Buttons
     @IBOutlet weak var vegtButton: UIButton!
     @IBOutlet weak var vegnButton: UIButton!
     @IBOutlet weak var ketoButton: UIButton!
@@ -23,6 +24,21 @@ class DietaryPrefsViewController: UIViewController {
     @IBOutlet weak var shellfishButton: UIButton!
     @IBOutlet weak var soyButton: UIButton!
     @IBOutlet weak var treenutButton: UIButton!
+    
+    // Food Preference Variables
+    var isVegt: Bool = false
+    var isVegn: Bool = false
+    var isKeto: Bool = false
+    var isPesc: Bool = false
+    var isPaleo: Bool = false
+    var isDairy: Bool = false
+    var isEgg: Bool = false
+    var isGluten: Bool = false
+    var isPeanut: Bool = false
+    var isSesame: Bool = false
+    var isShellFish: Bool = false
+    var isSoy: Bool = false
+    var isTreeNut: Bool = false
     
     
     var buttons: [UIButton] = []
@@ -78,19 +94,49 @@ class DietaryPrefsViewController: UIViewController {
     @IBAction func clickVegt(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 0)
         numClicks[0] += 1
-        //something to save data
+        
+        if numClicks[0] % 2 == 1 {
+            // person is a vegeterian
+            isVegt = true
+            print("you are a vegeterian")
+        } else {
+            // person is not a vegeterian
+            isVegt = false
+            print("you are not a vegeterian")
+            }
+        
     }
     
     @IBAction func clickVegn(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 1)
         numClicks[1] += 1
-        //something to save data
+        
+        if numClicks[1] % 2 == 1 {
+            // person is a vegeterian
+            isVegn = true
+            print("you are a vegan")
+        } else {
+            // person is not a vegeterian
+            isVegn = false
+            print("you are not a vegan")
+            }
+        
     }
     
     @IBAction func clickKeto(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 2)
         numClicks[2] += 1
-        //something else to save the data
+        
+        if numClicks[2] % 2 == 1 {
+            // person is a vegeterian
+            isKeto = true
+            print("you are a keto")
+        } else {
+            // person is not a vegeterian
+            isKeto = false
+            print("you are not a keto")
+            }
+        
     }
     
     @IBAction func clickPesc(_ sender: UIButton) {

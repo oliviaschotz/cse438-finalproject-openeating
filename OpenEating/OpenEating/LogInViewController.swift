@@ -10,8 +10,11 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LogInViewController: UIViewController{
-
+class LogInViewController: UIViewController {
+   
+    var userEmail: String = ""
+    var handle: AuthStateDidChangeListenerHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -20,15 +23,13 @@ class LogInViewController: UIViewController{
         GIDSignIn.sharedInstance().signIn()
         
     }
+    
     @IBAction func clickSignIn(_ sender: UIButton) {
         performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
     }
     
     @IBAction func clickBack(_ sender: UIButton) {
         performSegue(withIdentifier: "SignInToWelcome", sender: UIButton.self)
-    }
-    
-    @IBAction func clickSignInGoogle(_ sender: UIButton) {
     }
     
 

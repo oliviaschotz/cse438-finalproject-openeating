@@ -15,6 +15,7 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var userEmail: String = ""
+    var handle: AuthStateDidChangeListenerHandle?
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
    
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Get user email
         userEmail = user.profile.email
         print("User email: \(user.profile.email ?? "No Email")")
+            
         // Make user authentication and credentials
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
@@ -39,14 +41,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
         }
         
-        // Make document to store user preferences
+
         
       } else {
         print("\(error.localizedDescription)")
       }
         
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+          // Handle authenticated state
+        }
+        
     }
-
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
