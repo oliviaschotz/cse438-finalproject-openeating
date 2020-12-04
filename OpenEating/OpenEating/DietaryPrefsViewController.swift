@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DietaryPrefsViewController: UIViewController {
     
@@ -40,6 +41,8 @@ class DietaryPrefsViewController: UIViewController {
     var isSoy: Bool = false
     var isTreeNut: Bool = false
     
+    let db = Firestore.firestore()
+    var docRef: DocumentReference!
     
     var buttons: [UIButton] = []
     //another array or two to actually save the data
@@ -91,6 +94,20 @@ class DietaryPrefsViewController: UIViewController {
         }
     }
     
+    private func addDocument() {
+            
+            db.collection("users").document("userPreferences").setData(
+                ["vegeterian": isVegt, "vegan" : isVegn, "keto" : isKeto, "pescaterian" : isPesc, "paleo" : isPaleo, "dairyFree" : isDairy, "eggFree" : isEgg, "glutenFree" : isGluten, "peanutFree" : isPeanut, "sesameFree" : isSesame, "shellfishFree" : isShellFish, "soyFree" : isSoy, "treenutFree" : isTreeNut])
+                { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+
+        }
+    
     @IBAction func clickVegt(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 0)
         numClicks[0] += 1
@@ -112,11 +129,11 @@ class DietaryPrefsViewController: UIViewController {
         numClicks[1] += 1
         
         if numClicks[1] % 2 == 1 {
-            // person is a vegeterian
+            // person is a vegan
             isVegn = true
             print("you are a vegan")
         } else {
-            // person is not a vegeterian
+            // person is not a vegan
             isVegn = false
             print("you are not a vegan")
             }
@@ -128,13 +145,13 @@ class DietaryPrefsViewController: UIViewController {
         numClicks[2] += 1
         
         if numClicks[2] % 2 == 1 {
-            // person is a vegeterian
+            // person is keto
             isKeto = true
-            print("you are a keto")
+            print("you are keto")
         } else {
-            // person is not a vegeterian
+            // person is not keto
             isKeto = false
-            print("you are not a keto")
+            print("you are not keto")
             }
         
     }
@@ -142,65 +159,165 @@ class DietaryPrefsViewController: UIViewController {
     @IBAction func clickPesc(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 3)
         numClicks[3] += 1
-        //something else to save the data
+        
+        if numClicks[3] % 2 == 1 {
+            // person is a pescaterian
+            isPesc = true
+            print("you are a pescaterian")
+        } else {
+            // person is not a pescaterian
+            isPesc = false
+            print("you are not a pescaterian")
+            }
+        
     }
     
     @IBAction func clickPaleo(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 4)
         numClicks[4] += 1
-        //something else to save the data
+        
+        if numClicks[4] % 2 == 1 {
+            // person is paleo
+            isPaleo = true
+            print("you are paleo")
+        } else {
+            // person is not paleo
+            isPaleo = false
+            print("you are not paleo")
+            }
+        
     }
     
     @IBAction func clickDairy(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 5)
         numClicks[5] += 1
-        //something else to save the data
+        
+        if numClicks[5] % 2 == 1 {
+            // person is adverse to dairy
+            isDairy = true
+            print("you are adverse to dairy")
+        } else {
+            // person is not adverse to dairy
+            isDairy = false
+            print("you are not adverse to dairy")
+            }
+        
     }
     
     @IBAction func clickEgg(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 6)
         numClicks[6] += 1
-        //something else to save the data
+        
+        if numClicks[6] % 2 == 1 {
+            // person is adverse to eggs
+            isEgg = true
+            print("you are adverse to eggs")
+        } else {
+            // person is not adverse to eggs
+            isEgg = false
+            print("you are not adverse to eggs")
+            }
+        
     }
     
     @IBAction func clickGluten(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 7)
         numClicks[7] += 1
-        //something else to save the data
+        
+        if numClicks[7] % 2 == 1 {
+            // person is adverse to gluten
+            isGluten = true
+            print("you are adverse to gluten")
+        } else {
+            // person is not adverse to gluten
+            isGluten = false
+            print("you are not adverse to gluten")
+            }
+        
     }
     
     @IBAction func clickPeanut(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 8)
         numClicks[8] += 1
-        //something else to save the data
+        
+        if numClicks[8] % 2 == 1 {
+            // person is adverse to peanuts
+            isPeanut = true
+            print("you are adverse to peanuts")
+        } else {
+            // person is not adverse to peanuts
+            isPeanut = false
+            print("you are not adverse to peanuts")
+            }
+        
     }
     
     @IBAction func clickSesame(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 9)
         numClicks[9] += 1
-        //something else to save the data
+        
+        if numClicks[9] % 2 == 1 {
+            // person is adverse to sesame
+            isSesame = true
+            print("you are adverse to sesame")
+        } else {
+            // person is not adverse to sesame
+            isSesame = false
+            print("you are not adverse to sesame")
+            }
+        
     }
     
     @IBAction func clickShellfish(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 10)
         numClicks[10] += 1
-        //something else to save the data
+        
+        if numClicks[10] % 2 == 1 {
+            // person is adverse to shell fish
+            isShellFish = true
+            print("you are adverse to shell fish")
+        } else {
+            // person is not adverse to shell fish
+            isShellFish = false
+            print("you are not adverse to shell fish")
+            }
+        
     }
     
     @IBAction func clickSoy(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 11)
         numClicks[11] += 1
-        //something else to save the data
+        
+        if numClicks[11] % 2 == 1 {
+            // person is adverse to soy
+            isSoy = true
+            print("you are adverse to soy")
+        } else {
+            // person is not adverse to soy
+            isSoy = false
+            print("you are not adverse to soy")
+            }
+        
     }
     
     @IBAction func clickTreenut(_ sender: UIButton) {
         clickedStyle(button: sender, loc: 12)
         numClicks[12] += 1
-        //something else to save the data
+        
+        if numClicks[12] % 2 == 1 {
+            // person is adverse to tree nuts
+            isTreeNut = true
+            print("you are adverse to tree nuts")
+        } else {
+            // person is not adverse to tree nuts
+            isTreeNut = false
+            print("you are not adverse to tree nuts")
+            }
+        
     }
     
     @IBAction func clickNext(_ sender: UIButton) {
-    performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
+        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
     }
     
     
