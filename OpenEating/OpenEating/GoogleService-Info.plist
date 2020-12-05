@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>796582994323-fq6i06k46bgm8nc8cr98t7sjkktorua0.apps.googleusercontent.com</string>
+	<string>796582994323-m7m9kt1en1nrinekr4ne37am1q6ea2ra.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.796582994323-fq6i06k46bgm8nc8cr98t7sjkktorua0</string>
+	<string>com.googleusercontent.apps.796582994323-m7m9kt1en1nrinekr4ne37am1q6ea2ra</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD4_MaB96jbopaj-Tx_lqpAux_q7lid8es</string>
+	<string>AIzaSyAlKlhJhjaHMEEwBBICzQ4VSRTbzkJCMhk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>125961033048</string>
+	<string>796582994323</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>edu.wustl.cse438.StorageDemo</string>
+	<string>oschotz.OpenEating</string>
 	<key>PROJECT_ID</key>
 	<string>openeating-19861</string>
 	<key>STORAGE_BUCKET</key>
-	<string>test22-cb91e.appspot.com</string>
+	<string>openeating-19861.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:125961033048:ios:fe359696e32d60473a412d</string>
+	<string>1:796582994323:ios:d1b5f235649b4633df0866</string>
 	<key>DATABASE_URL</key>
-	<string>https://test22-cb91e.firebaseio.com</string>
+	<string>https://openeating-19861.firebaseio.com</string>
 </dict>
 </plist>
