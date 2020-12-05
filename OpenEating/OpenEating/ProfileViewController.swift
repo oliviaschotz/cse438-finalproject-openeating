@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
 class ProfileViewController: UIViewController {
 
@@ -15,6 +17,16 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let firebaseAuth = Auth.auth()
+        do{
+            try firebaseAuth.signOut()
+        }
+        catch let signOutError as NSError{
+            print("error signing out: %@", signOutError)
+        }
     }
     
 

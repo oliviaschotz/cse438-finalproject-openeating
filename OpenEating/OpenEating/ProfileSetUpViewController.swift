@@ -17,19 +17,18 @@ class ProfileSetUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
         
-        print(Auth.auth().currentUser?.email)
+//        HOW DO WE FORCE ORDER OF THESE CALLS?
+        GIDSignIn.sharedInstance().signIn()
         
         if Auth.auth().currentUser != nil {
           // User is signed in.
-          print("user signed in")
-          performSegue(withIdentifier: "ProfSUToDietaryPrefs", sender: self)
+            print("user signed in")
+            self.performSegue(withIdentifier: "ProfSUToDietaryPrefs", sender: self)
         } else {
           // No user is signed in.
           print("there is no user signed in")
         }
-
     }
     
     
