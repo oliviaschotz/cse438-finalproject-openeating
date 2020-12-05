@@ -887,7 +887,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="clickDairy:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="OPn-1I-dZP"/>
+                                                    <action selector="clickDairy:" destination="2lw-3d-Gr1" eventType="touchUpInside" id="1RI-3r-jKZ"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dairy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T44-Rd-h3k">
@@ -1192,7 +1192,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                     <navigationItem key="navigationItem" id="NwE-5v-x3E"/>
                     <size key="freeformSize" width="375" height="1316"/>
                     <connections>
-                        <outlet property="dairyButton" destination="2DS-sm-hSl" id="KKA-4h-qCV"/>
+                        <outlet property="dairyButton" destination="2DS-sm-hSl" id="xQf-Jg-FgL"/>
                         <outlet property="eggButton" destination="HdB-F6-UCl" id="TAF-nF-42h"/>
                         <outlet property="glutenButton" destination="LSP-3U-G5t" id="Tzb-QK-qY6"/>
                         <outlet property="ketoButton" destination="zhQ-7b-lHp" id="AnM-1w-w2S"/>
@@ -1616,19 +1616,6 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                     <navigationItem key="navigationItem" title="Profile" id="kYJ-z2-akM"/>
                     <size key="freeformSize" width="375" height="1450"/>
                     <connections>
-                        <outlet property="dairyButton" destination="mOE-Xp-XkE" id="pgS-QW-MOc"/>
-                        <outlet property="eggButton" destination="vpo-Pa-BPh" id="ra4-kQ-D52"/>
-                        <outlet property="glutenButton" destination="zTJ-Wy-Qip" id="tUW-xf-QZS"/>
-                        <outlet property="ketoButton" destination="RTs-3n-eZD" id="vKW-Xe-PUt"/>
-                        <outlet property="paleoButton" destination="sap-yM-58B" id="AyC-Vn-dAM"/>
-                        <outlet property="peanutButton" destination="2TD-2g-fhc" id="LkR-dS-50k"/>
-                        <outlet property="pescButton" destination="l6O-XB-mGW" id="XSM-wK-9Fw"/>
-                        <outlet property="sesameButton" destination="JTA-Zc-0ZL" id="zgF-Su-cBX"/>
-                        <outlet property="shellfishButton" destination="CHr-5J-l6g" id="DLh-3C-FEL"/>
-                        <outlet property="soyButton" destination="FYF-22-psL" id="57N-x6-4aM"/>
-                        <outlet property="treenutButton" destination="Vkw-zf-Kfg" id="9Ge-8V-kuM"/>
-                        <outlet property="vegnButton" destination="vsB-Os-C3O" id="KRL-iw-3J8"/>
-                        <outlet property="vegtButton" destination="tpP-34-N5Q" id="qfA-KJ-1ED"/>
                         <segue destination="05I-ZD-6gv" kind="show" id="SXf-69-rKk"/>
                     </connections>
                 </viewController>
@@ -2011,7 +1998,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d0N-KM-AJL"/>
+        <segue reference="nN1-YN-rj0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Favorites List Background" width="375" height="812"/>
