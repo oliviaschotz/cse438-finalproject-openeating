@@ -173,5 +173,48 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func americanFood(_ sender: Any) {
+        cuisineData(cuisine: "american")
+    }
+    
+    @IBAction func chineseFood(_ sender: Any) {
+        cuisineData(cuisine: "chinese")
+    }
+    
+    @IBAction func italianFood(_ sender: Any) {
+        cuisineData(cuisine: "italian")
+    }
+    
+    @IBAction func greekFood(_ sender: Any) {
+        cuisineData(cuisine: "greek")
+    }
+    
+    @IBAction func japaneseFood(_ sender: Any) {
+        cuisineData(cuisine: "japanese")
+    }
+    
+    func cuisineData(cuisine: String)
+    {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        spinner.backgroundColor = UIColor.white
+        DispatchQueue.global(qos: .userInitiated).async {
+            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&cuisine="+cuisine+"&diet="+self.diet+"&intolerance="+self.intolerances
+                        //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
+            guard let url = URL(string: urlPath) else { return  }
+            guard let data =  try?  Data(contentsOf: url) else { return }
+            guard let theData = try? JSONDecoder().decode(APIResults.self, from: data) else {
+                print("error")
+                return }
+            self.recipeResults = theData.results
+            self.cacheInfo()
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                self.spinner.isHidden = true
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
 }
