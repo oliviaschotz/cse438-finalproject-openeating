@@ -21,6 +21,7 @@ class LogInViewController: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
+        print("------SIGNING IN------")
         
     }
     
