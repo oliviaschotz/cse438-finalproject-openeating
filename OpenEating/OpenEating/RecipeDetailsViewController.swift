@@ -94,7 +94,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         guard let data =  try?  Data(contentsOf: url) else { return }
         guard let theRecipe = try? JSONDecoder().decode(DetailedRecipe.self, from: data) else {
             print("error")
-            return }
+            return
+        }
         
         recipeName.text = theRecipe.title
         numLikes.text = String(describing: theRecipe.aggregateLikes!)
@@ -117,10 +118,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
 //    for creating/using regex in swift: https://medium.com/@dkw5877/regular-expressions-in-swift-928561ad55c8
     func parseHTML(str:String?) -> String? {
-        let pattern = "</*[a-z0-9]+>"
+        let pattern = "<[^\\r\\n\\>]+>"
         let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
         
-        let parsedStr = regex.stringByReplacingMatches(in: str ?? "", options: [], range: NSRange(location: 0, length: str?.count ?? 0), withTemplate: "") as NSString
+        let parsedStr = regex.stringByReplacingMatches(in: str ?? "", options: [], range: NSRange(location: 0, length: str?.count ?? 0), withTemplate: " ") as NSString
 
         return parsedStr as String?
     }

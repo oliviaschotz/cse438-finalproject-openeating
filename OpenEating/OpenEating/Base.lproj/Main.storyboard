@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HLD-kU-Qgp">
@@ -63,22 +63,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FF3-Zp-tIW">
-                                                    <rect key="frame" x="0.0" y="5" width="359" height="205"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="205" id="hEm-Lm-CLE"/>
-                                                        <constraint firstAttribute="width" constant="359" id="hba-Ff-Bq6"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="5" width="359" height="204.66666666666666"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-qB-rz5">
-                                                    <rect key="frame" x="9" y="217.66666666666666" width="350" height="25.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4O-qB-rz5">
+                                                    <rect key="frame" x="0.0" y="217.66666666666666" width="359" height="25.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qff-l1-Lw8">
-                                                    <rect key="frame" x="9" y="247" width="77" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qff-l1-Lw8">
+                                                    <rect key="frame" x="0.0" y="247" width="359" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="x2e-hM-tyq"/>
+                                                        <constraint firstAttribute="height" constant="18" id="b82-ka-j2Z"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,28 +84,25 @@
                                                     <rect key="frame" x="8" y="13.333333333333332" width="28" height="20.000000000000011"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="28" id="5gu-w7-tyW"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.329999999999998" id="Wjr-Us-zKw"/>
-                                                        <constraint firstAttribute="height" constant="20.333333333333343" id="bMa-6w-aa2"/>
+                                                        <constraint firstAttribute="height" constant="20.333333333333343" id="RXI-ec-fi9"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qff-l1-Lw8" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" constant="9" id="3i1-oX-dpA"/>
-                                                <constraint firstItem="suX-ww-6Bc" firstAttribute="top" secondItem="U29-qx-lpD" secondAttribute="top" constant="13" id="6ed-Yx-IIi"/>
-                                                <constraint firstItem="FF3-Zp-tIW" firstAttribute="top" secondItem="U29-qx-lpD" secondAttribute="top" constant="5" id="Cvl-ei-dhu"/>
-                                                <constraint firstAttribute="trailing" secondItem="FF3-Zp-tIW" secondAttribute="trailing" id="HfQ-fj-DLx"/>
-                                                <constraint firstItem="suX-ww-6Bc" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" constant="8" id="Kv0-na-lHW"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qff-l1-Lw8" secondAttribute="trailing" priority="250" constant="20" symbolic="YES" id="bFA-tJ-E3P"/>
-                                                <constraint firstItem="f4O-qB-rz5" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" constant="9" id="g2F-th-O1D"/>
-                                                <constraint firstAttribute="trailing" secondItem="f4O-qB-rz5" secondAttribute="trailing" id="lbz-JT-zTF"/>
-                                                <constraint firstItem="suX-ww-6Bc" firstAttribute="top" secondItem="U29-qx-lpD" secondAttribute="top" constant="13" id="nq5-0r-WeT"/>
-                                                <constraint firstItem="FF3-Zp-tIW" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" id="osU-Fa-5kR"/>
-                                                <constraint firstItem="FF3-Zp-tIW" firstAttribute="top" secondItem="U29-qx-lpD" secondAttribute="top" constant="5" id="qD1-Yb-e9G"/>
-                                                <constraint firstAttribute="bottom" secondItem="qff-l1-Lw8" secondAttribute="bottom" constant="13" id="r7w-wL-kOv"/>
-                                                <constraint firstItem="FF3-Zp-tIW" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" id="u52-Er-HRo"/>
-                                                <constraint firstAttribute="trailing" secondItem="suX-ww-6Bc" secondAttribute="trailing" constant="323" id="uSB-62-QGm"/>
-                                                <constraint firstItem="qff-l1-Lw8" firstAttribute="top" secondItem="f4O-qB-rz5" secondAttribute="bottom" constant="4" id="vux-ep-olt"/>
+                                                <constraint firstAttribute="trailing" secondItem="FF3-Zp-tIW" secondAttribute="trailing" id="3u7-4o-t1n"/>
+                                                <constraint firstItem="f4O-qB-rz5" firstAttribute="top" secondItem="suX-ww-6Bc" secondAttribute="bottom" constant="184.33000000000001" id="GhY-XK-RPw"/>
+                                                <constraint firstItem="f4O-qB-rz5" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" id="OXn-sJ-M00"/>
+                                                <constraint firstItem="f4O-qB-rz5" firstAttribute="top" secondItem="FF3-Zp-tIW" secondAttribute="bottom" constant="8" id="Om1-n5-HwY"/>
+                                                <constraint firstItem="FF3-Zp-tIW" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" id="Tz9-k3-tGa"/>
+                                                <constraint firstItem="qff-l1-Lw8" firstAttribute="top" secondItem="f4O-qB-rz5" secondAttribute="bottom" constant="4" id="W5d-vy-0Up"/>
+                                                <constraint firstItem="FF3-Zp-tIW" firstAttribute="top" secondItem="U29-qx-lpD" secondAttribute="top" constant="5" id="WXK-gs-V7S"/>
+                                                <constraint firstItem="suX-ww-6Bc" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" constant="8" id="h20-M8-9PP"/>
+                                                <constraint firstAttribute="trailing" secondItem="f4O-qB-rz5" secondAttribute="trailing" id="imu-rc-S9a"/>
+                                                <constraint firstAttribute="bottom" secondItem="qff-l1-Lw8" secondAttribute="bottom" constant="13" id="pmo-ch-l1f"/>
+                                                <constraint firstAttribute="trailing" secondItem="qff-l1-Lw8" secondAttribute="trailing" id="qia-2B-0fa"/>
+                                                <constraint firstItem="qff-l1-Lw8" firstAttribute="leading" secondItem="U29-qx-lpD" secondAttribute="leading" id="wcl-eQ-GaM"/>
+                                                <constraint firstItem="suX-ww-6Bc" firstAttribute="top" secondItem="U29-qx-lpD" secondAttribute="top" constant="13" id="yxt-sI-dD9"/>
+                                                <constraint firstAttribute="trailing" secondItem="suX-ww-6Bc" secondAttribute="trailing" constant="323" id="zAL-hs-DSb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -158,7 +151,7 @@
             <objects>
                 <viewController title="Recipe Page" automaticallyAdjustsScrollViewInsets="NO" id="JkH-BR-1ze" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rXW-pe-2HY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1829"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1917"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nae-ky-00K">
@@ -1217,7 +1210,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="ka7-Ro-iP8" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93M-6r-ikk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1362"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p9S-sg-e7T">
@@ -1636,7 +1629,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController title="Edit Account" id="05I-ZD-6gv" customClass="AcctDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45r-xQ-MMK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editAccountBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7Zw-1w-OFC">
@@ -1725,7 +1718,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
             <objects>
                 <viewController id="zj5-pf-iBj" customClass="FavoritesViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lCN-Va-Dub">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Favorites List Background" translatesAutoresizingMaskIntoConstraints="NO" id="riA-Iw-ek2">

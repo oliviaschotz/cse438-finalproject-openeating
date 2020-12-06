@@ -133,7 +133,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
 //            UITableViewCell(style: .subtitle, reuseIdentifier: "recipeCell") as! RecipeCell
         cell.recipeName.text = recipeResults[indexPath.row].title
         cell.recipeImage.image = theImageCache[indexPath.row]
-        print(recipeResults[indexPath.row].title)
         return cell
     }
     
