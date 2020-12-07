@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Eh-xb-HA7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qnN-MV-fq5">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -394,7 +394,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         <!--Welcome Screen-->
         <scene sceneID="ShR-EF-PYd">
             <objects>
-                <viewController title="Welcome Screen" id="M5r-nN-H4e" customClass="ViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" title="Welcome Screen" id="M5r-nN-H4e" customClass="ViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bVs-lq-jM6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1246,7 +1246,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         <!--Profile-->
         <scene sceneID="5CU-WZ-S9L">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ka7-Ro-iP8" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileVC" automaticallyAdjustsScrollViewInsets="NO" id="ka7-Ro-iP8" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="93M-6r-ikk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1543,7 +1543,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                 <rect key="frame" x="289" y="8" width="48" height="57"/>
                                                 <state key="normal" title="Logout"/>
                                                 <connections>
-                                                    <segue destination="1Eh-xb-HA7" kind="show" id="T8R-S9-R6z"/>
+                                                    <action selector="logOutAcct:" destination="ka7-Ro-iP8" eventType="touchUpInside" id="OQj-XB-VTZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1626,7 +1626,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstItem="Ft4-i7-piU" firstAttribute="leading" secondItem="QFf-4a-Q9b" secondAttribute="leading" id="kmd-V5-cm2"/>
                                             <constraint firstItem="CHr-5J-l6g" firstAttribute="leading" secondItem="mOE-Xp-XkE" secondAttribute="leading" id="lUu-QO-3hw"/>
                                             <constraint firstItem="l6O-XB-mGW" firstAttribute="leading" secondItem="tpP-34-N5Q" secondAttribute="leading" id="lZv-HC-dux"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sEy-jG-bmR" secondAttribute="trailing" symbolic="YES" id="loK-XO-zsu"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sEy-jG-bmR" secondAttribute="trailing" constant="20" symbolic="YES" id="loK-XO-zsu"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H5Q-f8-5Wb" secondAttribute="trailing" constant="20" symbolic="YES" id="mdE-gH-EbD"/>
                                             <constraint firstItem="QFf-4a-Q9b" firstAttribute="leading" secondItem="mOE-Xp-XkE" secondAttribute="trailing" constant="19" id="mou-GI-Q0I"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fNE-lS-DX9" secondAttribute="trailing" constant="20" symbolic="YES" id="otB-3d-Lc9"/>
@@ -1674,6 +1674,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                     <size key="freeformSize" width="375" height="1450"/>
                     <connections>
                         <segue destination="05I-ZD-6gv" kind="show" id="SXf-69-rKk"/>
+                        <segue destination="qnN-MV-fq5" kind="show" identifier="LogoutToHome" id="SZD-wZ-fha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UU7-tf-1wM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2055,10 +2056,6 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <viewLayoutGuide key="safeArea" id="W8p-Zt-wa0"/>
                     </view>
                     <navigationItem key="navigationItem" id="wh8-ng-9hJ"/>
-                    <connections>
-                        <segue destination="qnN-MV-fq5" kind="show" identifier="SignInToHome" id="d0N-KM-AJL"/>
-                        <segue destination="1Eh-xb-HA7" kind="show" identifier="SignInToWelcome" id="2Hh-TV-k7P"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFu-2h-ddE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2084,8 +2081,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2Hh-TV-k7P"/>
-        <segue reference="nN1-YN-rj0"/>
+        <segue reference="SZD-wZ-fha"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="darkGreen"/>
     <resources>

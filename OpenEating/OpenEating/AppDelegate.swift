@@ -91,6 +91,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
           -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
-    
-
 }

@@ -26,7 +26,8 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func clickSignIn(_ sender: UIButton) {
-        performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+//        performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func clickBack(_ sender: UIButton) {

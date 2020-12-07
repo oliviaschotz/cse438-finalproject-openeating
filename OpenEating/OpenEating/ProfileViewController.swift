@@ -10,6 +10,19 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
+//extension UIApplication {
+//    func tabBarController() -> UIViewController? {
+//        guard let vcs = self.keyWindow?.rootViewController?.children else { return nil }
+//        for vc in vcs {
+//            if let _ = vc as? UITabBarController {
+//                return vc
+//            }
+//        }
+//        
+//        return nil
+//    }
+//}
+
 class ProfileViewController: UIViewController {
 
     
@@ -27,6 +40,20 @@ class ProfileViewController: UIViewController {
         catch let signOutError as NSError{
             print("error signing out: %@", signOutError)
         }
+    }
+    @IBAction func logOutAcct(_ sender: UIButton) {
+//        print("logging out")
+//        let firebaseAuth = Auth.auth()
+//        do{
+//            try firebaseAuth.signOut()
+//            print("successfully logged out")
+//        }
+//        catch let signOutError as NSError{
+//            print("error signing out: %@", signOutError)
+//        }
+//        guard let tabBarController = UIApplication.shared.tabBarController() as? UITabBarController else { return }
+//        
+//        tabBarController.selectedIndex = 0
     }
     
 //    db.collection("users").document("userPreferences").setData(preferences)
