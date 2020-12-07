@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,8 +21,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var spinner = UIActivityIndicatorView(style: .large)
     let api_key = "61de2798dcdc47c88f2279d7c23dad64"
 //    let query = "pasta"
-    let diet = "vegetarian"
-    let intolerances = "peanut,soy"
+    var diet = ""
+    var intolerances = ""
     let addRecipeInformation = true
     
     var theImageCache: [UIImage] = []
@@ -45,6 +46,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let protein: String?
         let title: String?
     }
+    
+    var userPreferences: [String:Int] = [:]
+    
+    let db = Firestore.firestore()
+    var docRef: DocumentReference!
        
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +68,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
 
         //example https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query=pasta&diet=vegetarian&intolerance=peanut,soy&addRecipeInformation=true
         //get recipes with intolerances, diet and search query
+        
+        
+        getUserPreferences()
     }
     
 
@@ -70,9 +79,54 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
+    func getUserPreferences(){
+        
+        let docRef = db.collection("users").document("userPreferences")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.userPreferences = document.data() as? Dictionary<String, Int> ?? [:]
+//                let documentData = document.data().map(String.init(describing:)) ?? "nil"
+                
+//                userPreferences = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(self.userPreferences)")
+            }
+            else {
+                print("Document does not exist")
+            }
+        }
+        
+        formatOptions()
+    }
+    
+    func formatOptions(){
+        diet = ""
+        intolerances = ""
+        
+        for (k,v) in userPreferences {
+            if(v == 1){
+                if(k.firstIndex(of: "F") != nil){
+                    intolerances += k.substring(to: k.firstIndex(of: "F") ?? k.endIndex)+","
+                }
+                else {
+                    diet += k+","
+                }
+            }
+        }
+        
+        if(diet.count > 0){
+            diet = diet.substring(to: diet.lastIndex(of: ",") ?? diet.endIndex)
+        }
+        
+        if(intolerances.count > 0){
+            intolerances = intolerances.substring(to: intolerances.lastIndex(of: ",") ?? diet.endIndex)
+        }
+        
+    }
 
     func fetchDataForTableView()
         {
+            
 //            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query="+query+"&diet="+diet+"&intolerance="+intolerances
             let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query="+searchVal+"&diet="+diet+"&intolerance="+intolerances
             //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)

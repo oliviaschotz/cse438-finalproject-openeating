@@ -72,14 +72,23 @@ class DietaryPrefsViewController: UIViewController {
     
     private func addDocument() {
         
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: preferences) {
-            err in
+//        var ref: DocumentReference? = nil
+//        ref = db.collection("users").addDocument(data: preferences) {
+//            err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            }
+//            else {
+//                print("Document added with ID: \(ref!.documentID)")
+//            }
+//        }
+        
+        db.collection("users").document("userPreferences").setData(preferences)
+            { err in
             if let err = err {
-                print("Error adding document: \(err)")
-            }
-            else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
             }
         }
 
