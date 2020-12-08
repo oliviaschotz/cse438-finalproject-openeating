@@ -122,7 +122,7 @@ class ProfileViewController: UIViewController {
    }
     
     @IBAction func saveChanges(_ sender: Any) {
-        
+        //maybe add spinner?
         //this is general -- need actual document id
             db.collection("users").document("userPreferences").setData(preferences)
                 { err in

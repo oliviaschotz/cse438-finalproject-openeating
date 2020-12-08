@@ -546,6 +546,11 @@
                                                     <constraint firstAttribute="width" constant="112" id="GKM-Nc-wgn"/>
                                                     <constraint firstAttribute="height" constant="33" id="wER-KB-ICV"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="logOutAcct:" destination="rJi-qc-jXa" eventType="touchUpInside" id="oR3-oT-vms"/>
                                                 </connections>

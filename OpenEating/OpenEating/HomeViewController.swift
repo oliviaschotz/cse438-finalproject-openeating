@@ -51,7 +51,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     let db = Firestore.firestore()
     var docRef: DocumentReference!
-       
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if (error == nil) {
         // Perform any operations on signed in user here.
         // check if document for this user already exists, make new document for each new user
-        
         // Get user email
         userEmail = user.profile.email
         print("User email: \(user.profile.email ?? "No Email")")
@@ -40,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 print("authentication error \(error.localizedDescription)")
             }
         }
-       
+
       } else {
         print("\(error.localizedDescription)")
       }
@@ -48,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
           // Handle authenticated state
         }
-        
+//        self.inputViewController?.performSegue(withIdentifier: "SignInToHome", sender: self)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
