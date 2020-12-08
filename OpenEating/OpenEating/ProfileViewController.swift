@@ -52,34 +52,48 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         getPreferences()
-        addButtons()
-        initButtonsStyle()
     }
     
     func getPreferences() {
         // get document id and fetch preferences like in home view controller
+        // this is general -- need actual document id
+        let docRef = db.collection("users").document("userPreferences")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.preferences = document.data() as? Dictionary<String, Bool> ?? [:]
+                print("Document data: \(self.preferences)")
+                self.addButtons()
+            }
+            else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func addButtons() {
-       buttons.append(vegtButton)
-       buttons.append(vegnButton)
-       buttons.append(ketoButton)
-       buttons.append(pescButton)
-       buttons.append(paleoButton)
-       buttons.append(dairyButton)
-       buttons.append(eggButton)
-       buttons.append(glutenButton)
-       buttons.append(peanutButton)
-       buttons.append(sesameButton)
-       buttons.append(shellfishButton)
-       buttons.append(soyButton)
-       buttons.append(treenutButton)
+        buttons.append(vegtButton)
+        buttons.append(vegnButton)
+        buttons.append(ketoButton)
+        buttons.append(pescButton)
+        buttons.append(paleoButton)
+        buttons.append(dairyButton)
+        buttons.append(eggButton)
+        buttons.append(glutenButton)
+        buttons.append(peanutButton)
+        buttons.append(sesameButton)
+        buttons.append(shellfishButton)
+        buttons.append(soyButton)
+        buttons.append(treenutButton)
+        
+        initButtonsStyle()
    }
    
    func initButtonsStyle() {
     
     for btn in buttons {
+        
         let isSet = preferences[btn.accessibilityIdentifier ?? ""] ?? false
+        
         if(isSet){
             btn.backgroundColor = UIColor(named: "darkGreen") ?? UIColor.black
             btn.layer.borderColor = UIColor(named: "darkGreen")?.cgColor ?? UIColor.black.cgColor
@@ -109,6 +123,15 @@ class ProfileViewController: UIViewController {
     
     @IBAction func saveChanges(_ sender: Any) {
         
+        //this is general -- need actual document id
+            db.collection("users").document("userPreferences").setData(preferences)
+                { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
     }
     
     
@@ -142,15 +165,6 @@ class ProfileViewController: UIViewController {
 //        
 //        tabBarController.selectedIndex = 0
     }
-    
-//    db.collection("users").document("userPreferences").setData(preferences)
-//        { err in
-//        if let err = err {
-//            print("Error writing document: \(err)")
-//        } else {
-//            print("Document successfully written!")
-//        }
-//    }
     
 
     /*

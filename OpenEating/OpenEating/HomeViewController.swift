@@ -95,9 +95,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.userPreferences = document.data() as? Dictionary<String, Bool> ?? [:]
-//                let documentData = document.data().map(String.init(describing:)) ?? "nil"
-                
-//                userPreferences = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(self.userPreferences)")
                 self.formatOptions()
             }
