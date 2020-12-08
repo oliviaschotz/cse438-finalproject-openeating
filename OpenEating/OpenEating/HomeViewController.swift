@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let title: String?
     }
     
-    var userPreferences: [String:Int] = [:]
+    var userPreferences: [String:Bool] = [:]
     
     let db = Firestore.firestore()
     var docRef: DocumentReference!
@@ -94,18 +94,17 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let docRef = db.collection("users").document("userPreferences")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                self.userPreferences = document.data() as? Dictionary<String, Int> ?? [:]
+                self.userPreferences = document.data() as? Dictionary<String, Bool> ?? [:]
 //                let documentData = document.data().map(String.init(describing:)) ?? "nil"
                 
 //                userPreferences = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(self.userPreferences)")
+                self.formatOptions()
             }
             else {
                 print("Document does not exist")
             }
         }
-        
-        formatOptions()
     }
     
     func formatOptions(){
@@ -113,9 +112,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         intolerances = ""
         
         for (k,v) in userPreferences {
-            if(v == 1){
+            if(v){
                 if(k.firstIndex(of: "F") != nil){
-                    intolerances += k.substring(to: k.firstIndex(of: "F") ?? k.endIndex)+","
+                    intolerances += k[..<(k.firstIndex(of: "F") ?? k.endIndex)]+","
                 }
                 else {
                     diet += k+","
@@ -124,11 +123,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         }
         
         if(diet.count > 0){
-            diet = diet.substring(to: diet.lastIndex(of: ",") ?? diet.endIndex)
+            let idx = diet.lastIndex(of: ",") ?? diet.endIndex
+            diet = String(diet[..<idx])
         }
         
         if(intolerances.count > 0){
-            intolerances = intolerances.substring(to: intolerances.lastIndex(of: ",") ?? diet.endIndex)
+            let idx = intolerances.lastIndex(of: ",") ?? intolerances.endIndex
+            intolerances = String(intolerances[..<idx])
         }
         
     }

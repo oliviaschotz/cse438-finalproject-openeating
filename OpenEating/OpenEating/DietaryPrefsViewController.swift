@@ -11,6 +11,9 @@ import Firebase
 
 class DietaryPrefsViewController: UIViewController {
     
+    let db = Firestore.firestore()
+    var docRef: DocumentReference!
+    
     // Food Preference Buttons
     @IBOutlet weak var vegtButton: UIButton!
     @IBOutlet weak var vegnButton: UIButton!
@@ -27,12 +30,8 @@ class DietaryPrefsViewController: UIViewController {
     @IBOutlet weak var treenutButton: UIButton!
     
     
-    var preferences: [String:Bool] = [:]
-    
-    let db = Firestore.firestore()
-    var docRef: DocumentReference!
-    
     var buttons: [UIButton] = []
+    var preferences: [String:Bool] = [:]
 
     
     override func viewDidLoad() {
