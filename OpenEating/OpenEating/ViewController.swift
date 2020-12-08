@@ -20,19 +20,45 @@ class ViewController: UIViewController {
     var foodPreference: Bool = true
     var docRef: DocumentReference!
     let db = Firestore.firestore()
+    var loggedIn: Bool?
     
-    @IBAction func clickNext(_ sender: UIButton) {
+    @IBAction func clickSignUp(_ sender: UIButton) {
         performSegue(withIdentifier: "WelcomeToProfileSetup", sender: UIButton.self)
     }
     @IBAction func clickSignIn(_ sender: UIButton) {
         performSegue(withIdentifier: "WelcomeToSignIn", sender: UIButton.self)
     }
 
+    func checkIfLoggedIn() {
+        if Auth.auth().currentUser != nil { //add in an or to check regular log in
+          // User is signed in.
+            print("user signed in")
+            loggedIn = true
+        } else {
+          // No user is signed in.
+            print("there is no user signed in")
+            loggedIn = false
+        }
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "WelcomeToHome" {
+            print("switching to home screen")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkIfLoggedIn()
         // Do any additional setup after loading the view.
+        if (loggedIn ?? false) != true {
+            print("not logged in")
+        }
+        else {
+            print("user already logged in")
+            performSegue(withIdentifier: "WelcomeToHome", sender: self)
+        }
+
         
 //        GIDSignIn.sharedInstance()?.presentingViewController = self
 //        GIDSignIn.sharedInstance().signIn()

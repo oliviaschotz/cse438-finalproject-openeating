@@ -41,16 +41,23 @@ class ProfileViewController: UIViewController {
             print("error signing out: %@", signOutError)
         }
     }
+    
+//    func goHome() {
+//        let tabBarVC = self.tabBarController
+//        tabBarVC?.selectedIndex = 0
+//    }
+    
     @IBAction func logOutAcct(_ sender: UIButton) {
-//        print("logging out")
-//        let firebaseAuth = Auth.auth()
-//        do{
-//            try firebaseAuth.signOut()
-//            print("successfully logged out")
-//        }
-//        catch let signOutError as NSError{
-//            print("error signing out: %@", signOutError)
-//        }
+        print("logging out")
+        let firebaseAuth = Auth.auth()
+        do{
+            try firebaseAuth.signOut()
+            print("successfully logged out")
+        }
+        catch let signOutError as NSError{
+            print("error signing out: %@", signOutError)
+        }
+        performSegue(withIdentifier: "LogOutToWelcome", sender: self)
 //        guard let tabBarController = UIApplication.shared.tabBarController() as? UITabBarController else { return }
 //        
 //        tabBarController.selectedIndex = 0
