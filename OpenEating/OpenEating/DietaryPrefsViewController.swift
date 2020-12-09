@@ -82,7 +82,7 @@ class DietaryPrefsViewController: UIViewController {
 //            }
 //        }
         
-        db.collection("users").document("userPreferences").setData(preferences)
+        db.collection("users").document("userInfo").collection("userPreferences").document("defaultUserPreferences").setData(preferences)
             { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -90,7 +90,6 @@ class DietaryPrefsViewController: UIViewController {
                 print("Document successfully written!")
             }
         }
-
     }
     
     @IBAction func clickPref(_ sender: UIButton) {
