@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0CF8772147A1F876D812BDAB /* Pods_OpenEating.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 121ABB1D34BA5C6CF274B938 /* Pods_OpenEating.framework */; };
 		5542AB2E256A2F6700D82EBE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5542AB2D256A2F6700D82EBE /* GoogleService-Info.plist */; };
-		55A06C692580A561003A66F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A06C682580A561003A66F4 /* User.swift */; };
 		D74155FB2564692500242998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74155FA2564692500242998 /* AppDelegate.swift */; };
 		D74155FD2564692500242998 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74155FC2564692500242998 /* SceneDelegate.swift */; };
 		D74155FF2564692500242998 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74155FE2564692500242998 /* ViewController.swift */; };
@@ -31,7 +30,6 @@
 /* Begin PBXFileReference section */
 		121ABB1D34BA5C6CF274B938 /* Pods_OpenEating.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenEating.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5542AB2D256A2F6700D82EBE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		55A06C682580A561003A66F4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		55DED9EC256EB17E00AF3A08 /* OpenEating.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenEating.entitlements; sourceTree = "<group>"; };
 		716D6CB83205A7A323BA4E7F /* Pods-OpenEating.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenEating.release.xcconfig"; path = "Target Support Files/Pods-OpenEating/Pods-OpenEating.release.xcconfig"; sourceTree = "<group>"; };
 		C43F308763A9AD41FA2C581A /* Pods-OpenEating.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenEating.debug.xcconfig"; path = "Target Support Files/Pods-OpenEating/Pods-OpenEating.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		D74155EE2564692500242998 = {
 			isa = PBXGroup;
 			children = (
-				55A06C682580A561003A66F4 /* User.swift */,
 				D74155F92564692500242998 /* OpenEating */,
 				D74155F82564692500242998 /* Products */,
 				2E767A79CA47C17AFC70BFF1 /* Pods */,
@@ -264,7 +261,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A06C692580A561003A66F4 /* User.swift in Sources */,
 				FDD5FC14256ED1AE000A7512 /* AcctDetailsViewController.swift in Sources */,
 				FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */,
 				FD169D0D2572E88F004EA4BD /* LogInViewController.swift in Sources */,

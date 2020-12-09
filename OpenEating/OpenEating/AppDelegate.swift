@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var handle: AuthStateDidChangeListenerHandle?
     
+    struct User {
+        var firstName: String
+        var lastName: String
+        var userEmail: String
+        var userDocRef: String
+        
+        init(firstName: String, lastName: String, userEmail: String) {
+            self.firstName = firstName
+            self.lastName = lastName
+            self.userEmail = userEmail
+            userDocRef = ""
+        }
+        
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if (error == nil) {
@@ -23,9 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // check if document for this user already exists, make new document for each new user
         // Get user email
         //currentUser(firstName: user.profile.givenName, lastName: user.profile.familyName, userEmail: user.profile.email)
-        print("User email: \(user.profile.email ?? "No Email")")
-        print("User name: \(user.profile.givenName ?? "No Name")")
-        print("User name: \(user.profile.familyName ?? "No Name")")
+        let currentUser = User(firstName: user.profile.givenName ?? "No Name", lastName: user.profile.familyName ?? "No Name", userEmail: user.profile.email ?? "No Email")
+            
+        print("Current User: \(currentUser)")
             
 //        var ref: DocumentReference? = nil
 //            ref = db.collection("users").addDocument(data: ["first" : user.profile.givenName ?? "No First", "last" : user.profile.familyName ?? "No Last", "email": user.profile.email ?? "No Email"]) {
