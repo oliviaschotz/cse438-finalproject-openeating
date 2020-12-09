@@ -71,25 +71,25 @@ class DietaryPrefsViewController: UIViewController {
     
     private func addDocument() {
         
-//        var ref: DocumentReference? = nil
-//        ref = db.collection("users").addDocument(data: preferences) {
-//            err in
-//            if let err = err {
-//                print("Error adding document: \(err)")
-//            }
-//            else {
-//                print("Document added with ID: \(ref!.documentID)")
-//            }
-//        }
-        
-        db.collection("users").document("userInfo").collection("userPreferences").document("defaultUserPreferences").setData(preferences)
-            { err in
+        var ref: DocumentReference? = nil
+        ref = db.collection("users").document("userInfo").collection("userPreferences").addDocument(data: preferences) {
+            err in
             if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
+                print("Error adding document: \(err)")
+            }
+            else {
+                print("Document added with ID: \(ref!.documentID)")
             }
         }
+        
+//        db.collection("users").document("userInfo").collection("userPreferences").document("defaultUserPreferences").setData(preferences)
+//            { err in
+//            if let err = err {
+//                print("Error writing document: \(err)")
+//            } else {
+//                print("Document successfully written!")
+//            }
+//        }
     }
     
     @IBAction func clickPref(_ sender: UIButton) {

@@ -16,6 +16,9 @@ class LogInViewController: UIViewController {
     var userEmail: String = ""
     var handle: AuthStateDidChangeListenerHandle?
     var loggedIn: Bool?
+    let db = Firestore.firestore()
+    var docRef: DocumentReference!
+    var userInformation: [String:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +57,21 @@ class LogInViewController: UIViewController {
 
             loggedInUser = User(name: Auth.auth().currentUser?.displayName ?? "No Name", userEmail: Auth.auth().currentUser?.email ?? "No Email")
             
+            userInformation["name"] = Auth.auth().currentUser?.displayName
+            userInformation["email"] = Auth.auth().currentUser?.email
+            
             print("Logged in User: \(loggedInUser)")
+            
+            var ref: DocumentReference? = nil
+            ref = db.collection("users").addDocument(data: userInformation) {
+                err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                }
+                else {
+                    print("Logged In Document added with ID: \(ref!.documentID)")
+                }
+            }
             
             loggedIn = true
             performSegue(withIdentifier: "SignInToHome", sender: self)
