@@ -14,17 +14,29 @@ import GoogleSignIn
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
-    var userEmail: String = ""
     var handle: AuthStateDidChangeListenerHandle?
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-   
+        
         if (error == nil) {
         // Perform any operations on signed in user here.
         // check if document for this user already exists, make new document for each new user
         // Get user email
-        userEmail = user.profile.email
+        //currentUser(firstName: user.profile.givenName, lastName: user.profile.familyName, userEmail: user.profile.email)
         print("User email: \(user.profile.email ?? "No Email")")
+        print("User name: \(user.profile.givenName ?? "No Name")")
+        print("User name: \(user.profile.familyName ?? "No Name")")
+            
+//        var ref: DocumentReference? = nil
+//            ref = db.collection("users").addDocument(data: ["first" : user.profile.givenName ?? "No First", "last" : user.profile.familyName ?? "No Last", "email": user.profile.email ?? "No Email"]) {
+//            err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            }
+//            else {
+//                print("Document added with ID: \(ref!.documentID)")
+//            }
+//        }
             
         // Make user authentication and credentials
         guard let authentication = user.authentication else { return }
