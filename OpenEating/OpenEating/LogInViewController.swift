@@ -12,6 +12,7 @@ import GoogleSignIn
 
 class LogInViewController: UIViewController {
    
+    var loggedInUser: User?
     var userEmail: String = ""
     var handle: AuthStateDidChangeListenerHandle?
     var loggedIn: Bool?
@@ -21,6 +22,8 @@ class LogInViewController: UIViewController {
         // Do any additional setup after loading the view.
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
+        
+        
         print("------SIGNING IN------")
         
 //        checkLogInStat()
@@ -48,6 +51,11 @@ class LogInViewController: UIViewController {
         if Auth.auth().currentUser != nil { //add in an or to check regular log in
             // User is signed in.
             print("user signed in")
+
+            loggedInUser = User(name: Auth.auth().currentUser?.displayName ?? "No Name", userEmail: Auth.auth().currentUser?.email ?? "No Email")
+            
+            print("Logged in User: \(loggedInUser)")
+            
             loggedIn = true
             performSegue(withIdentifier: "SignInToHome", sender: self)
         }
