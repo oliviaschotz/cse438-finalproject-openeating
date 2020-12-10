@@ -20,6 +20,7 @@ class LogInViewController: UIViewController {
     var docRef: DocumentReference!
     var userInformation: [String:String] = [:]
     
+    
     var documentID = ""
     
     override func viewDidLoad() {
@@ -31,29 +32,11 @@ class LogInViewController: UIViewController {
         
         print("------SIGNING IN------")
         
-//        checkLogInStat()
     }
-//    func checkLogInStat() {
-//        while (loggedIn ?? false) != true {
-//            if Auth.auth().currentUser != nil { //add in an or to check regular log in
-//              // User is signed in.
-//                print("user signed in")
-//                loggedIn = true
-//                performSegue(withIdentifier: "SignInToHome", sender: self)
-//            } else {
-//              // No user is signed in.
-//                loggedIn = false
-//            }
-//        }
-//    }
-    
-//    func toHome() {
-//        loggedIn = true
-//        performSegue(withIdentifier: "SignInToHome", sender: self)
-//    }
+
     
     func checkLogInStatus() {
-        if Auth.auth().currentUser != nil { //add in an or to check regular log in
+        if Auth.auth().currentUser != nil {
             // User is signed in.
             print("user signed in")
 
@@ -79,7 +62,7 @@ class LogInViewController: UIViewController {
     @IBAction func clickSignIn(_ sender: UIButton) {
         checkLogInStatus()
         if (loggedIn ?? false) == true {
-//            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
         }
         else {
             let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
@@ -88,6 +71,11 @@ class LogInViewController: UIViewController {
         }
         //check if signed in...if not have error message pop up
     }
+
+
+    @IBAction func googleSignIn(_ sender: Any) {
+    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let homeVC = segue.destination as? HomeViewController

@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //currentUser(firstName: user.profile.givenName, lastName: user.profile.familyName, userEmail: user.profile.email)
         let currentUser = User(firstName: user.profile.givenName ?? "No Name", lastName: user.profile.familyName ?? "No Name", userEmail: user.profile.email ?? "No Email")
             
+            
+            
         print("Current User: \(currentUser)")
 //
 //            let userInfo = ["name": currentUser.firstName + " " + currentUser.lastName, "email": currentUser.userEmail]
@@ -96,8 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
           // Handle authenticated state
+            
         }
-//        self.inputViewController?.performSegue(withIdentifier: "SignInToHome", sender: self)
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
