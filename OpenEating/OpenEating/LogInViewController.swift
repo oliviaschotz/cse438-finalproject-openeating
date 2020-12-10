@@ -25,6 +25,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
         
@@ -64,9 +65,6 @@ class LogInViewController: UIViewController {
             
             print("Logged in User: \(loggedInUser)")
             
-            documentID = UserDefaults.standard.object(forKey: self.loggedInUser?.userEmail ?? "") as? String ?? ""
-            
-            
             loggedIn = true
 //            performSegue(withIdentifier: "SignInToHome", sender: self)
         }
@@ -76,21 +74,25 @@ class LogInViewController: UIViewController {
         }
     }
     
-    @IBAction func clickSignIn(_ sender: UIButton) {
-        checkLogInStatus()
-        if (loggedIn ?? false) == true {
-//            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
-        }
-        else {
-            let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
-        //check if signed in...if not have error message pop up
-    }
+//    @IBAction func clickSignIn(_ sender: UIButton) {
+//        checkLogInStatus()
+//        if (loggedIn ?? false) == true {
+////            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+//        }
+//        else {
+//            let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
+//            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+//            self.present(alertController, animated: true, completion: nil)
+//        }
+//        //check if signed in...if not have error message pop up
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        documentID = UserDefaults.standard.object(forKey: "currentID") as? String ?? ""
+        print("LOGIN???: \(documentID)")
+        
         let homeVC = segue.destination as? HomeViewController
+        print(segue.destination)
         homeVC?.documentID = documentID
     }
     

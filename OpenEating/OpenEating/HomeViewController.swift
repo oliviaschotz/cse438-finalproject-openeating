@@ -71,15 +71,17 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         //example https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query=pasta&diet=vegetarian&intolerance=peanut,soy&addRecipeInformation=true
         //get recipes with intolerances, diet and search query
         
-        if Auth.auth().currentUser != nil {
-          // User is signed in.
-            print("user signed in")
-        } else {
-          // No user is signed in.
-            print("no user signed in")
-            let welcomeVC = self.storyboard?.instantiateViewController(identifier: "WelcomeVC") as! ViewController
-            self.present(welcomeVC, animated:true, completion: nil)
-        }
+//        if Auth.auth().currentUser != nil {
+//          // User is signed in.
+//            print("user signed in")
+//        } else {
+//          // No user is signed in.
+//            print("no user signed in")
+//            let welcomeVC = self.storyboard?.instantiateViewController(identifier: "WelcomeVC") as! ViewController
+//            self.present(welcomeVC, animated:true, completion: nil)
+//        }
+        
+        print("HOME DOC ID: \(documentID)")
         
         getUserPreferences()
     }

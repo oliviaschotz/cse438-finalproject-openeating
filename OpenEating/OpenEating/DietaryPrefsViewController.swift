@@ -38,11 +38,28 @@ class DietaryPrefsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
-        print("DIETARY ID: \(documentID)")
+        setUpUserDocument()
         addButtons()
         initButtonsStyle()
-        // Do any additional setup after loading the view.
+    }
+    
+    func setUpUserDocument() {
+        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String,String> ?? [:]
+        
+        var ref: DocumentReference? = nil
+        ref = db.collection("users").addDocument(data: userInfo) {
+            err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            }
+            else {
+                print("Logged In Document added with ID: \(ref!.documentID)")
+                UserDefaults.standard.set(ref!.documentID, forKey: userInfo["email"] ?? "")
+                self.documentID = ref!.documentID
+            }
+        }
     }
     
     func addButtons() {
@@ -76,7 +93,7 @@ class DietaryPrefsViewController: UIViewController {
     private func addDocument() {
         
         var ref: DocumentReference? = nil
-        ref = db.collection("users").document("userInfo").collection("userPreferences").addDocument(data: preferences) {
+        ref = db.collection("users").document(documentID).collection("userPreferences").addDocument(data: preferences) {
             err in
             if let err = err {
                 print("Error adding document: \(err)")
@@ -113,10 +130,14 @@ class DietaryPrefsViewController: UIViewController {
     
 
     
-    @IBAction func clickNext(_ sender: UIButton) {
-        self.addDocument()
-        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
-    }
+//    @IBAction func clickNext(_ sender: UIButton) {
+//        self.addDocument()
+//        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
+//    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        <#code#>
+//    }
     
     
 

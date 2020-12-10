@@ -887,7 +887,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="clickSignIn:" destination="QEy-zI-jX4" eventType="touchUpInside" id="Z6q-hE-fv7"/>
+                                    <segue destination="mHQ-Xq-QWT" kind="show" id="mPs-SO-mhT"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="suS-sg-aOz">
