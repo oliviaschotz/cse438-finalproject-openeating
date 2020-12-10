@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             //currentUser(firstName: user.profile.givenName, lastName: user.profile.familyName, userEmail: user.profile.email)
             let currentUser = User(name: (user.profile.givenName ?? "No Name") + " " + (user.profile.familyName ?? "No Name"), userEmail: user.profile.email ?? "No Email")
             
-<<<<<<< HEAD
+
             print("Current User: \(currentUser)")
             
             let userInfo = ["name": currentUser.name, "email": currentUser.userEmail]
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             if(documentID != ""){
                 UserDefaults.standard.set(documentID, forKey: "currentID")
             }
-=======
+
             UserDefaults.standard.set(currentUser.userEmail, forKey: "email")
             
             
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //
 //            let userInfo = ["name": currentUser.firstName + " " + currentUser.lastName, "email": currentUser.userEmail]
 //
->>>>>>> f016507bb996465e094ec268c03045c96e7b6086
+
 //            var ref: DocumentReference? = nil
 //            ref = db.collection("users").addDocument(data: userInfo) {
 //                err in
@@ -74,12 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //                }
 //                else {
 //                    print("Logged In Document added with ID: \(ref!.documentID)")
-<<<<<<< HEAD
+
 //                    UserDefaults.standard.set(ref!.documentID, forKey: "currentID")
-=======
+
 //                    self.documentID = ref!.documentID
 //                    UserDefaults.standard.set(self.documentID, forKey: "id")
->>>>>>> f016507bb996465e094ec268c03045c96e7b6086
+
 //                }
 //            }
             
@@ -104,15 +104,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-<<<<<<< HEAD
+
             // Handle authenticated state
         }
         //        self.inputViewController?.performSegue(withIdentifier: "SignInToHome", sender: self)
-=======
+
           // Handle authenticated state
-            
-        }
->>>>>>> f016507bb996465e094ec268c03045c96e7b6086
+          
+
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

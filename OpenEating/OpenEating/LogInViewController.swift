@@ -56,8 +56,6 @@ class LogInViewController: UIViewController {
             loggedIn = false
         }
     }
-    
-<<<<<<< HEAD
 //    @IBAction func clickSignIn(_ sender: UIButton) {
 //        checkLogInStatus()
 //        if (loggedIn ?? false) == true {
@@ -70,7 +68,7 @@ class LogInViewController: UIViewController {
 //        }
 //        //check if signed in...if not have error message pop up
 //    }
-=======
+
     @IBAction func clickSignIn(_ sender: UIButton) {
         checkLogInStatus()
         if (loggedIn ?? false) == true {
@@ -88,7 +86,6 @@ class LogInViewController: UIViewController {
     @IBAction func googleSignIn(_ sender: Any) {
     }
 
->>>>>>> f016507bb996465e094ec268c03045c96e7b6086
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         documentID = UserDefaults.standard.object(forKey: "currentID") as? String ?? ""
