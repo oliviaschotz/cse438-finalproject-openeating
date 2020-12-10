@@ -95,7 +95,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     func getUserPreferences(){
         
-        let docRef = db.collection("users").document(documentID).collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
+        let docRef = db.collection("users").document("G8MDy2tXupCivTgqxf9g").collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 print(document.data())
