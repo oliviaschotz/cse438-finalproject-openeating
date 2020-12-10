@@ -20,6 +20,7 @@ class LogInViewController: UIViewController {
     var docRef: DocumentReference!
     var userInformation: [String:String] = [:]
     
+    
     var documentID = ""
     
     override func viewDidLoad() {
@@ -32,29 +33,11 @@ class LogInViewController: UIViewController {
         
         print("------SIGNING IN------")
         
-//        checkLogInStat()
     }
-//    func checkLogInStat() {
-//        while (loggedIn ?? false) != true {
-//            if Auth.auth().currentUser != nil { //add in an or to check regular log in
-//              // User is signed in.
-//                print("user signed in")
-//                loggedIn = true
-//                performSegue(withIdentifier: "SignInToHome", sender: self)
-//            } else {
-//              // No user is signed in.
-//                loggedIn = false
-//            }
-//        }
-//    }
-    
-//    func toHome() {
-//        loggedIn = true
-//        performSegue(withIdentifier: "SignInToHome", sender: self)
-//    }
+
     
     func checkLogInStatus() {
-        if Auth.auth().currentUser != nil { //add in an or to check regular log in
+        if Auth.auth().currentUser != nil {
             // User is signed in.
             print("user signed in")
 
@@ -74,6 +57,7 @@ class LogInViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
 //    @IBAction func clickSignIn(_ sender: UIButton) {
 //        checkLogInStatus()
 //        if (loggedIn ?? false) == true {
@@ -86,6 +70,25 @@ class LogInViewController: UIViewController {
 //        }
 //        //check if signed in...if not have error message pop up
 //    }
+=======
+    @IBAction func clickSignIn(_ sender: UIButton) {
+        checkLogInStatus()
+        if (loggedIn ?? false) == true {
+            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+        }
+        else {
+            let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        //check if signed in...if not have error message pop up
+    }
+
+
+    @IBAction func googleSignIn(_ sender: Any) {
+    }
+
+>>>>>>> f016507bb996465e094ec268c03045c96e7b6086
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         documentID = UserDefaults.standard.object(forKey: "currentID") as? String ?? ""

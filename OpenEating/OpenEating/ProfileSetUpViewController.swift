@@ -30,7 +30,8 @@ class ProfileSetUpViewController: UIViewController {
         GIDSignIn.sharedInstance().signIn()
                 
         print(Auth.auth().currentUser)
-        
+        let email = UserDefaults.standard.string(forKey: "email")
+        print("---USER EMAIL---\(email)")
         if Auth.auth().currentUser != nil {
           // User is signed in.
             
