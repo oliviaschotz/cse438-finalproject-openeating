@@ -15,6 +15,11 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var handle: AuthStateDidChangeListenerHandle?
+//    
+//    let db = Firestore.firestore()
+//    var docRef: DocumentReference!
+//    
+//    var documentID = ""
     
     struct User {
         var firstName: String
@@ -41,6 +46,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let currentUser = User(firstName: user.profile.givenName ?? "No Name", lastName: user.profile.familyName ?? "No Name", userEmail: user.profile.email ?? "No Email")
             
         print("Current User: \(currentUser)")
+//
+//            let userInfo = ["name": currentUser.firstName + " " + currentUser.lastName, "email": currentUser.userEmail]
+//
+//            var ref: DocumentReference? = nil
+//            ref = db.collection("users").addDocument(data: userInfo) {
+//                err in
+//                if let err = err {
+//                    print("Error adding document: \(err)")
+//                }
+//                else {
+//                    print("Logged In Document added with ID: \(ref!.documentID)")
+//                    self.documentID = ref!.documentID
+//                    UserDefaults.standard.set(self.documentID, forKey: currentUser.userEmail ?? "")
+//                }
+//            }
+//
+//            let dvc = DietaryPrefsViewController()
+//            dvc.documentID = documentID
             
 //        var ref: DocumentReference? = nil
 //            ref = db.collection("users").addDocument(data: ["first" : user.profile.givenName ?? "No First", "last" : user.profile.familyName ?? "No Last", "email": user.profile.email ?? "No Email"]) {

@@ -208,6 +208,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="clickCreateAcct:" destination="o0O-rf-t0d" eventType="touchUpInside" id="xSj-wb-Yhr"/>
+                                                    <segue destination="2lw-3d-Gr1" kind="show" id="xmP-Mn-BNa"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-rZ-9Xp">
@@ -305,9 +306,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fif-SN-s2r"/>
                     <size key="freeformSize" width="375" height="1260"/>
-                    <connections>
-                        <segue destination="2lw-3d-Gr1" kind="show" identifier="ProfSUToDietaryPrefs" id="nFK-eo-uDm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfT-Dl-Vav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,6 +14,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var documentID = ""
+    
     //api website: https://spoonacular.com/food-api
     //api documentation: https://spoonacular.com/food-api/docs
     //example: https://api.spoonacular.com/recipes/716429/information?apiKey=61de2798dcdc47c88f2279d7c23dad64&includeNutrition=true
@@ -90,6 +92,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
     
     func getUserPreferences(){
+        
+        print("----DOCUMENT ID----: \(documentID)")
         
         let docRef = db.collection("users").document("userPreferences")
         docRef.getDocument { (document, error) in

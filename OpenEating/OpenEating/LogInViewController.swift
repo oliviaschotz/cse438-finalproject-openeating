@@ -20,6 +20,8 @@ class LogInViewController: UIViewController {
     var docRef: DocumentReference!
     var userInformation: [String:String] = [:]
     
+    var documentID = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -57,24 +59,16 @@ class LogInViewController: UIViewController {
 
             loggedInUser = User(name: Auth.auth().currentUser?.displayName ?? "No Name", userEmail: Auth.auth().currentUser?.email ?? "No Email")
             
-            userInformation["name"] = Auth.auth().currentUser?.displayName
-            userInformation["email"] = Auth.auth().currentUser?.email
+            userInformation["name"] = loggedInUser?.name
+            userInformation["email"] = loggedInUser?.userEmail
             
             print("Logged in User: \(loggedInUser)")
             
-            var ref: DocumentReference? = nil
-            ref = db.collection("users").addDocument(data: userInformation) {
-                err in
-                if let err = err {
-                    print("Error adding document: \(err)")
-                }
-                else {
-                    print("Logged In Document added with ID: \(ref!.documentID)")
-                }
-            }
+            documentID = UserDefaults.standard.object(forKey: self.loggedInUser?.userEmail ?? "") as? String ?? ""
+            
             
             loggedIn = true
-            performSegue(withIdentifier: "SignInToHome", sender: self)
+//            performSegue(withIdentifier: "SignInToHome", sender: self)
         }
         else {
             // No user is signed in.
@@ -85,7 +79,7 @@ class LogInViewController: UIViewController {
     @IBAction func clickSignIn(_ sender: UIButton) {
         checkLogInStatus()
         if (loggedIn ?? false) == true {
-            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
+//            performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
         }
         else {
             let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
@@ -93,6 +87,11 @@ class LogInViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         //check if signed in...if not have error message pop up
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let homeVC = segue.destination as? HomeViewController
+        homeVC?.documentID = documentID
     }
     
 

@@ -14,6 +14,8 @@ class DietaryPrefsViewController: UIViewController {
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
+    var documentID = ""
+    
     // Food Preference Buttons
     @IBOutlet weak var vegtButton: UIButton!
     @IBOutlet weak var vegnButton: UIButton!
@@ -36,6 +38,8 @@ class DietaryPrefsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("DIETARY ID: \(documentID)")
         addButtons()
         initButtonsStyle()
         // Do any additional setup after loading the view.
