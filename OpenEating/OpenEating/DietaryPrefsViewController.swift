@@ -130,13 +130,13 @@ class DietaryPrefsViewController: UIViewController {
     
 
     
-//    @IBAction func clickNext(_ sender: UIButton) {
-//        self.addDocument()
-//        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
-//    }
+    @IBAction func clickNext(_ sender: UIButton) {
+        self.addDocument()
+        performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
+    }
 //    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        <#code#>
+//        self.addDocument()
 //    }
     
     
