@@ -95,7 +95,23 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     func getUserPreferences(){
         
-        let docRef = db.collection("users").document("G8MDy2tXupCivTgqxf9g").collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
+        let id:String = documentID
+        print(type(of: id))
+        print(type(of: "G8MDy2tXupCivTgqxf9g"))
+        
+        let docRef = db.collection("users").whereField("email", isEqualTo: "oliviaschotz@gmail.com")
+        
+//            .getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+//                    }
+//                }
+//        }
+        
+//        document(documentID).collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 print(document.data())
