@@ -45,9 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //currentUser(firstName: user.profile.givenName, lastName: user.profile.familyName, userEmail: user.profile.email)
         let currentUser = User(firstName: user.profile.givenName ?? "No Name", lastName: user.profile.familyName ?? "No Name", userEmail: user.profile.email ?? "No Email")
             
+            UserDefaults.standard.set(currentUser.userEmail, forKey: "email")
             
             
         print("Current User: \(currentUser)")
+       
 //
 //            let userInfo = ["name": currentUser.firstName + " " + currentUser.lastName, "email": currentUser.userEmail]
 //
@@ -60,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 //                else {
 //                    print("Logged In Document added with ID: \(ref!.documentID)")
 //                    self.documentID = ref!.documentID
-//                    UserDefaults.standard.set(self.documentID, forKey: currentUser.userEmail ?? "")
+//                    UserDefaults.standard.set(self.documentID, forKey: "id")
 //                }
 //            }
 //
