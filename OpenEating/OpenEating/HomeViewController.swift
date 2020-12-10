@@ -95,11 +95,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     func getUserPreferences(){
         
-        print("----DOCUMENT ID----: \(documentID)")
-        
-        let docRef = db.collection("users").document("userPreferences")
+        let docRef = db.collection("users").document(documentID).collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
+                print(document.data())
                 self.userPreferences = document.data() as? Dictionary<String, Bool> ?? [:]
                 print("Document data: \(self.userPreferences)")
                 self.formatOptions()
