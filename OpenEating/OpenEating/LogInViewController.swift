@@ -91,8 +91,11 @@ class LogInViewController: UIViewController {
         documentID = UserDefaults.standard.object(forKey: "currentID") as? String ?? ""
         print("LOGIN???: \(documentID)")
         
-        let homeVC = segue.destination as? HomeViewController
-        print(segue.destination)
+        let tabVC = segue.destination as? UITabBarController
+        let navVC = tabVC?.viewControllers?[0] as? UINavigationController
+        print(navVC?.viewControllers[0])
+        
+        let homeVC = navVC?.viewControllers[0] as? HomeViewController
         homeVC?.documentID = documentID
     }
     
