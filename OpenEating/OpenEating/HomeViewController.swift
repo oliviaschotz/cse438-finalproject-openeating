@@ -14,15 +14,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var documentID = ""
-    
     //api website: https://spoonacular.com/food-api
     //api documentation: https://spoonacular.com/food-api/docs
     //example: https://api.spoonacular.com/recipes/716429/information?apiKey=61de2798dcdc47c88f2279d7c23dad64&includeNutrition=true
     
     var spinner = UIActivityIndicatorView(style: .large)
     let api_key = "61de2798dcdc47c88f2279d7c23dad64"
-//    let query = "pasta"
     var diet = ""
     var intolerances = ""
     let addRecipeInformation = true
@@ -71,18 +68,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         //example https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query=pasta&diet=vegetarian&intolerance=peanut,soy&addRecipeInformation=true
         //get recipes with intolerances, diet and search query
         
-//        if Auth.auth().currentUser != nil {
-//          // User is signed in.
-//            print("user signed in")
-//        } else {
-//          // No user is signed in.
-//            print("no user signed in")
-//            let welcomeVC = self.storyboard?.instantiateViewController(identifier: "WelcomeVC") as! ViewController
-//            self.present(welcomeVC, animated:true, completion: nil)
-//        }
-        
-        print("HOME DOC ID: \(documentID)")
-        
         getUserPreferences()
     }
     
@@ -95,12 +80,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     func getUserPreferences(){
         
-        let id:String = documentID
-        print(type(of: id))
-        print(type(of: "G8MDy2tXupCivTgqxf9g"))
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
-        print(email)
         
         let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
         {
@@ -112,35 +93,17 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                 else
                 {
                     let document = querySnapshot!.documents[0]
-                    print("\(document.documentID) => \(document.data())")
-                      self.userPreferences = document.data() as? Dictionary<String, Any> ?? [:]
-                    //                print("Document data: \(self.userPreferences)")
+                    self.userPreferences = document.data() as? Dictionary<String, Any> ?? [:]
                     self.formatOptions()
-                    print(querySnapshot!.documents.count)
                     
                     
                 }
         }
-        
-//        document(documentID).collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
-//        docRef.getDocument { (document, error) in
-//            if let document = document, document.exists {
-//                print(document.data())
-//                self.userPreferences = document.data() as? Dictionary<String, Bool> ?? [:]
-//                print("Document data: \(self.userPreferences)")
-//                self.formatOptions()
-//            }
-//            else {
-//                print("Document does not exist")
-//            }
-//        }
     }
     
     func formatOptions(){
         diet = ""
         intolerances = ""
-        print("hi")
-        print(userPreferences)
         
         for (k,v) in userPreferences {
             if(v) as? Bool ?? false{
@@ -177,7 +140,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                 print("error")
                 return }
             recipeResults = theData.results
-            print(url)
         }
 
     func cacheInfo()
@@ -225,7 +187,6 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
-//            UITableViewCell(style: .subtitle, reuseIdentifier: "recipeCell") as! RecipeCell
         cell.recipeName.text = recipeResults[indexPath.row].title
         cell.recipeImage.image = theImageCache[indexPath.row]
         return cell

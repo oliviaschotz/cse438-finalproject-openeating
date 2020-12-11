@@ -38,33 +38,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let extendedIngredients: [Ingredient]?
         let summary: String?
     }
-//                {
-//                    "aisle": "Pasta and Rice",
-//                    "amount": 0.25,
-//                    "consitency": "solid",
-//                    "id": 99025,
-//                    "image": "breadcrumbs.jpg",
-//                    "measures": {
-//                        "metric": {
-//                            "amount": 59.147,
-//                            "unitLong": "milliliters",
-//                            "unitShort": "ml"
-//                        },
-//                        "us": {
-//                            "amount": 0.25,
-//                            "unitLong": "cups",
-//                            "unitShort": "cups"
-//                        }
-//                    },
-//                    "meta": [
-//                        "whole wheat",
-//                        "(I used panko)"
-//                    ],
-//                    "name": "whole wheat bread crumbs",
-//                    "original": "1/4 cup whole wheat bread crumbs (I used panko)",
-//                    "originalName": "whole wheat bread crumbs (I used panko)",
-//                    "unit": "cup"
-//                }
 
     
     struct Ingredient: Decodable {

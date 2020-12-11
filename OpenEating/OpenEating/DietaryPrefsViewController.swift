@@ -40,29 +40,9 @@ class DietaryPrefsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-       // setUpUserDocument()
         addButtons()
         initButtonsStyle()
     }
-    
-//    func setUpUserDocument() {
-//
-//
-//        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String,String> ?? [:]
-//
-//        var ref: DocumentReference? = nil
-//        ref = db.collection("users").addDocument(data: userInfo) {
-//            err in
-//            if let err = err {
-//                print("Error adding document: \(err)")
-//            }
-//            else {
-//                print("Logged In Document added with ID: \(ref!.documentID)")
-//                UserDefaults.standard.set(ref!.documentID, forKey: userInfo["email"] ?? "")
-//                self.documentID = ref!.documentID
-//            }
-//        }
-//    }
     
     func addButtons() {
         buttons.append(vegtButton)
@@ -94,15 +74,6 @@ class DietaryPrefsViewController: UIViewController {
     
     private func addDocument() {
         
-//        var ref: DocumentReference? = nil
-//        ref = db.collection("users").document(documentID).collection("userPreferences").addDocument(data: preferences) {
-//            err in
-//            if let err = err {
-//                print("Error adding document: \(err)")
-//            }
-//            else {
-//                print("Document added with ID: \(ref!.documentID)")
-//            }
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
         preferences["name"] = info["name"]
@@ -115,38 +86,10 @@ class DietaryPrefsViewController: UIViewController {
                 }
             }
     }
-            
-//        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
-//        let email = info["email"]
-//        print(email)
-//
-//        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
-//        {
-//            (querySnapshot, err) in
-//                if let err = err
-//                {
-//                    print("Error getting documents: \(err)")
-//                }
-//                else
-//                {
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                    }
-//                }
-//        }
-        
-//        db.collection("users").document("userInfo").collection("userPreferences").document("defaultUserPreferences").setData(preferences)
-//            { err in
-//            if let err = err {
-//                print("Error writing document: \(err)")
-//            } else {
-//                print("Document successfully written!")
-//            }
-//        }
     
     @IBAction func clickPref(_ sender: UIButton) {
         
-        preferences[sender.accessibilityIdentifier ?? ""] = !((preferences[sender.accessibilityIdentifier ?? ""] ?? true) as! Bool)
+        preferences[sender.accessibilityIdentifier ?? ""] = !(preferences[sender.accessibilityIdentifier ?? ""] as? Bool ?? true)
         
         if(sender.backgroundColor == UIColor(named: "darkGreen")){
             sender.layer.borderWidth = 2.0
@@ -165,10 +108,6 @@ class DietaryPrefsViewController: UIViewController {
         self.addDocument()
         performSegue(withIdentifier: "PrefsToMain", sender: UIButton.self)
     }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        self.addDocument()
-//    }
     
     
 

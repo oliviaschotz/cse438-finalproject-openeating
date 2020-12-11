@@ -59,8 +59,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
             UserDefaults.standard.set(currentUser.userEmail, forKey: "email")
             
-            
-        print("Current User: \(currentUser)")
        
 //
 //            let userInfo = ["name": currentUser.firstName + " " + currentUser.lastName, "email": currentUser.userEmail]

@@ -10,18 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-//extension UIApplication {
-//    func tabBarController() -> UIViewController? {
-//        guard let vcs = self.keyWindow?.rootViewController?.children else { return nil }
-//        for vc in vcs {
-//            if let _ = vc as? UITabBarController {
-//                return vc
-//            }
-//        }
-//        
-//        return nil
-//    }
-//}
 
 class ProfileViewController: UIViewController {
     
@@ -45,7 +33,7 @@ class ProfileViewController: UIViewController {
 
     
     var buttons: [UIButton] = []
-    var preferences: [String:Bool] = [:]
+    var preferences: [String:Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,17 +44,22 @@ class ProfileViewController: UIViewController {
     
     func getPreferences() {
         // get document id and fetch preferences like in home view controller
-        // this is general -- need actual document id
-        let docRef = db.collection("users").document("userPreferences")
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.preferences = document.data() as? Dictionary<String, Bool> ?? [:]
-                print("Document data: \(self.preferences)")
-                self.addButtons()
-            }
-            else {
-                print("Document does not exist")
-            }
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        let email = info["email"]
+        
+        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
+        {
+            (querySnapshot, err) in
+                if let err = err
+                {
+                    print("Error getting documents: \(err)")
+                }
+                else
+                {
+                    let document = querySnapshot!.documents[0]
+                    self.preferences = document.data() as? Dictionary<String, Any> ?? [:]
+                    self.addButtons()
+                }
         }
     }
     
@@ -92,7 +85,7 @@ class ProfileViewController: UIViewController {
     
     for btn in buttons {
         
-        let isSet = preferences[btn.accessibilityIdentifier ?? ""] ?? false
+        let isSet = (preferences[btn.accessibilityIdentifier ?? ""] as? Bool) ?? false
         
         if(isSet){
             btn.backgroundColor = UIColor(named: "darkGreen") ?? UIColor.black
@@ -108,7 +101,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func clickPref(_ sender: UIButton) {
            
-       preferences[sender.accessibilityIdentifier ?? ""] = !(preferences[sender.accessibilityIdentifier ?? ""] ?? true)
+       preferences[sender.accessibilityIdentifier ?? ""] = !(preferences[sender.accessibilityIdentifier ?? ""] as? Bool ?? true)
        
        if(sender.backgroundColor == UIColor(named: "darkGreen")){
            sender.layer.borderWidth = 2.0
@@ -123,15 +116,20 @@ class ProfileViewController: UIViewController {
     
     @IBAction func saveChanges(_ sender: Any) {
         //maybe add spinner?
-        //this is general -- need actual document id
-            db.collection("users").document("userPreferences").setData(preferences)
-                { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("Document successfully written!")
-                }
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        let email = info["email"]
+        
+        preferences["name"] = info["name"]
+        preferences["email"] = email
+        
+        db.collection("users").document(email ?? "").setData(preferences)
+            { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
             }
+        }
     }
     
     
@@ -145,10 +143,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-//    func goHome() {
-//        let tabBarVC = self.tabBarController
-//        tabBarVC?.selectedIndex = 0
-//    }
     
     @IBAction func logOutAcct(_ sender: UIButton) {
         print("logging out")
@@ -161,9 +155,7 @@ class ProfileViewController: UIViewController {
             print("error signing out: %@", signOutError)
         }
         performSegue(withIdentifier: "LogOutToWelcome", sender: self)
-//        guard let tabBarController = UIApplication.shared.tabBarController() as? UITabBarController else { return }
-//        
-//        tabBarController.selectedIndex = 0
+
     }
     
 
