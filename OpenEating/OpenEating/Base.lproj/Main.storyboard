@@ -284,6 +284,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fif-SN-s2r"/>
                     <size key="freeformSize" width="375" height="1060"/>
+                    <connections>
+                        <segue destination="2lw-3d-Gr1" kind="show" identifier="ProfSUToDietaryPrefs" id="ENM-MF-nbf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PfT-Dl-Vav" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
