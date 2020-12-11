@@ -29,6 +29,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var shellfishButton: UIButton!
     @IBOutlet weak var soyButton: UIButton!
     @IBOutlet weak var treenutButton: UIButton!
+    @IBOutlet weak var profilePicture: UIImageView!
     
 
     
@@ -40,6 +41,10 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         getPreferences()
+    }
+    
+    func setProfilePic() {
+        //i found some links that kind of explain it but it uses objective c and idk how to do that
     }
     
     func getPreferences() {
