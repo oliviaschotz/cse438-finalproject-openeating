@@ -30,38 +30,33 @@ class LogInViewController: UIViewController {
     @IBAction func clickSignIn(_ sender: UIButton) {
         
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
-            let email = info["email"]
-            print(email)
+        let email = info["email"]
+        
+        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
+        {
             
-            let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
-            {
-                
-                (querySnapshot, err) in
-                
-                    if let err = err
+            (querySnapshot, err) in
+            
+                if let err = err
+                {
+                    print("Error getting documents: \(err)")
+                }
+                else
+                {
+                    if(querySnapshot!.documents.count == 0)
                     {
-                        print("Error getting documents: \(err)")
+                        let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alertController, animated: true)
                     }
-                    else
-                    {
-                        if(querySnapshot!.documents.count == 0)
-                        {
-                            let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
-                            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                            self.present(alertController, animated: true)
-                        }
-                        else {
-                            self.goToHome()
-                        }
+                    else {
+                        self.performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
                     }
-            }
+                }
+        }
         //check if signed in...if not have error message pop up
     }
 
-    
-    func goToHome() {
-        performSegue(withIdentifier: "SignInToHome", sender: UIButton.self)
-    }
 
     /*
     // MARK: - Navigation

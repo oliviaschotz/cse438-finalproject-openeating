@@ -145,11 +145,13 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func logOutAcct(_ sender: UIButton) {
-        print("logging out")
+        
+        UserDefaults.standard.set([], forKey: "userInfo")
+        UserDefaults.standard.set("", forKey: "email")
+        
         let firebaseAuth = Auth.auth()
         do{
             try firebaseAuth.signOut()
-            print("successfully logged out")
         }
         catch let signOutError as NSError{
             print("error signing out: %@", signOutError)

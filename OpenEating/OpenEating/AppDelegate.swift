@@ -16,24 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var handle: AuthStateDidChangeListenerHandle?
     
-//    let db = Firestore.firestore()
-//    var docRef: DocumentReference!
-    
-    //    struct User {
-    //        var firstName: String
-    //        var lastName: String
-    //        var userEmail: String
-    //        var userDocRef: String
-    //
-    //        init(firstName: String, lastName: String, userEmail: String) {
-    //            self.firstName = firstName
-    //            self.lastName = lastName
-    //            self.userEmail = userEmail
-    //            userDocRef = ""
-    //        }
-    //
-    //    }
-    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if (error == nil) {
@@ -43,43 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             //currentUser(firstName: user.profile.givenName, lastName: user.profile.familyName, userEmail: user.profile.email)
             let currentUser = User(name: (user.profile.givenName ?? "No Name") + " " + (user.profile.familyName ?? "No Name"), userEmail: user.profile.email ?? "No Email")
             
-
-            print("Current User: \(currentUser)")
-            
             let userInfo = ["name": currentUser.name, "email": currentUser.userEmail]
             
             UserDefaults.standard.set(userInfo, forKey: "userInfo")
             
-            
-            let documentID = UserDefaults.standard.object(forKey: userInfo["email"] ?? "") as? String ?? ""
-            
-            if(documentID != ""){
-                UserDefaults.standard.set(documentID, forKey: "currentID")
-            }
-
             UserDefaults.standard.set(currentUser.userEmail, forKey: "email")
-            
-       
-//
-//            let userInfo = ["name": currentUser.firstName + " " + currentUser.lastName, "email": currentUser.userEmail]
-//
-
-//            var ref: DocumentReference? = nil
-//            ref = db.collection("users").addDocument(data: userInfo) {
-//                err in
-//                if let err = err {
-//                    print("Error adding document: \(err)")
-//                }
-//                else {
-//                    print("Logged In Document added with ID: \(ref!.documentID)")
-
-//                    UserDefaults.standard.set(ref!.documentID, forKey: "currentID")
-
-//                    self.documentID = ref!.documentID
-//                    UserDefaults.standard.set(self.documentID, forKey: "id")
-
-//                }
-//            }
             
             
             

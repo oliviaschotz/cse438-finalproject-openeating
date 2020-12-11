@@ -201,7 +201,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="clickCreateAcct:" destination="o0O-rf-t0d" eventType="touchUpInside" id="xSj-wb-Yhr"/>
-                                                    <segue destination="2lw-3d-Gr1" kind="show" id="xmP-Mn-BNa"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcK-sy-RaN" customClass="GIDSignInButton">
