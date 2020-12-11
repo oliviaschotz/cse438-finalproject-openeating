@@ -880,7 +880,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="mHQ-Xq-QWT" kind="presentation" modalPresentationStyle="fullScreen" id="rHd-FS-jGm"/>
+                                    <action selector="clickSignIn:" destination="QEy-zI-jX4" eventType="touchUpInside" id="bnH-Sr-VS7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Cooking!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0k-nH-cKZ">
@@ -939,7 +939,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rHd-FS-jGm"/>
+        <segue reference="axD-hb-AJl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="darkGreen"/>
     <resources>

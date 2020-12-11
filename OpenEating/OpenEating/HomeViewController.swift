@@ -49,7 +49,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let title: String?
     }
     
-    var userPreferences: [String:Bool] = [:]
+    var userPreferences: [String:Any] = [:]
     
     let db = Firestore.firestore()
     var docRef: DocumentReference!
@@ -98,39 +98,52 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let id:String = documentID
         print(type(of: id))
         print(type(of: "G8MDy2tXupCivTgqxf9g"))
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        let email = info["email"]
+        print(email)
         
-        let docRef = db.collection("users").whereField("email", isEqualTo: "oliviaschotz@gmail.com")
-        
-//            .getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
-//                    }
-//                }
-//        }
+        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
+        {
+            (querySnapshot, err) in
+                if let err = err
+                {
+                    print("Error getting documents: \(err)")
+                }
+                else
+                {
+                    let document = querySnapshot!.documents[0]
+                    print("\(document.documentID) => \(document.data())")
+                      self.userPreferences = document.data() as? Dictionary<String, Any> ?? [:]
+                    //                print("Document data: \(self.userPreferences)")
+                    self.formatOptions()
+                    print(querySnapshot!.documents.count)
+                    
+                    
+                }
+        }
         
 //        document(documentID).collection("userPreferences").document("SMGKSLfkuIttnchizrIe")
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                print(document.data())
-                self.userPreferences = document.data() as? Dictionary<String, Bool> ?? [:]
-                print("Document data: \(self.userPreferences)")
-                self.formatOptions()
-            }
-            else {
-                print("Document does not exist")
-            }
-        }
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//                print(document.data())
+//                self.userPreferences = document.data() as? Dictionary<String, Bool> ?? [:]
+//                print("Document data: \(self.userPreferences)")
+//                self.formatOptions()
+//            }
+//            else {
+//                print("Document does not exist")
+//            }
+//        }
     }
     
     func formatOptions(){
         diet = ""
         intolerances = ""
+        print("hi")
+        print(userPreferences)
         
         for (k,v) in userPreferences {
-            if(v){
+            if(v) as? Bool ?? false{
                 if(k.firstIndex(of: "F") != nil){
                     intolerances += k[..<(k.firstIndex(of: "F") ?? k.endIndex)]+","
                 }
