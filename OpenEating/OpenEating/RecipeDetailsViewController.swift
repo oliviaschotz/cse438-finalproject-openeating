@@ -141,20 +141,17 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                     { print("Error getting documents: \(err)") }
                 else
                 {
-                    for document in querySnapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
-                        var data = document.data()
-//                        var favorites = data.favorites
-//                        for favorite in favorites {
-//                            favoritesArray.append(favorite)
-//                        }
-                    }
+                    let document = querySnapshot!.documents[0]
+                    let data = document.data()
+                    self.favoritesArray = data["favorites"] as? [Int] ?? []
                 }
         }
     }
     
     func setFavorites () {
+        //have to reset all user preferences not just favorites
         
+        //db.collection("users")   .document("frank")   .update({     "age": 13,     "favorites.color": "Red"   });
         
     }
     
