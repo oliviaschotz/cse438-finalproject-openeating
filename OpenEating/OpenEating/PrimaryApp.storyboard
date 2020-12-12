@@ -802,9 +802,6 @@
                         <viewLayoutGuide key="safeArea" id="fSG-PI-oSe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="BSo-GL-O3c"/>
-                    <connections>
-                        <outlet property="tableView" destination="hvB-TA-azz" id="E1Q-Eu-48P"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vso-h8-CnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
