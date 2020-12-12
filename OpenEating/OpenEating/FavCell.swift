@@ -10,5 +10,7 @@ import UIKit
 
 class FavCell: UITableViewCell{
     
+    @IBOutlet weak var recipeName: UILabel!
+    @IBOutlet weak var recipeTags: UILabel!
     
 }

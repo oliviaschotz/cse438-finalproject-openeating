@@ -757,7 +757,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="129" id="Qsz-o4-cRn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="129" id="Qsz-o4-cRn" customClass="FavCell" customModule="OpenEating" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qsz-o4-cRn" id="dfb-mh-Ua3">
@@ -794,6 +794,10 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="dCK-r3-8lI" secondAttribute="bottom" constant="2" id="lSh-Ds-U9u"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="recipeName" destination="ecA-TN-Im6" id="chK-1U-FLv"/>
+                                            <outlet property="recipeTags" destination="4aC-I4-ghc" id="rQJ-ZS-sfM"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
