@@ -18,11 +18,20 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     var docRef: DocumentReference!
     
     var favoritesArray: [Int] = []
+    var recipeResults: [Recipe] = []
+       
+    struct Recipe: Decodable {
+        let title: String?
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
 
         getFavorites()
+        fetchDataForTableView()
         
     }
     
@@ -32,18 +41,17 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return favoritesArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
-//               cell.recipeName.text = recipeResults[indexPath.row].title
-//               cell.recipeImage.image = theImageCache[indexPath.row]
-               return cell
-    }
     
     func fetchDataForTableView(){
+        for recipeID in favoritesArray{
+            let urlPath = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false" //where to put API key?
+            guard let url = URL(string: urlPath) else { return  }
+            guard let data =  try?  Data(contentsOf: url) else { return }
+            guard let theData = try? JSONDecoder().decode(Recipe.self, from: data) else {
+                print("error")
+                return }
+            recipeResults.append(theData)
+        }
         
     }
     
@@ -64,7 +72,17 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     
+
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipeResults.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
+        cell.recipeName.text = recipeResults[indexPath.row].title
+        return cell
+    }
+}
     
 
     /*
