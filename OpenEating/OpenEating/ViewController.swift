@@ -49,23 +49,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfLoggedIn()
+//        checkIfLoggedIn()
         // Do any additional setup after loading the view.
-        if (loggedIn ?? false) != true {
-            print("not logged in")
-        }
-        else {
-            print("user already logged in")
-            performSegue(withIdentifier: "WelcomeToHome", sender: self)
-        }
+//        if (loggedIn ?? false) != true {
+//            print("not logged in")
+//        }
+//        else {
+//            print("user already logged in")
+//            performSegue(withIdentifier: "WelcomeToHome", sender: self)
+//        }
 
-        
+
 //        GIDSignIn.sharedInstance()?.presentingViewController = self
 //        GIDSignIn.sharedInstance().signIn()
-        
+
         // instead of 'userPreferences,' this will later be the user-specific document within the users collection that stores their preferences
         docRef = Firestore.firestore().document("users/userPreferences")
-        
+
     }
     
     

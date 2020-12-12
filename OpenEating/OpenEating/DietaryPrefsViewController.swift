@@ -34,6 +34,7 @@ class DietaryPrefsViewController: UIViewController {
     
     var buttons: [UIButton] = []
     var preferences: [String:Any] = [:]
+    var favoritesArray: [Int] = []
 
     
     override func viewDidLoad() {
@@ -77,7 +78,10 @@ class DietaryPrefsViewController: UIViewController {
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
         preferences["name"] = info["name"]
-        preferences["email"] = email 
+        preferences["email"] = email
+        
+        preferences["favorites"] = favoritesArray
+        
         db.collection("users").document(email ?? "").setData(preferences) { err in
                 if let err = err {
                     print("Error writing document: \(err)")

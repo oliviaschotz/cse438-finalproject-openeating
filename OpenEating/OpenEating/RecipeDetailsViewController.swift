@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+    let db = Firestore.firestore()
+    var docRef: DocumentReference!
+    
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeTags: UILabel!
@@ -21,6 +24,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var recipeID = 0
     var image = UIImage()
+    
+    var favoritesArray: [Int] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -74,6 +79,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         recipeName.text = theRecipe.title
         numLikes.text = String(describing: theRecipe.aggregateLikes!)
         
+        recipeID = theRecipe.id ?? 0
+        
         summary.text = parseHTML(str: theRecipe.summary)
         instructions.text = parseHTML(str: theRecipe.instructions)
         
@@ -113,6 +120,44 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let ac = UIActivityViewController(activityItems: recipeInfo, applicationActivities: [])
         present(ac, animated: true)
     }
+    
+    @IBAction func addFavorite(_ sender: Any) {
+        favoritesArray = []
+        
+        getFavorites()
+        
+        favoritesArray.append(recipeID)
+        
+        setFavorites()
+    }
+    
+    func getFavorites () {
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        let email = info["email"]
+        
+        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
+            (querySnapshot, err) in
+                if let err = err
+                    { print("Error getting documents: \(err)") }
+                else
+                {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        var data = document.data()
+//                        var favorites = data.favorites
+//                        for favorite in favorites {
+//                            favoritesArray.append(favorite)
+//                        }
+                    }
+                }
+        }
+    }
+    
+    func setFavorites () {
+        
+        
+    }
+    
     
     
     /*
