@@ -124,10 +124,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func addFavorite(_ sender: Any) {
         favoritesArray = []
         
-        getFavorites()
-        
-        favoritesArray.append(recipeID)
-        
+        if favoritesArray.contains(recipeID){
+            let index = favoritesArray.firstIndex(of: recipeID)
+            favoritesArray.remove(at: index!)
+        }
+        else{
+            self.favoritesArray.append(self.recipeID)
+        }
         setFavorites()
     }
     
@@ -149,9 +152,26 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func setFavorites () {
-        //have to reset all user preferences not just favorites
-        
-        //db.collection("users")   .document("frank")   .update({     "age": 13,     "favorites.color": "Red"   });
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+                 let email = info["email"]
+                 
+                 let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
+                     (querySnapshot, err) in
+                         if let err = err
+                             { print("Error getting documents: \(err)") }
+                        else {
+                            let document = querySnapshot!.documents[0]
+                            document.reference.updateData(["favorites":self.favoritesArray]) { err in
+                                if let err = err {
+                                    print("Error updating document: \(err)")
+                                } else {
+                                    print("Document successfully updated")
+                                }
+                            }
+                        }
+            
+                }
+        }
         
     }
     
