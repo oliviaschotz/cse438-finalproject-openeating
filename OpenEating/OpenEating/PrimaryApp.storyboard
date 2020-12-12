@@ -829,14 +829,14 @@
             <objects>
                 <viewController title="Recipe Page" automaticallyAdjustsScrollViewInsets="NO" id="MKf-F7-X8u" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iDI-lr-V74">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2264"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2173"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxK-R6-UtD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="2181"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="2090"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKH-eN-l3r" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2181"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2090"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chickpeaPic" translatesAutoresizingMaskIntoConstraints="NO" id="Hkq-ie-sg7">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
@@ -859,10 +859,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTf-tG-6xF">
-                                                <rect key="frame" x="39.999999999999993" y="398" width="82.333333333333314" height="28"/>
+                                                <rect key="frame" x="30" y="398" width="91" height="28"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVH-9u-75E">
-                                                        <rect key="frame" x="35" y="5" width="33.333333333333343" height="18"/>
+                                                        <rect key="frame" x="35" y="5" width="42" height="18"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                         <color key="textColor" name="mediumGray"/>
                                                         <nil key="highlightedColor"/>
@@ -887,11 +887,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kyq-27-gaY">
-                                                <rect key="frame" x="152.33333333333337" y="398" width="138.66666666666663" height="28"/>
+                                                <rect key="frame" x="151" y="398" width="140" height="28"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atg-C7-P4I">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atg-C7-P4I">
                                                         <rect key="frame" x="4" y="4" width="132" height="20"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="132" id="dtF-D7-e30"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                         <color key="tintColor" name="lightGreen"/>
                                                         <state key="normal" title="Add Favorite" image="star" catalog="system">
@@ -904,6 +906,9 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="atg-C7-P4I" firstAttribute="centerY" secondItem="Kyq-27-gaY" secondAttribute="centerY" id="LaT-R2-K1A"/>
+                                                    <constraint firstItem="atg-C7-P4I" firstAttribute="leading" secondItem="Kyq-27-gaY" secondAttribute="leading" constant="4" id="MHo-cH-Rh8"/>
+                                                    <constraint firstItem="atg-C7-P4I" firstAttribute="centerX" secondItem="Kyq-27-gaY" secondAttribute="centerX" id="Ypn-C3-KG4"/>
                                                     <constraint firstAttribute="height" constant="28" id="sXL-G7-IRr"/>
                                                 </constraints>
                                             </view>
@@ -970,26 +975,26 @@
                                                 <color key="textColor" name="lightGreen"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="60" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDp-H8-Fh6">
-                                                <rect key="frame" x="18" y="1200" width="339" height="602"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" lineBreakMode="tailTruncation" numberOfLines="60" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDp-H8-Fh6">
+                                                <rect key="frame" x="18" y="1200" width="339" height="511"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="602" id="eWJ-gm-xhR"/>
+                                                    <constraint firstAttribute="height" constant="511" id="MhD-Ss-vhb"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum tellus eget erat aliquam venenatis. Ut molestie risus vel commodo tempus. Nam turpis nisl, maximus tincidunt ultricies id, luctus nec urna. Proin id est dapibus, pretium turpis sed, pretium ex. Proin finibus feugiat mi nec aliquet. Vestibulum non consectetur lacus. Donec tempor ligula ac urna ultricies laoreet. Curabitur sit amet leo eget tellus ultrices condimentum. Vivamus sodales dolor diam, eget consectetur justo venenatis sit amet. Sed erat est, rhoncus vitae augue eu, pellentesque dapibus erat.
+                                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla interdum tellus eget erat aliquam venenatis. Ut molestie risus vel commodo tempus. Nam turpis nisl, maximus tincidunt ultricies id, luctus nec urna. Proin id est dapibus, pretium turpis sed, pretium ex. Proin finibus feugiat mi nec aliquet. Vestibulum non consectetur lacus. Donec tempor ligula ac urna ultricies laoreet. Curabitur sit amet leo eget tellus ultrices condimentum. Vivamus sodales dolor diam, eget consectetur justo venenatis sit amet. Sed erat est, rhoncus vitae augue eu, pellentesque dapibus erat.
 
-Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras feugiat nec nunc non ultrices. Mauris finibus cursus augue eu maximus. Curabitur eget mi quis dolor pulvinar porttitor. Proin vitae porttitor ante, et tempor quam. Curabitur sit amet scelerisque arcu. Nullam augue tellus, pulvinar eget leo quis, consequat condimentum urna. Quisque vehicula, enim in commodo porta, nisi lacus egestas magna, id cursus nunc ex ac lorem. Morbi luctus mauris quis orci efficitur laoreet. Etiam vel posuere turpis. Vivamus varius sem augue, at vehicula erat feugiat eu. Phasellus quis ante nisi. Aenean semper dapibus posuere. Nunc efficitur velit in faucibus lacinia.</string>
+Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras feugiat nec nunc non ultrices. Mauris finibus cursus augue eu maximus. Curabitur eget mi quis dolor pulvinar porttitor. Proin vitae porttitor ante, et tempor quam. Curabitur sit amet scelerisque arcu. Nullam augue tellus, pulvinar eget leo quis, consequat condimentum urna. Quisque vehicula, enim in commodo porta, nisi lacus egestas magna, id cursus nunc ex ac lorem. Morbi luctus mauris quis orci efficitur laoreet.</mutableString>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AS3-tP-v9G">
-                                                <rect key="frame" x="18" y="1834" width="147" height="35"/>
+                                                <rect key="frame" x="18" y="1743" width="147" height="35"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="29"/>
                                                 <color key="textColor" name="lightGreen"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eF6-dC-8uY">
-                                                <rect key="frame" x="18" y="1877" width="286" height="34"/>
+                                                <rect key="frame" x="18" y="1786" width="286" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="34" id="RzH-qM-TqV"/>
                                                 </constraints>
@@ -997,12 +1002,12 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uks-qe-IQk">
-                                                <rect key="frame" x="322" y="1878" width="35" height="32"/>
+                                                <rect key="frame" x="322" y="1787" width="35" height="32"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Post"/>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g90-ET-FBX">
-                                                <rect key="frame" x="18" y="1931" width="339" height="200"/>
+                                                <rect key="frame" x="18" y="1840" width="339" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Uah-l7-ZRP"/>
@@ -1033,9 +1038,10 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstItem="6XQ-SG-Sgk" firstAttribute="leading" secondItem="Kyq-27-gaY" secondAttribute="trailing" constant="30" id="4NF-a8-Yim"/>
                                             <constraint firstItem="RX8-gx-xAj" firstAttribute="top" secondItem="s7u-uH-Dgi" secondAttribute="bottom" constant="32" id="6n4-zV-pmh"/>
                                             <constraint firstAttribute="trailing" secondItem="68n-J9-Lad" secondAttribute="trailing" constant="199" id="6nE-0Z-6fR"/>
+                                            <constraint firstAttribute="bottom" secondItem="g90-ET-FBX" secondAttribute="bottom" constant="50" id="7q1-9q-gVy"/>
                                             <constraint firstItem="OLQ-Xs-0u5" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="7xM-Io-Njq"/>
                                             <constraint firstItem="g90-ET-FBX" firstAttribute="top" secondItem="eF6-dC-8uY" secondAttribute="bottom" constant="20" id="8Xt-dc-32N"/>
-                                            <constraint firstItem="DTf-tG-6xF" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="40" id="8ZO-Nv-qAK"/>
+                                            <constraint firstItem="DTf-tG-6xF" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="30" id="8ZO-Nv-qAK"/>
                                             <constraint firstAttribute="trailing" secondItem="OLQ-Xs-0u5" secondAttribute="trailing" constant="18" id="9JL-sF-k8v"/>
                                             <constraint firstItem="QDp-H8-Fh6" firstAttribute="top" secondItem="68n-J9-Lad" secondAttribute="bottom" constant="8" id="9Mi-Ny-b8X"/>
                                             <constraint firstItem="s7u-uH-Dgi" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="AnG-t3-ire"/>
@@ -1066,7 +1072,6 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstItem="gDH-Ca-PTG" firstAttribute="top" secondItem="RX8-gx-xAj" secondAttribute="bottom" constant="8" id="dwq-NP-yQX"/>
                                             <constraint firstItem="eF6-dC-8uY" firstAttribute="top" secondItem="AS3-tP-v9G" secondAttribute="bottom" constant="8" id="eSA-ZQ-4K1"/>
                                             <constraint firstAttribute="trailing" secondItem="sAp-Ru-mzj" secondAttribute="trailing" constant="229.66999999999999" id="fFn-1m-P1a"/>
-                                            <constraint firstAttribute="bottom" secondItem="g90-ET-FBX" secondAttribute="bottom" constant="50" id="gN9-KN-NK0"/>
                                             <constraint firstAttribute="trailing" secondItem="AS3-tP-v9G" secondAttribute="trailing" constant="210" id="geM-VG-7Bn"/>
                                             <constraint firstItem="gDH-Ca-PTG" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="i9a-SE-EIs"/>
                                             <constraint firstItem="RX8-gx-xAj" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="oe2-tL-cMT"/>
@@ -1102,7 +1107,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <viewLayoutGuide key="safeArea" id="db4-56-68f"/>
                     </view>
                     <navigationItem key="navigationItem" id="P6v-cr-8Sp"/>
-                    <size key="freeformSize" width="375" height="2352"/>
+                    <size key="freeformSize" width="375" height="2261"/>
                     <connections>
                         <outlet property="instructions" destination="QDp-H8-Fh6" id="X5r-iV-d4B"/>
                         <outlet property="numLikes" destination="hVH-9u-75E" id="jV5-ID-9C1"/>
