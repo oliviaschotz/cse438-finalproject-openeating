@@ -17,7 +17,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var instructions: UILabel!
-
+    @IBOutlet weak var shareButton: UIImageView!
+    
     var recipeID = 0
     var image = UIImage()
     
@@ -98,6 +99,22 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
 
         return parsedStr as String?
     }
+    
+    @IBAction func shareRecipe(_ sender: Any) {
+        var ingredientsList: String = ""
+        for ingredient in ingredients {
+            // don't force unwrap this
+            ingredientsList = ingredientsList + ", " + ingredient.original!
+        }
+        print("\(ingredientsList)")
+        
+        // need to figure out how to get ingredients as a string since they are in an array currently
+        let recipeInfo: [String?] = [recipeName.text, summary.text, instructions.text]
+        let ac = UIActivityViewController(activityItems: recipeInfo, applicationActivities: [])
+        present(ac, animated: true)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

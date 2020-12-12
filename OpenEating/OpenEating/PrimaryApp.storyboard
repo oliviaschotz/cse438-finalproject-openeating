@@ -1070,6 +1070,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <outlet property="recipeImage" destination="Hkq-ie-sg7" id="N3W-P6-Zc4"/>
                         <outlet property="recipeName" destination="5Yv-cJ-BK1" id="jGs-EQ-xCA"/>
                         <outlet property="recipeTags" destination="OLQ-Xs-0u5" id="cVd-Y7-NQA"/>
+                        <outlet property="shareButton" destination="5cD-em-7AJ" id="2Pr-Nf-G5e"/>
                         <outlet property="summary" destination="s7u-uH-Dgi" id="AGw-bf-d8k"/>
                         <outlet property="tableView" destination="gDH-Ca-PTG" id="f78-m2-qnI"/>
                     </connections>
