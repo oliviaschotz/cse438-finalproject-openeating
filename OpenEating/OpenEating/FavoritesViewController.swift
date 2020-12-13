@@ -17,7 +17,13 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     var docRef: DocumentReference!
     
     var favoritesArray: [Int] = []
-    var recipeResults: [Recipe] = []
+    var recipeResults: [Recipe] = []{
+        didSet{
+            tableView.reloadData()
+        }
+    }
+       
+    
        
     struct Recipe: Decodable {
         let title: String?
@@ -27,6 +33,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         setupTableView()
+        getFavorites()
 //        DispatchQueue.global(qos: .userInitiated).async {
 //            self.getFavorites()
 //            print("initial favorites \(self.favoritesArray)")
@@ -40,13 +47,15 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupTableView()
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.getFavorites()
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-        }
+//        setupTableView()
+//        getFavorites()
+//        _____
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            self.getFavorites()
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//        }
     }
     
     func setupTableView(){
@@ -83,7 +92,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 print("error")
                 return }
             recipeResults.append(theData)
-            tableView.reloadData()
+            //tableView.reloadData()
         }
     }
     
@@ -98,7 +107,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
         //cell.recipeTags.text = ""
-        cell.recipeName?.text = recipeResults[indexPath.row].title
+        cell.recipeName.text = recipeResults[indexPath.row].title
         print(recipeResults[indexPath.row].title)
         return cell
     }
