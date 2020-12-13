@@ -49,15 +49,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        checkIfLoggedIn()
+        checkIfLoggedIn()
         // Do any additional setup after loading the view.
-//        if (loggedIn ?? false) != true {
-//            print("not logged in")
-//        }
-//        else {
-//            print("user already logged in")
-//            performSegue(withIdentifier: "WelcomeToHome", sender: self)
-//        }
+        if (loggedIn ?? false) != true {
+            print("not logged in")
+        }
+        else {
+            print("user already logged in")
+            performSegue(withIdentifier: "WelcomeToHome", sender: self)
+        }
 
 
 //        GIDSignIn.sharedInstance()?.presentingViewController = self
