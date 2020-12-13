@@ -183,7 +183,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func shareRecipe(_ sender: Any) {
         for ingredient in ingredients {
             // don't force unwrap this
-            ingredientsList = ingredientsList + ", " + ingredient.original!
+            ingredientsList = "\(ingredientsList), \(ingredient.original ?? " ")"
         }
 
         let recipeInfo: [String?] = [recipeName.text, " Summary: \(summary.text ?? "No Summary")", " Ingredients: \(ingredientsList)", " Instructions: \(instructions.text ?? "No Instructions")"]
