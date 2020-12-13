@@ -16,14 +16,15 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
-    let api_key = "7b2c5999d4f940a999efad739e883d3c"
+    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
     
     var favoritesArray: [[String:Any]] = []{
         didSet{
             tableView.reloadData()
         }
     }
-    
+    var name: String = ""
+    var recipeImage: UIImage?
        
 //    struct Recipe: Decodable {
 //        let title: String?
@@ -62,6 +63,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 let document = querySnapshot!.documents[0]
                 let data = document.data()
                 self.favoritesArray = data["favorites"] as? [[String:Any]] ?? []
+                self.name = data["name"] as! String
 //                self.fetchDataForTableView()
             }
             print(self.favoritesArray)
@@ -110,20 +112,29 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if(segue.identifier == "FavoritesToRecipe") {
-
             guard let indexPaths=self.tableView!.indexPathsForSelectedRows else {
                 return
             }
             let indexPath = indexPaths[0] as NSIndexPath
             let selectedRecipe = favoritesArray[indexPath.row]
             
+            
+            let imagePath: String = selectedRecipe["image"] as! String
+            if(imagePath.count != 0)
+            {
+                guard let url = URL(string: imagePath) else { return }
+                guard let data = try? Data(contentsOf: url) else { return }
+                guard let image = UIImage(data: data) else { return }
+                recipeImage = image
+            }
+            
             guard let recipeVC = segue.destination as? RecipeDetailsViewController else {
                 return
             }
             
             recipeVC.recipeID = selectedRecipe["id"] as! Int
-            recipeVC.image = selectedRecipe["image"] as! UIImage
-            //recipeVC.name = userPreferences["name"] as? String ?? ""
+            recipeVC.image = recipeImage ?? UIImage()
+            recipeVC.name = name
         }
     }
     

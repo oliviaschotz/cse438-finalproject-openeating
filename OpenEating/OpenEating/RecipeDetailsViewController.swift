@@ -16,7 +16,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
-    let api_key = "7b2c5999d4f940a999efad739e883d3c"
+    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
     
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -39,6 +39,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     /*favoritesArray example:
     [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
      */
+    var imageURL: String = ""
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentsTableView: UITableView!
@@ -260,8 +261,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
             if self.favoritesArray.count == count{
-                let newFav: [String:Any] = ["name": self.recipeTitle,"id": self.recipeID, "image": self.image ]
-//                let newFav: [String:Any] = ["name": self.recipeTitle,"id": self.recipeID ]
+                let newFav: [String:Any] = ["name": self.recipeTitle,"id": self.recipeID, "image": self.imageURL ]
                 self.favoritesArray.append(newFav)
             }
             

@@ -26,7 +26,7 @@ class WineViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
     var cuisine: String = ""
-    let api_key = "7b2c5999d4f940a999efad739e883d3c"
+    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
     var wines: [Wine] = []
 
     

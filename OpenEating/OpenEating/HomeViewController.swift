@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var spinner = UIActivityIndicatorView(style: .large)
     var noResults: UILabel!
     
-    let api_key = "7b2c5999d4f940a999efad739e883d3c"
+    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
     var diet = ""
     var intolerances = ""
     let addRecipeInformation = true
@@ -236,6 +236,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             
             recipeVC.recipeID = selectedRecipe.id ?? 0
             recipeVC.image = theImageCache[indexPath.row]
+            recipeVC.imageURL = selectedRecipe.image ?? ""
             recipeVC.name = userPreferences["name"] as? String ?? ""
         }
     }
