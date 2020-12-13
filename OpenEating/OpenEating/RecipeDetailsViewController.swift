@@ -138,6 +138,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         summary.text = parseHTML(str: theRecipe.summary)
         instructions.text = parseHTML(str: theRecipe.instructions)
+        if instructions.text == "" {
+            instructions.text = "No instructions available"
+            instructions.textColor = UIColor(named: "lightGray") ?? UIColor.gray
+        }
         
         ingredients = theRecipe.extendedIngredients ?? []
     }
