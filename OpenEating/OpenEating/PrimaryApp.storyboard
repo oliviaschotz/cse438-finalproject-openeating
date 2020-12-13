@@ -1019,7 +1019,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                     <constraint firstAttribute="height" constant="200" id="Uah-l7-ZRP"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ky2-Pl-L1p">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="Ky2-Pl-L1p">
                                                         <rect key="frame" x="0.0" y="28" width="339" height="43.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ky2-Pl-L1p" id="fak-6Y-BGS">
@@ -1116,6 +1116,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                     <size key="freeformSize" width="375" height="2261"/>
                     <connections>
                         <outlet property="commentText" destination="eF6-dC-8uY" id="Ew0-ML-esb"/>
+                        <outlet property="commentsTableView" destination="g90-ET-FBX" id="jdf-0H-znX"/>
                         <outlet property="instructions" destination="QDp-H8-Fh6" id="X5r-iV-d4B"/>
                         <outlet property="numLikes" destination="hVH-9u-75E" id="jV5-ID-9C1"/>
                         <outlet property="recipeImage" destination="Hkq-ie-sg7" id="N3W-P6-Zc4"/>

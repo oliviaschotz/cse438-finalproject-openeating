@@ -30,6 +30,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     var favoritesArray: [Int] = []
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var commentsTableView: UITableView!
     
     struct DetailedRecipe: Decodable {
         let id: Int?
@@ -54,6 +55,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     var ingredients: [Ingredient] = []
+    var comments: [String] = []
     
     
     override func viewDidLoad() {
@@ -63,10 +65,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
+        
         recipeImage.image = image
         getRecipeInformation()
         
-        displayComments()
+        getInitComments()
     }
     
 
@@ -92,13 +97,26 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ingredients.count
+        print("COMMENTS COUNT: \(comments.count)")
+        if(tableView == self.tableView){
+            return ingredients.count
+        }
+        else {
+            return comments.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ingredientCell")
-        cell.textLabel?.text = ingredients[indexPath.row].original
-        return cell
+        if(tableView == self.tableView){
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "ingredientCell")
+            cell.textLabel?.text = ingredients[indexPath.row].original
+                return cell
+        }
+        else {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "commentCell")
+            cell.textLabel?.text = comments[indexPath.row]
+            return cell
+        }
     }
     
 //    for creating/using regex in swift: https://medium.com/@dkw5877/regular-expressions-in-swift-928561ad55c8
@@ -180,9 +198,39 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction func addComment(_ sender: Any) {
         let comment = commentText.text ?? ""
-        let commentToPost = "\(name): \(comment)"
         
+        if(comment != ""){
+            let commentToPost = "\(name): \(comment)"
+            
+                    
+            let docRef = db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
+            {
+                (querySnapshot, err) in
                 
+                    if let err = err
+                    {
+                        print("Error getting documents: \(err)")
+                    }
+                    else
+                    {
+                        if(querySnapshot!.documents.count == 0)
+                        {
+                            //add document
+                            self.addDocument(commentToPost: commentToPost)
+                        }
+                        else {
+                            //append
+                            var comments = querySnapshot!.documents[0].data()["comments"]
+                            self.updateDocument(comments: comments as! [String], commentToPost: commentToPost)
+                        }
+                    }
+            }
+        }
+        
+        
+    }
+    
+    func getInitComments(){
         let docRef = db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
         {
             (querySnapshot, err) in
@@ -193,30 +241,32 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 else
                 {
-                    if(querySnapshot!.documents.count == 0)
+                    if(querySnapshot!.documents.count != 0)
                     {
                         //add document
-                        self.addDocument(commentToPost: commentToPost)
+                        self.comments = querySnapshot!.documents[0].data()["comments"] as? [String] ?? []
+                        self.displayComments()
                     }
                     else {
                         //append
-                        var comments = querySnapshot!.documents[0].data()["comments"]
-                        self.updateDocument(comments: comments as! [String], commentToPost: commentToPost)
+                        print("No comments!")
                     }
                 }
         }
-        
-        
     }
     
     func addDocument(commentToPost: String)
     {
         let data: [String: Any?] = ["id":recipeID, "comments":[commentToPost]]
+        
+        comments = [commentToPost]
+        
         db.collection("comments").document(String(recipeID) ?? "").setData(data) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                self.displayComments()
             }
         }
     }
@@ -226,21 +276,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         var commentUpdate = comments
         commentUpdate.append(commentToPost)
         
+        self.comments = commentUpdate
+        
         let data: [String: Any?] = ["id":recipeID, "comments":commentUpdate]
         db.collection("comments").document(String(recipeID) ?? "").setData(data) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                self.displayComments()
             }
         }
-        
 
     }
     
     func displayComments()
     {
-        //if they exist
+        commentText.text = ""
+        commentsTableView.reloadData()
     }
     
         
