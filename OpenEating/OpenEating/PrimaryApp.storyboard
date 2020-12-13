@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeScreen" id="YY0-n2-MG1" customClass="HomeViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kzb-ce-Y4z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ise-GX-59F">
@@ -189,7 +189,7 @@
             <objects>
                 <viewController storyboardIdentifier="profileVC" automaticallyAdjustsScrollViewInsets="NO" id="rJi-qc-jXa" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fsk-QH-NJu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1362"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFm-jr-KKw">
@@ -734,7 +734,7 @@
             <objects>
                 <viewController id="eoD-X2-oli" customClass="FavoritesViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zMA-vK-MUe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Favorites List Background" translatesAutoresizingMaskIntoConstraints="NO" id="wyM-fE-qZT">
@@ -831,7 +831,7 @@
             <objects>
                 <viewController title="Recipe Page" automaticallyAdjustsScrollViewInsets="NO" id="MKf-F7-X8u" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iDI-lr-V74">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2261"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2173"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxK-R6-UtD">
@@ -889,7 +889,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kyq-27-gaY">
-                                                <rect key="frame" x="151" y="398" width="140" height="28"/>
+                                                <rect key="frame" x="136" y="398" width="140" height="28"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atg-C7-P4I">
                                                         <rect key="frame" x="4" y="4" width="132" height="20"/>
@@ -1039,11 +1039,18 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                     <action selector="shareRecipe:" destination="MKf-F7-X8u" eventType="touchUpInside" id="3jF-dx-Xjv"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bin-PQ-iLk">
+                                                <rect key="frame" x="291" y="398" width="15" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="15" id="N9l-z5-LGI"/>
+                                                    <constraint firstAttribute="height" constant="28" id="OQh-Tj-d28"/>
+                                                </constraints>
+                                                <state key="normal" image="wineGlass"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="5Yv-cJ-BK1" firstAttribute="top" secondItem="Hkq-ie-sg7" secondAttribute="bottom" constant="5" id="0s0-fN-vvZ"/>
-                                            <constraint firstItem="6XQ-SG-Sgk" firstAttribute="leading" secondItem="Kyq-27-gaY" secondAttribute="trailing" constant="30" id="4NF-a8-Yim"/>
                                             <constraint firstItem="RX8-gx-xAj" firstAttribute="top" secondItem="s7u-uH-Dgi" secondAttribute="bottom" constant="32" id="6n4-zV-pmh"/>
                                             <constraint firstAttribute="trailing" secondItem="68n-J9-Lad" secondAttribute="trailing" constant="199" id="6nE-0Z-6fR"/>
                                             <constraint firstAttribute="bottom" secondItem="g90-ET-FBX" secondAttribute="bottom" constant="50" id="7q1-9q-gVy"/>
@@ -1069,6 +1076,8 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstAttribute="trailing" secondItem="6XQ-SG-Sgk" secondAttribute="trailing" constant="30" id="V6c-oP-oqH"/>
                                             <constraint firstItem="sAp-Ru-mzj" firstAttribute="top" secondItem="DTf-tG-6xF" secondAttribute="bottom" constant="19.670000000000002" id="Wb9-0v-uIY"/>
                                             <constraint firstItem="s7u-uH-Dgi" firstAttribute="top" secondItem="sAp-Ru-mzj" secondAttribute="bottom" constant="8" id="Wgq-PG-Fcw"/>
+                                            <constraint firstItem="6XQ-SG-Sgk" firstAttribute="leading" secondItem="Bin-PQ-iLk" secondAttribute="trailing" constant="15" id="XDS-8w-aGZ"/>
+                                            <constraint firstItem="Bin-PQ-iLk" firstAttribute="top" secondItem="OLQ-Xs-0u5" secondAttribute="bottom" constant="6" id="Xl4-26-A7e"/>
                                             <constraint firstAttribute="trailing" secondItem="gDH-Ca-PTG" secondAttribute="trailing" constant="18" id="a0c-rt-NtW"/>
                                             <constraint firstAttribute="trailing" secondItem="QDp-H8-Fh6" secondAttribute="trailing" constant="18" id="a3W-0R-hxp"/>
                                             <constraint firstItem="QDp-H8-Fh6" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="aMB-As-Z53"/>
@@ -1083,10 +1092,11 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstAttribute="trailing" secondItem="AS3-tP-v9G" secondAttribute="trailing" constant="210" id="geM-VG-7Bn"/>
                                             <constraint firstItem="gDH-Ca-PTG" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="i9a-SE-EIs"/>
                                             <constraint firstItem="RX8-gx-xAj" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="oe2-tL-cMT"/>
-                                            <constraint firstItem="Kyq-27-gaY" firstAttribute="leading" secondItem="DTf-tG-6xF" secondAttribute="trailing" constant="30" id="pYs-Li-fsx"/>
+                                            <constraint firstItem="Kyq-27-gaY" firstAttribute="leading" secondItem="DTf-tG-6xF" secondAttribute="trailing" constant="15" id="pYs-Li-fsx"/>
                                             <constraint firstAttribute="trailing" secondItem="5Yv-cJ-BK1" secondAttribute="trailing" constant="18" id="qz7-1g-or9"/>
                                             <constraint firstItem="AS3-tP-v9G" firstAttribute="top" secondItem="QDp-H8-Fh6" secondAttribute="bottom" constant="32" id="sWk-pj-fyt"/>
                                             <constraint firstItem="68n-J9-Lad" firstAttribute="top" secondItem="gDH-Ca-PTG" secondAttribute="bottom" constant="32" id="tZ4-1i-1YD"/>
+                                            <constraint firstItem="Bin-PQ-iLk" firstAttribute="leading" secondItem="Kyq-27-gaY" secondAttribute="trailing" constant="15" id="wW9-3m-0kK"/>
                                             <constraint firstItem="AS3-tP-v9G" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="xiK-jK-uV2"/>
                                             <constraint firstAttribute="trailing" secondItem="s7u-uH-Dgi" secondAttribute="trailing" constant="18" id="xuK-S8-jd5"/>
                                             <constraint firstItem="Hkq-ie-sg7" firstAttribute="top" secondItem="SKH-eN-l3r" secondAttribute="top" id="yWY-kr-7JL"/>
@@ -1127,11 +1137,63 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <outlet property="shareButton" destination="6XQ-SG-Sgk" id="cBg-bc-6jN"/>
                         <outlet property="summary" destination="s7u-uH-Dgi" id="AGw-bf-d8k"/>
                         <outlet property="tableView" destination="gDH-Ca-PTG" id="f78-m2-qnI"/>
+                        <segue destination="wSV-Ur-FyU" kind="show" identifier="recipeToWinePair" id="y1i-bx-2ao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNi-LC-jK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4855" y="-255"/>
+            <point key="canvasLocation" x="4853.6000000000004" y="-255.29556650246306"/>
+        </scene>
+        <!--Wine Pairings-->
+        <scene sceneID="2ub-3X-RQw">
+            <objects>
+                <viewController id="wSV-Ur-FyU" customClass="WineViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QUc-Ig-IKK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5ni-Id-64Y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wineCell" id="eeB-cp-faG">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeB-cp-faG" id="qbR-k4-i0R">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPO-wa-xHB">
+                                                    <rect key="frame" x="15" y="5" width="345" height="34"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="iPO-wa-xHB" secondAttribute="trailing" constant="15" id="4zc-Th-uyV"/>
+                                                <constraint firstItem="iPO-wa-xHB" firstAttribute="centerY" secondItem="qbR-k4-i0R" secondAttribute="centerY" id="8CM-yk-GBa"/>
+                                                <constraint firstItem="iPO-wa-xHB" firstAttribute="leading" secondItem="qbR-k4-i0R" secondAttribute="leading" constant="15" id="Fw2-8X-avu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5ni-Id-64Y" firstAttribute="leading" secondItem="DKR-TO-w7t" secondAttribute="leading" id="BzT-pD-isi"/>
+                            <constraint firstItem="5ni-Id-64Y" firstAttribute="bottom" secondItem="DKR-TO-w7t" secondAttribute="bottom" id="GYX-bT-5io"/>
+                            <constraint firstItem="5ni-Id-64Y" firstAttribute="top" secondItem="DKR-TO-w7t" secondAttribute="top" id="Ta4-p1-nXS"/>
+                            <constraint firstItem="5ni-Id-64Y" firstAttribute="trailing" secondItem="DKR-TO-w7t" secondAttribute="trailing" id="zYe-p3-8hA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DKR-TO-w7t"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Wine Pairings" id="uQc-Qd-iu0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Dd-S4-Xni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5749.6000000000004" y="-790.64039408866995"/>
         </scene>
     </scenes>
     <color key="tintColor" name="darkGreen"/>
@@ -1145,6 +1207,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="thumbsUp" width="396" height="462"/>
+        <image name="wineGlass" width="286" height="509"/>
         <namedColor name="darkGray">
             <color red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
