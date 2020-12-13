@@ -14,7 +14,7 @@
             <objects>
                 <viewController storyboardIdentifier="HomeScreen" id="YY0-n2-MG1" customClass="HomeViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kzb-ce-Y4z">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ise-GX-59F">
@@ -178,7 +178,7 @@
             <objects>
                 <viewController storyboardIdentifier="profileVC" automaticallyAdjustsScrollViewInsets="NO" id="rJi-qc-jXa" customClass="ProfileViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fsk-QH-NJu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1450"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1362"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFm-jr-KKw">
@@ -724,7 +724,7 @@
             <objects>
                 <viewController id="eoD-X2-oli" customClass="FavoritesViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zMA-vK-MUe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Favorites List Background" translatesAutoresizingMaskIntoConstraints="NO" id="wyM-fE-qZT">
@@ -786,7 +786,7 @@
                     <navigationItem key="navigationItem" title="Favorites" id="BSo-GL-O3c"/>
                     <connections>
                         <outlet property="tableView" destination="hvB-TA-azz" id="RcM-AT-Vhu"/>
-                        <segue destination="MKf-F7-X8u" kind="show" identifier="toRecipePage" id="yAy-Ee-MEg"/>
+                        <segue destination="MKf-F7-X8u" kind="show" identifier="FavoritesToRecipe" id="yAy-Ee-MEg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vso-h8-CnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -822,7 +822,7 @@
             <objects>
                 <viewController title="Recipe Page" automaticallyAdjustsScrollViewInsets="NO" id="MKf-F7-X8u" customClass="RecipeDetailsViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iDI-lr-V74">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2237"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2149"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxK-R6-UtD">
@@ -1208,14 +1208,14 @@
             <objects>
                 <viewController id="wSV-Ur-FyU" customClass="WineViewController" customModule="OpenEating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QUc-Ig-IKK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5ni-Id-64Y">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wineCell" rowHeight="59" id="eeB-cp-faG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wineCell" rowHeight="59" id="eeB-cp-faG" customClass="WineCell" customModule="OpenEating" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeB-cp-faG" id="qbR-k4-i0R">
@@ -1235,6 +1235,9 @@
                                                 <constraint firstItem="iPO-wa-xHB" firstAttribute="leading" secondItem="qbR-k4-i0R" secondAttribute="leading" constant="15" id="Fw2-8X-avu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="wineName" destination="iPO-wa-xHB" id="wVq-n3-CIA"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

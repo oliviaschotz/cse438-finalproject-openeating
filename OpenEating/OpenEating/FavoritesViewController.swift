@@ -104,12 +104,12 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toRecipePage", sender: self)
+        performSegue(withIdentifier: "FavoritesToRecipe", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if(segue.identifier == "toRecipePage") {
+        if(segue.identifier == "FavoritesToRecipe") {
 
             guard let indexPaths=self.tableView!.indexPathsForSelectedRows else {
                 return

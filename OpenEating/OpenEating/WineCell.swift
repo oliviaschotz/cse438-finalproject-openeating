@@ -8,7 +8,8 @@
 
 import UIKit
 
-class WineCell: UICollectionViewCell {
+class WineCell: UITableViewCell {
     
+    @IBOutlet weak var wineName: UILabel!
     
 }
