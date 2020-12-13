@@ -8,8 +8,10 @@
 
 import UIKit
 import Firebase
+import MessageUI
 
 class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     let db = Firestore.firestore()
     var docRef: DocumentReference!
@@ -20,12 +22,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var instructions: UILabel!
-    @IBOutlet weak var shareButton: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var commentText: UITextField!
     
     var recipeID = 0
     var image = UIImage()
     var name = ""
+    var ingredientsList: String = ""
     
     var favoritesArray: [Int] = []
     
@@ -153,19 +156,44 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         return parsedStr as String?
     }
     
+//    // This method isn't attached to anything right now
+//    // Import MFMessageComposeViewControllerDelegate into the class if you use this function
+//    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+//       if MFMessageComposeViewController.canSendText() {
+//            let composeVC = MFMessageComposeViewController()
+//            composeVC.messageComposeDelegate = self
+//
+//            // Configure the fields of the interface.
+//            composeVC.recipients = [""]
+//            composeVC.body = "\(recipeName.text ?? " ") Summary: \(summary.text ?? "No Summary") Ingredients: \(ingredientsList) Instructions: \(instructions.text ?? "No Instructions")"
+//
+//            // Present the view controller modally.
+//            self.present(composeVC, animated: true, completion: nil)
+//
+//            // dismisses the VC
+//            controller.dismiss(animated: true, completion: nil)
+//        } else {
+//            print("SMS services are not available")
+//        }
+////     Other things, might not be useful
+////        let smsComposer:MFMessageComposeViewController = MFMessageComposeViewController()
+////        present(smsComposer, animated: true)
+//    }
+    
     @IBAction func shareRecipe(_ sender: Any) {
-        var ingredientsList: String = ""
         for ingredient in ingredients {
             // don't force unwrap this
             ingredientsList = ingredientsList + ", " + ingredient.original!
         }
-        print("\(ingredientsList)")
+
+        let recipeInfo: [String?] = [recipeName.text, " Summary: \(summary.text ?? "No Summary")", " Ingredients: \(ingredientsList)", " Instructions: \(instructions.text ?? "No Instructions")"]
+        print(recipeInfo)
         
-        // need to figure out how to get ingredients as a string since they are in an array currently
-        let recipeInfo: [String?] = [recipeName.text, summary.text, instructions.text]
-        let ac = UIActivityViewController(activityItems: recipeInfo, applicationActivities: [])
+        let ac = UIActivityViewController(activityItems: recipeInfo as [Any], applicationActivities: [])
         present(ac, animated: true)
+        
     }
+    
     
     @IBAction func addFavorite(_ sender: Any) {
         getFavorites()
