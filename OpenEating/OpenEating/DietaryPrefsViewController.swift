@@ -34,7 +34,7 @@ class DietaryPrefsViewController: UIViewController {
     
     var buttons: [UIButton] = []
     var preferences: [String:Any] = [:]
-    var favoritesArray: [Int] = []
+    var favoritesArray: [[String:Any]] = []
 
     
     override func viewDidLoad() {

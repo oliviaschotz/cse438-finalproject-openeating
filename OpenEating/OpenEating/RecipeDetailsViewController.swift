@@ -29,11 +29,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var commentText: UITextField!
     
     var recipeID = 0
+    var recipeTitle: String = ""
+    
     var image = UIImage()
     var name = ""
     var ingredientsList: String = ""
     
-    var favoritesArray: [Int] = []
+    var favoritesArray: [[String:Any]] = []
+    /*favoritesArray example:
+    [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
+     */
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentsTableView: UITableView!
@@ -128,6 +133,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         recipeName.text = theRecipe.title
         
+        
         recipeTags.text = ""
         if(theRecipe.cuisines?.count ?? -1 > 0){
         recipeTags.text = theRecipe.cuisines?[0]
@@ -135,6 +141,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         numLikes.text = String(describing: theRecipe.aggregateLikes!)
         
         recipeID = theRecipe.id ?? 0
+        recipeTitle = theRecipe.title ?? ""
         
         summary.text = parseHTML(str: theRecipe.summary)
         instructions.text = parseHTML(str: theRecipe.instructions)
@@ -222,8 +229,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func addFavorite(_ sender: Any) {
         getFavorites()
         
-
     }
+    
+    /*favoritesArray example:
+    [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
+     */
     
     func getFavorites () {
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
@@ -237,17 +247,24 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             {
                 let document = querySnapshot!.documents[0]
                 let data = document.data()
-                self.favoritesArray = data["favorites"] as? [Int] ?? []
+                self.favoritesArray = data["favorites"] as? [[String:Any]] ?? []
             }
             
-            if self.favoritesArray.contains(self.recipeID){
-                let index = self.favoritesArray.firstIndex(of: self.recipeID)
-                self.favoritesArray.remove(at: index!)
+            
+            let count = self.favoritesArray.count
+            if count != 0{
+                for index in (0...count-1).reversed() {
+                    if self.favoritesArray[index]["id"] as! Int == self.recipeID{
+                        self.favoritesArray.remove(at: index)
+                    }
+                }
             }
-            else{
-                self.favoritesArray.append(self.recipeID)
+            if self.favoritesArray.count == count{
+                let newFav: [String:Any] = ["name": self.recipeTitle,"id": self.recipeID, "image": self.image ]
+//                let newFav: [String:Any] = ["name": self.recipeTitle,"id": self.recipeID ]
+                self.favoritesArray.append(newFav)
             }
-            print(self.recipeID)
+            
             self.setFavorites()
         }
     }

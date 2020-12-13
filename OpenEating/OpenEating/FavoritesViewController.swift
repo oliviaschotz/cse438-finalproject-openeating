@@ -18,46 +18,30 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let api_key = "7b2c5999d4f940a999efad739e883d3c"
     
-    var favoritesArray: [Int] = []
-    var recipeResults: [Recipe] = []{
+    var favoritesArray: [[String:Any]] = []{
         didSet{
             tableView.reloadData()
         }
     }
-       
     
        
-    struct Recipe: Decodable {
-        let title: String?
-    }
-    
+//    struct Recipe: Decodable {
+//        let title: String?
+//        let id: Int?
+//        let image: String?
+//    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         getFavorites()
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            self.getFavorites()
-//            print("initial favorites \(self.favoritesArray)")
-//            DispatchQueue.main.async{
-//                self.fetchDataForTableView()
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        setupTableView()
-//        getFavorites()
-//        _____
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            self.getFavorites()
-//                DispatchQueue.main.async {
-//                    self.tableView.reloadData()
-//                }
-//        }
+        setupTableView()
+        getFavorites()
     }
     
     func setupTableView(){
@@ -77,42 +61,74 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             else {
                 let document = querySnapshot!.documents[0]
                 let data = document.data()
-                self.favoritesArray = data["favorites"] as? [Int] ?? []
-                self.fetchDataForTableView()
+                self.favoritesArray = data["favorites"] as? [[String:Any]] ?? []
+//                self.fetchDataForTableView()
             }
+            print(self.favoritesArray)
         }
     }
     
-    func fetchDataForTableView(){
-        print("fetching data for favorites: \(favoritesArray)")
-        recipeResults = []
-        for recipeID in favoritesArray{
-            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey="+api_key
-            guard let url = URL(string: urlPath) else { return  }
-            guard let data =  try?  Data(contentsOf: url) else { return }
-            guard let theData = try? JSONDecoder().decode(Recipe.self, from: data) else {
-                print("error")
-                return }
-            recipeResults.append(theData)
-            //tableView.reloadData()
-        }
-    }
+//    func fetchDataForTableView(){
+//        print("fetching data for favorites: \(favoritesArray)")
+//        recipeResults = []
+//        for recipeID in favoritesArray{
+//            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey="+api_key
+//            guard let url = URL(string: urlPath) else { return  }
+//            guard let data =  try?  Data(contentsOf: url) else { return }
+//            guard let theData = try? JSONDecoder().decode(Recipe.self, from: data) else {
+//                print("error")
+//                return }
+//            recipeResults.append(theData)
+//            //tableView.reloadData()
+//        }
+//    }
     
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("table count: \(recipeResults.count)")
-        return recipeResults.count
+//        print("table count: \(recipeResults.count)")
+//        return recipeResults.count
+        print("table view count \(favoritesArray.count)")
+        return favoritesArray.count
      }
      
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
         //cell.recipeTags.text = ""
-        cell.recipeName.text = recipeResults[indexPath.row].title
-        print(recipeResults[indexPath.row].title)
+//        cell.recipeName.text = recipeResults[indexPath.row].title
+//        print(recipeResults[indexPath.row].title)
+        
+        cell.recipeName.text = favoritesArray[indexPath.row]["name"] as? String
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toRecipePage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if(segue.identifier == "toRecipePage") {
+
+            guard let indexPaths=self.tableView!.indexPathsForSelectedRows else {
+                return
+            }
+            let indexPath = indexPaths[0] as NSIndexPath
+            let selectedRecipe = favoritesArray[indexPath.row]
+            
+            guard let recipeVC = segue.destination as? RecipeDetailsViewController else {
+                return
+            }
+            
+            recipeVC.recipeID = selectedRecipe["id"] as! Int
+            recipeVC.image = selectedRecipe["image"] as! UIImage
+            //recipeVC.name = userPreferences["name"] as? String ?? ""
+        }
+    }
+    
+    
+    
 }
     
 
