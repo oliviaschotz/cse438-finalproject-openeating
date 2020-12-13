@@ -784,8 +784,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="recipeName" destination="ecA-TN-Im6" id="chK-1U-FLv"/>
-                                            <outlet property="recipeTags" destination="4aC-I4-ghc" id="rQJ-ZS-sfM"/>
+                                            <outlet property="recipeName" destination="ecA-TN-Im6" id="YIS-Mx-h5p"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

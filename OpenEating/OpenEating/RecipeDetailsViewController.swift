@@ -168,16 +168,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction func addFavorite(_ sender: Any) {
-        favoritesArray = []
+        getFavorites()
         
-        if favoritesArray.contains(recipeID){
-            let index = favoritesArray.firstIndex(of: recipeID)
-            favoritesArray.remove(at: index!)
-        }
-        else{
-            self.favoritesArray.append(self.recipeID)
-        }
-        setFavorites()
+
     }
     
     func getFavorites () {
@@ -194,6 +187,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 let data = document.data()
                 self.favoritesArray = data["favorites"] as? [Int] ?? []
             }
+            
+            if self.favoritesArray.contains(self.recipeID){
+                let index = self.favoritesArray.firstIndex(of: self.recipeID)
+                self.favoritesArray.remove(at: index!)
+            }
+            else{
+                self.favoritesArray.append(self.recipeID)
+            }
+            print(self.recipeID)
+            self.setFavorites()
         }
     }
     
@@ -206,6 +209,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             if let err = err
             { print("Error getting documents: \(err)") }
             else {
+                print(querySnapshot!.documents)
                 let document = querySnapshot!.documents[0]
                 document.reference.updateData(["favorites":self.favoritesArray]) { err in
                     if let err = err {

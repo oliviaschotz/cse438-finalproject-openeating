@@ -13,7 +13,6 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     
-    
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
@@ -27,24 +26,26 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.tableView.delegate = self
-//        self.tableView.dataSource = self
-
-       setupTableView()
-//        getFavorites()
-//        fetchDataForTableView()
-        
+        setupTableView()
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            self.getFavorites()
+//            print("initial favorites \(self.favoritesArray)")
+//            DispatchQueue.main.async{
+//                self.fetchDataForTableView()
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("hello")
         setupTableView()
-        
         DispatchQueue.global(qos: .userInitiated).async {
             self.getFavorites()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
         }
     }
     
@@ -54,8 +55,26 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
     }
     
+    func getFavorites(){
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        let email = info["email"]
+            
+        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
+                (querySnapshot, err) in
+            if let err = err
+                { print("Error getting documents: \(err)") }
+            else {
+                let document = querySnapshot!.documents[0]
+                let data = document.data()
+                self.favoritesArray = data["favorites"] as? [Int] ?? []
+                self.fetchDataForTableView()
+            }
+        }
+    }
     
     func fetchDataForTableView(){
+        print("fetching data for favorites: \(favoritesArray)")
+        recipeResults = []
         for recipeID in favoritesArray{
             let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey=174a30c36e1e448a85cdee1d897b0632"
             guard let url = URL(string: urlPath) else { return  }
@@ -65,43 +84,20 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 return }
             recipeResults.append(theData)
             tableView.reloadData()
-            
-            //print(recipeResults.count)
         }
-        
     }
     
-    func getFavorites(){
-            let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
-            let email = info["email"]
-            
-            let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
-                (querySnapshot, err) in
-                    if let err = err
-                        { print("Error getting documents: \(err)") }
-                    else
-                    {
-                        let document = querySnapshot!.documents[0]
-                        let data = document.data()
-                        self.favoritesArray = data["favorites"] as? [Int] ?? []
-                        print("Favorites \(self.favoritesArray)")
-                        self.fetchDataForTableView()
-                    }
-            }
-        
-        }
-    
+
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("table count: \(recipeResults.count)")
         return recipeResults.count
      }
      
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("---A---")
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
-        print("---B---")
-        cell.recipeTags.text = ""
+        //cell.recipeTags.text = ""
         cell.recipeName?.text = recipeResults[indexPath.row].title
         print(recipeResults[indexPath.row].title)
         return cell

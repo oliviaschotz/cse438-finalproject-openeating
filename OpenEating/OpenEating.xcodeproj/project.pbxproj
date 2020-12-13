@@ -17,7 +17,7 @@
 		D74156042564692600242998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74156032564692600242998 /* Assets.xcassets */; };
 		D74156072564692600242998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156052564692600242998 /* LaunchScreen.storyboard */; };
 		D7F5CF7E257867CE00C4A7D0 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */; };
-		EA8548F325857D3F005EFE2F /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8548F225857D3F005EFE2F /* FavCell.swift */; };
+		EA8548F52585B4CF005EFE2F /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8548F42585B4CF005EFE2F /* FavCell.swift */; };
 		FD169D0D2572E88F004EA4BD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD169D0C2572E88F004EA4BD /* LogInViewController.swift */; };
 		FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */; };
 		FD30391E256E311A00CBBDA2 /* DietaryPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */; };
@@ -45,7 +45,7 @@
 		D74156062564692600242998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74156082564692600242998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
-		EA8548F225857D3F005EFE2F /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
+		EA8548F42585B4CF005EFE2F /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
 		FD169D0C2572E88F004EA4BD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetUpViewController.swift; sourceTree = "<group>"; };
 		FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietaryPrefsViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				D74156082564692600242998 /* Info.plist */,
 				5542AB2D256A2F6700D82EBE /* GoogleService-Info.plist */,
 				D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */,
-				EA8548F225857D3F005EFE2F /* FavCell.swift */,
+				EA8548F42585B4CF005EFE2F /* FavCell.swift */,
 			);
 			path = OpenEating;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 				FD30391C256E310C00CBBDA2 /* ProfileSetUpViewController.swift in Sources */,
 				FD169D0D2572E88F004EA4BD /* LogInViewController.swift in Sources */,
 				D7F5CF7E257867CE00C4A7D0 /* RecipeCell.swift in Sources */,
-				EA8548F325857D3F005EFE2F /* FavCell.swift in Sources */,
+				EA8548F52585B4CF005EFE2F /* FavCell.swift in Sources */,
 				FDD5FC10256ED154000A7512 /* RecipeDetailsViewController.swift in Sources */,
 				D74155FF2564692500242998 /* ViewController.swift in Sources */,
 				D74155FB2564692500242998 /* AppDelegate.swift in Sources */,
