@@ -16,6 +16,7 @@
 		D74156022564692500242998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156002564692500242998 /* Main.storyboard */; };
 		D74156042564692600242998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74156032564692600242998 /* Assets.xcassets */; };
 		D74156072564692600242998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156052564692600242998 /* LaunchScreen.storyboard */; };
+		D7AA935F2586874900BE2E2A /* SimilarRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA935E2586874900BE2E2A /* SimilarRecipeCell.swift */; };
 		D7F5CF7E257867CE00C4A7D0 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */; };
 		EA8548F52585B4CF005EFE2F /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8548F42585B4CF005EFE2F /* FavCell.swift */; };
 		FD169D0D2572E88F004EA4BD /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD169D0C2572E88F004EA4BD /* LogInViewController.swift */; };
@@ -45,6 +46,7 @@
 		D74156032564692600242998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74156062564692600242998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74156082564692600242998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7AA935E2586874900BE2E2A /* SimilarRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarRecipeCell.swift; sourceTree = "<group>"; };
 		D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		EA8548F42585B4CF005EFE2F /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
 		FD169D0C2572E88F004EA4BD /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				5542AB2D256A2F6700D82EBE /* GoogleService-Info.plist */,
 				D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */,
 				EA8548F42585B4CF005EFE2F /* FavCell.swift */,
+				D7AA935E2586874900BE2E2A /* SimilarRecipeCell.swift */,
 			);
 			path = OpenEating;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				D74155FF2564692500242998 /* ViewController.swift in Sources */,
 				D74155FB2564692500242998 /* AppDelegate.swift in Sources */,
 				FDD5FC0E256ED130000A7512 /* HomeViewController.swift in Sources */,
+				D7AA935F2586874900BE2E2A /* SimilarRecipeCell.swift in Sources */,
 				FDC1EFBC256708B0003D6C4E /* ProfileViewController.swift in Sources */,
 				FDF4918C2565AFF6001CE8F5 /* FavoritesViewController.swift in Sources */,
 				D74155FD2564692500242998 /* SceneDelegate.swift in Sources */,

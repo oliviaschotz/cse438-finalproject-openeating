@@ -16,6 +16,8 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
+    let api_key = "7b2c5999d4f940a999efad739e883d3c"
+    
     var favoritesArray: [Int] = []
     var recipeResults: [Recipe] = []{
         didSet{
@@ -85,7 +87,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         print("fetching data for favorites: \(favoritesArray)")
         recipeResults = []
         for recipeID in favoritesArray{
-            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey=174a30c36e1e448a85cdee1d897b0632"
+            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey="+api_key
             guard let url = URL(string: urlPath) else { return  }
             guard let data =  try?  Data(contentsOf: url) else { return }
             guard let theData = try? JSONDecoder().decode(Recipe.self, from: data) else {

@@ -19,7 +19,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     //example: https://api.spoonacular.com/recipes/716429/information?apiKey=61de2798dcdc47c88f2279d7c23dad64&includeNutrition=true
     
     var spinner = UIActivityIndicatorView(style: .large)
-    let api_key = "61de2798dcdc47c88f2279d7c23dad64"
+    var noResults: UILabel!
+    
+    let api_key = "7b2c5999d4f940a999efad739e883d3c"
     var diet = ""
     var intolerances = ""
     let addRecipeInformation = true
@@ -61,6 +63,13 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let theSpinnerView = CGRect(x: view.frame.midX-15, y: view.frame.midY-15, width: 30, height: 30)
         spinner = UIActivityIndicatorView(frame: theSpinnerView)
         view.addSubview(spinner)
+        
+        
+        let noResultsFrame = CGRect(x: view.frame.midX - (83/2), y: view.frame.midY - (21/2), width: 83, height: 21)
+        noResults = UILabel(frame: noResultsFrame)
+        noResults.text = "No Results"
+        noResults.isHidden = true
+        view.addSubview(noResults)
 
         //potential for nutrition info *
         //potential to sort recipes in diff ways
@@ -137,7 +146,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         {
             
 //            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query="+query+"&diet="+diet+"&intolerance="+intolerances
-            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=174a30c36e1e448a85cdee1d897b0632&query="+searchVal+"&diet="+diet+"&intolerance="+intolerances
+            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey="+api_key+"&query="+searchVal+"&diet="+diet+"&intolerance="+intolerances
             //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
             guard let url = URL(string: urlPath) else { return  }
             guard let data =  try?  Data(contentsOf: url) else { return }
@@ -187,6 +196,12 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(recipeResults.count == 0){
+            noResults.isHidden = false;
+        }
+        else {
+            noResults.isHidden = true;
+        }
         return recipeResults.count
     }
        
@@ -261,7 +276,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         spinner.startAnimating()
         spinner.backgroundColor = UIColor.white
         DispatchQueue.global(qos: .userInitiated).async {
-            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=174a30c36e1e448a85cdee1d897b0632&cuisine="+cuisine+"&diet="+self.diet+"&intolerance="+self.intolerances
+            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey="+self.api_key+"&cuisine="+cuisine+"&diet="+self.diet+"&intolerance="+self.intolerances
                         //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
             guard let url = URL(string: urlPath) else { return  }
             print(url)

@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 import MessageUI
 
-class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     let db = Firestore.firestore()
     var docRef: DocumentReference!
+    
+    let api_key = "7b2c5999d4f940a999efad739e883d3c"
     
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -34,6 +36,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var commentsTableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     struct DetailedRecipe: Decodable {
         let id: Int?
@@ -62,7 +65,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     var theImageCache: [UIImage] = []
-    var recipeResults: [Recipe] = []
     var similarResults: [SimilarRecipe] = []
     
     //    https://api.spoonacular.com/recipes/{recipe_id}/similar
@@ -94,15 +96,27 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "similarCell")
+        
         recipeImage.image = image
         getRecipeInformation()
         
         getInitComments()
+        
+//        DispatchQueue.global(qos: .userInitiated).async {
+//            self.getSimilarRecipes()
+//            DispatchQueue.main.async {
+//                print("----RELOADING-----")
+//                self.collectionView.reloadData()
+//            }
+//        }
     }
     
     
     func getRecipeInformation(){
-        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey=174a30c36e1e448a85cdee1d897b0632"
+        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey="+api_key
         //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
         guard let url = URL(string: urlPath) else { return  }
         guard let data =  try?  Data(contentsOf: url) else { return }
@@ -112,6 +126,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         recipeName.text = theRecipe.title
+        
+        recipeTags.text = ""
+        if(theRecipe.cuisines?.count ?? -1 > 0){
+        recipeTags.text = theRecipe.cuisines?[0]
+        }
         numLikes.text = String(describing: theRecipe.aggregateLikes!)
         
         recipeID = theRecipe.id ?? 0
@@ -255,13 +274,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     func getSimilarRecipes(){
-        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/similar?apiKey=61de2798dcdc47c88f2279d7c23dad64"
+        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/similar?apiKey="+api_key
         guard let url = URL(string: urlPath) else { return  }
         guard let data =  try?  Data(contentsOf: url) else { return }
-        guard let theData = try? JSONDecoder().decode(APIResults.self, from: data) else {
-            print("error")
+        guard let theData = try? JSONDecoder().decode([SimilarRecipe].self, from: data) else {
+            print("SIMILAR error")
             return }
-        similarResults = theData.results
+        
+        similarResults = theData
+        
+        print("----DONE WITH RECIPES-----")
         
         getSimilarRecipeImages()
     }
@@ -269,12 +291,12 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     func getSimilarRecipeImages(){
         
         for recipe in similarResults {
-            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipe.id ?? 0)+"/information?apiKey=61de2798dcdc47c88f2279d7c23dad64"
+            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipe.id ?? 0)+"/information?apiKey="+api_key
             //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
             guard let url = URL(string: urlPath) else { return  }
             guard let data =  try?  Data(contentsOf: url) else { return }
             guard let theRecipe = try? JSONDecoder().decode(Recipe.self, from: data) else {
-                print("error")
+                print("IMAGE error")
                 return
             }
             
@@ -284,9 +306,31 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             guard let image = UIImage(data: imageData) else { return }
             theImageCache.append(image)
         }
+        
+        print("----DONE WITH IMAGES-----")
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("COLLECTION VIEW: \(similarResults.count)")
+        return similarResults.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("-----SETTING UP CELLS------")
+        print(similarResults[indexPath.row])
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "similarCell", for: indexPath) as? SimilarRecipeCell ?? SimilarRecipeCell()
+        
+//        cell.similarImage.image = theImageCache[indexPath.row]
+        cell.similarName.text = similarResults[indexPath.row].title
+    
+        return cell
+        
+    }
     
     
     @IBAction func addComment(_ sender: Any) {
@@ -322,6 +366,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         
     }
+    
     
     func getInitComments(){
         let docRef = db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()

@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var treenutButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     
-
+    @IBOutlet weak var name: UILabel!
     
     var buttons: [UIButton] = []
     var preferences: [String:Any] = [:]
@@ -50,6 +50,7 @@ class ProfileViewController: UIViewController {
     func getPreferences() {
         // get document id and fetch preferences like in home view controller
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        name.text = info["name"]
         let email = info["email"]
         
         let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
@@ -62,7 +63,7 @@ class ProfileViewController: UIViewController {
                 else
                 {
                     let document = querySnapshot!.documents[0]
-                    self.preferences = document.data() as? Dictionary<String, Any> ?? [:]
+                    self.preferences = document.data() as? [String: Any] ?? [:]
                     self.addButtons()
                 }
         }
@@ -133,6 +134,9 @@ class ProfileViewController: UIViewController {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                let alertController = UIAlertController(title: "Preferences saved!", message: "", preferredStyle: UIAlertController.Style.alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alertController, animated: true)
             }
         }
     }

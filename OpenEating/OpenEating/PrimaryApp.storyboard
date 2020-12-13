@@ -69,41 +69,28 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TfD-JF-iLr">
-                                                    <rect key="frame" x="0.0" y="5" width="359" height="204.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="5" width="359" height="228.66666666666666"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FF-Bo-7he">
-                                                    <rect key="frame" x="0.0" y="217.66666666666666" width="359" height="25.333333333333343"/>
+                                                    <rect key="frame" x="0.0" y="241.66666666666666" width="359" height="25.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpa-oI-UFo">
-                                                    <rect key="frame" x="0.0" y="247" width="359" height="18"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="18" id="BO2-u3-Vfw"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="dpa-oI-UFo" secondAttribute="trailing" id="3y1-4J-tGQ"/>
                                                 <constraint firstItem="7FF-Bo-7he" firstAttribute="leading" secondItem="0T3-EI-guh" secondAttribute="leading" id="ItG-x9-02e"/>
                                                 <constraint firstItem="TfD-JF-iLr" firstAttribute="top" secondItem="0T3-EI-guh" secondAttribute="top" constant="5" id="ONY-2s-1Yb"/>
-                                                <constraint firstItem="dpa-oI-UFo" firstAttribute="top" secondItem="7FF-Bo-7he" secondAttribute="bottom" constant="4" id="Pa0-NW-Sjx"/>
                                                 <constraint firstAttribute="trailing" secondItem="TfD-JF-iLr" secondAttribute="trailing" id="XAE-5l-VZf"/>
                                                 <constraint firstItem="TfD-JF-iLr" firstAttribute="leading" secondItem="0T3-EI-guh" secondAttribute="leading" id="bJk-GT-mgw"/>
-                                                <constraint firstItem="dpa-oI-UFo" firstAttribute="leading" secondItem="0T3-EI-guh" secondAttribute="leading" id="bcf-2a-SWY"/>
                                                 <constraint firstItem="7FF-Bo-7he" firstAttribute="top" secondItem="TfD-JF-iLr" secondAttribute="bottom" constant="8" id="dWX-dW-Owr"/>
-                                                <constraint firstAttribute="bottom" secondItem="dpa-oI-UFo" secondAttribute="bottom" constant="13" id="pkF-mQ-eGP"/>
+                                                <constraint firstAttribute="bottom" secondItem="7FF-Bo-7he" secondAttribute="bottom" constant="11" id="mJX-2y-GcD"/>
                                                 <constraint firstAttribute="trailing" secondItem="7FF-Bo-7he" secondAttribute="trailing" id="uaO-Yr-TUe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="recipeImage" destination="TfD-JF-iLr" id="Wqe-zM-WF1"/>
                                             <outlet property="recipeName" destination="7FF-Bo-7he" id="Fbg-nm-Nf3"/>
-                                            <outlet property="recipeTags" destination="dpa-oI-UFo" id="Jly-la-kRV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -139,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYg-tU-g8f" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3776.811594202899" y="115.17857142857142"/>
+            <point key="canvasLocation" x="3776.8000000000002" y="114.53201970443351"/>
         </scene>
         <!--Home-->
         <scene sceneID="Oak-pN-nWS">
@@ -147,6 +134,7 @@
                 <navigationController storyboardIdentifier="HomeNavCtrlr" automaticallyAdjustsScrollViewInsets="NO" id="ZMe-n0-DX2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="CXu-w7-OaS"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Hlf-pr-H8d"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ajO-i4-xle">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -679,6 +667,7 @@
                         <outlet property="eggButton" destination="Z88-0m-qHW" id="6xu-Bc-GWw"/>
                         <outlet property="glutenButton" destination="chw-EA-GAs" id="h1i-q8-hmO"/>
                         <outlet property="ketoButton" destination="8Xi-cq-6UP" id="3fA-c8-WEw"/>
+                        <outlet property="name" destination="u5c-Ta-bVq" id="yi0-Pc-un0"/>
                         <outlet property="paleoButton" destination="akS-CB-Sq5" id="BaI-IZ-Heb"/>
                         <outlet property="peanutButton" destination="KPi-iW-VVr" id="TZf-uZ-Snj"/>
                         <outlet property="pescButton" destination="Hsi-Nx-gk8" id="1DV-DY-DDG"/>
@@ -1064,7 +1053,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="similarCell" id="QZS-DK-kXT">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="similarCell" id="QZS-DK-kXT" customClass="SimilarRecipeCell" customModule="OpenEating" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="155" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="qE8-1f-9Dt">
@@ -1095,6 +1084,10 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="155" height="128"/>
+                                                        <connections>
+                                                            <outlet property="similarImage" destination="eaR-Qp-z3D" id="Yf4-RR-Gkj"/>
+                                                            <outlet property="similarName" destination="eYQ-gN-ZTY" id="3b5-pI-8JD"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -1102,6 +1095,8 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="5Yv-cJ-BK1" firstAttribute="top" secondItem="Hkq-ie-sg7" secondAttribute="bottom" constant="5" id="0s0-fN-vvZ"/>
+                                            <constraint firstItem="0cN-df-75F" firstAttribute="top" secondItem="v1C-XC-01Y" secondAttribute="bottom" constant="8" id="26X-KS-sqc"/>
+                                            <constraint firstItem="0cN-df-75F" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="4wm-P1-i8q"/>
                                             <constraint firstItem="RX8-gx-xAj" firstAttribute="top" secondItem="s7u-uH-Dgi" secondAttribute="bottom" constant="32" id="6n4-zV-pmh"/>
                                             <constraint firstAttribute="trailing" secondItem="68n-J9-Lad" secondAttribute="trailing" constant="199" id="6nE-0Z-6fR"/>
                                             <constraint firstAttribute="bottom" secondItem="g90-ET-FBX" secondAttribute="bottom" constant="50" id="7q1-9q-gVy"/>
@@ -1110,34 +1105,32 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstItem="DTf-tG-6xF" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="30" id="8ZO-Nv-qAK"/>
                                             <constraint firstAttribute="trailing" secondItem="OLQ-Xs-0u5" secondAttribute="trailing" constant="18" id="9JL-sF-k8v"/>
                                             <constraint firstItem="QDp-H8-Fh6" firstAttribute="top" secondItem="68n-J9-Lad" secondAttribute="bottom" constant="8" id="9Mi-Ny-b8X"/>
-                                            <constraint firstAttribute="trailing" secondItem="v1C-XC-01Y" secondAttribute="trailing" constant="142" id="9g7-CZ-95n"/>
                                             <constraint firstItem="s7u-uH-Dgi" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="AnG-t3-ire"/>
                                             <constraint firstItem="DTf-tG-6xF" firstAttribute="top" secondItem="OLQ-Xs-0u5" secondAttribute="bottom" constant="6" id="Dqb-uN-fPp"/>
                                             <constraint firstItem="5Yv-cJ-BK1" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="ERV-O6-7SM"/>
                                             <constraint firstItem="eF6-dC-8uY" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="FNd-pr-iD6"/>
                                             <constraint firstItem="6XQ-SG-Sgk" firstAttribute="top" secondItem="OLQ-Xs-0u5" secondAttribute="bottom" constant="8" id="Fgp-dG-S9U"/>
+                                            <constraint firstItem="AS3-tP-v9G" firstAttribute="top" secondItem="0cN-df-75F" secondAttribute="bottom" constant="29" id="G8v-0w-QoS"/>
                                             <constraint firstAttribute="trailing" secondItem="Hkq-ie-sg7" secondAttribute="trailing" id="HB5-KQ-Ttf"/>
                                             <constraint firstItem="g90-ET-FBX" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="IAI-fa-lUW"/>
                                             <constraint firstAttribute="trailing" secondItem="g90-ET-FBX" secondAttribute="trailing" constant="18" id="LOd-pc-rWf"/>
-                                            <constraint firstItem="0cN-df-75F" firstAttribute="top" secondItem="v1C-XC-01Y" secondAttribute="bottom" constant="8" id="LwZ-1U-iGK"/>
                                             <constraint firstItem="uks-qe-IQk" firstAttribute="leading" secondItem="eF6-dC-8uY" secondAttribute="trailing" constant="18" id="M9U-Hh-FnO"/>
                                             <constraint firstItem="Hkq-ie-sg7" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" id="Q6R-Fm-kI2"/>
                                             <constraint firstItem="uks-qe-IQk" firstAttribute="centerY" secondItem="eF6-dC-8uY" secondAttribute="centerY" id="QV5-8h-r7U"/>
-                                            <constraint firstItem="AS3-tP-v9G" firstAttribute="top" secondItem="0cN-df-75F" secondAttribute="bottom" constant="29" id="ST5-b1-BQQ"/>
                                             <constraint firstItem="g90-ET-FBX" firstAttribute="top" secondItem="uks-qe-IQk" secondAttribute="bottom" constant="21" id="Tcr-vf-SJZ"/>
                                             <constraint firstAttribute="trailing" secondItem="RX8-gx-xAj" secondAttribute="trailing" constant="207" id="TkC-mC-hpW"/>
-                                            <constraint firstItem="v1C-XC-01Y" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="UjL-JA-Tiw"/>
                                             <constraint firstAttribute="trailing" secondItem="6XQ-SG-Sgk" secondAttribute="trailing" constant="30" id="V6c-oP-oqH"/>
-                                            <constraint firstItem="v1C-XC-01Y" firstAttribute="top" secondItem="QDp-H8-Fh6" secondAttribute="bottom" constant="32" id="VW8-VH-yjC"/>
                                             <constraint firstItem="sAp-Ru-mzj" firstAttribute="top" secondItem="DTf-tG-6xF" secondAttribute="bottom" constant="19.670000000000002" id="Wb9-0v-uIY"/>
                                             <constraint firstItem="s7u-uH-Dgi" firstAttribute="top" secondItem="sAp-Ru-mzj" secondAttribute="bottom" constant="8" id="Wgq-PG-Fcw"/>
+                                            <constraint firstAttribute="trailing" secondItem="v1C-XC-01Y" secondAttribute="trailing" constant="142" id="X0h-Hs-kKx"/>
+                                            <constraint firstItem="0cN-df-75F" firstAttribute="top" secondItem="v1C-XC-01Y" secondAttribute="bottom" constant="8" id="X4O-rm-aL6"/>
                                             <constraint firstItem="6XQ-SG-Sgk" firstAttribute="leading" secondItem="Bin-PQ-iLk" secondAttribute="trailing" constant="15" id="XDS-8w-aGZ"/>
                                             <constraint firstItem="Bin-PQ-iLk" firstAttribute="top" secondItem="OLQ-Xs-0u5" secondAttribute="bottom" constant="6" id="Xl4-26-A7e"/>
-                                            <constraint firstAttribute="trailing" secondItem="0cN-df-75F" secondAttribute="trailing" constant="18" id="Z2o-Ac-rkV"/>
+                                            <constraint firstItem="v1C-XC-01Y" firstAttribute="top" secondItem="QDp-H8-Fh6" secondAttribute="bottom" constant="32" id="Yv4-uS-E7r"/>
+                                            <constraint firstAttribute="trailing" secondItem="0cN-df-75F" secondAttribute="trailing" constant="18" id="ZbA-0h-PdF"/>
                                             <constraint firstAttribute="trailing" secondItem="gDH-Ca-PTG" secondAttribute="trailing" constant="18" id="a0c-rt-NtW"/>
                                             <constraint firstAttribute="trailing" secondItem="QDp-H8-Fh6" secondAttribute="trailing" constant="18" id="a3W-0R-hxp"/>
                                             <constraint firstItem="QDp-H8-Fh6" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="aMB-As-Z53"/>
-                                            <constraint firstItem="0cN-df-75F" firstAttribute="top" secondItem="SKH-eN-l3r" secondAttribute="top" constant="1786" id="aPr-Qq-trr"/>
                                             <constraint firstItem="sAp-Ru-mzj" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="aXY-sH-XET"/>
                                             <constraint firstAttribute="trailing" secondItem="uks-qe-IQk" secondAttribute="trailing" constant="18" id="add-G6-7BO"/>
                                             <constraint firstItem="Kyq-27-gaY" firstAttribute="top" secondItem="OLQ-Xs-0u5" secondAttribute="bottom" constant="6" id="cxw-Tb-RrT"/>
@@ -1150,8 +1143,8 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                             <constraint firstItem="gDH-Ca-PTG" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="i9a-SE-EIs"/>
                                             <constraint firstItem="RX8-gx-xAj" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="oe2-tL-cMT"/>
                                             <constraint firstItem="Kyq-27-gaY" firstAttribute="leading" secondItem="DTf-tG-6xF" secondAttribute="trailing" constant="15" id="pYs-Li-fsx"/>
-                                            <constraint firstItem="0cN-df-75F" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="qMR-lO-63S"/>
                                             <constraint firstAttribute="trailing" secondItem="5Yv-cJ-BK1" secondAttribute="trailing" constant="18" id="qz7-1g-or9"/>
+                                            <constraint firstItem="v1C-XC-01Y" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="s3P-Wb-Yi9"/>
                                             <constraint firstItem="68n-J9-Lad" firstAttribute="top" secondItem="gDH-Ca-PTG" secondAttribute="bottom" constant="32" id="tZ4-1i-1YD"/>
                                             <constraint firstItem="Bin-PQ-iLk" firstAttribute="leading" secondItem="Kyq-27-gaY" secondAttribute="trailing" constant="15" id="wW9-3m-0kK"/>
                                             <constraint firstItem="AS3-tP-v9G" firstAttribute="leading" secondItem="SKH-eN-l3r" secondAttribute="leading" constant="18" id="xiK-jK-uV2"/>
@@ -1184,6 +1177,7 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                     <navigationItem key="navigationItem" id="P6v-cr-8Sp"/>
                     <size key="freeformSize" width="375" height="2461"/>
                     <connections>
+                        <outlet property="collectionView" destination="0cN-df-75F" id="Vaj-DF-y2X"/>
                         <outlet property="commentText" destination="eF6-dC-8uY" id="Ew0-ML-esb"/>
                         <outlet property="commentsTableView" destination="g90-ET-FBX" id="jdf-0H-znX"/>
                         <outlet property="instructions" destination="QDp-H8-Fh6" id="X5r-iV-d4B"/>
