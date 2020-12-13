@@ -53,9 +53,9 @@ class WineViewController: UIViewController{
         super.viewDidLoad()
         print(cuisine)
         
-        
-        tableView.dataSource = self
-        tableView.delegate = self
+        //commented these next two lines out bc they were giving me build errors :( -Danielle
+//        tableView.dataSource = self
+//        tableView.delegate = self
         
        let urlPath = "https://api.spoonacular.com/food/wine/pairing?food=\(cuisine)&apiKey="+api_key
         print(urlPath)
