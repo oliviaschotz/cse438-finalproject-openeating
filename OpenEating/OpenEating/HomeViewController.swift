@@ -72,6 +72,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        getUserPreferences()
+    }
+    
+    
     func setupTableView(){
         tableView.dataSource = self
         tableView.delegate = self
@@ -132,7 +137,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         {
             
 //            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query="+query+"&diet="+diet+"&intolerance="+intolerances
-            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&query="+searchVal+"&diet="+diet+"&intolerance="+intolerances
+            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=174a30c36e1e448a85cdee1d897b0632&query="+searchVal+"&diet="+diet+"&intolerance="+intolerances
             //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
             guard let url = URL(string: urlPath) else { return  }
             guard let data =  try?  Data(contentsOf: url) else { return }
@@ -216,6 +221,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
             
             recipeVC.recipeID = selectedRecipe.id ?? 0
             recipeVC.image = theImageCache[indexPath.row]
+            recipeVC.name = userPreferences["name"] as? String ?? ""
         }
     }
 
@@ -255,9 +261,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         spinner.startAnimating()
         spinner.backgroundColor = UIColor.white
         DispatchQueue.global(qos: .userInitiated).async {
-            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=61de2798dcdc47c88f2279d7c23dad64&cuisine="+cuisine+"&diet="+self.diet+"&intolerance="+self.intolerances
+            let urlPath = "https://api.spoonacular.com/recipes/complexSearch?apiKey=174a30c36e1e448a85cdee1d897b0632&cuisine="+cuisine+"&diet="+self.diet+"&intolerance="+self.intolerances
                         //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
             guard let url = URL(string: urlPath) else { return  }
+            print(url)
             guard let data =  try?  Data(contentsOf: url) else { return }
             guard let theData = try? JSONDecoder().decode(APIResults.self, from: data) else {
                 print("error")

@@ -27,30 +27,46 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+//        self.tableView.delegate = self
+//        self.tableView.dataSource = self
 
-        getFavorites()
-        fetchDataForTableView()
+       setupTableView()
+//        getFavorites()
+//        fetchDataForTableView()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("hello")
+        setupTableView()
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.getFavorites()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func setupTableView(){
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favCell")
     }
     
     
     func fetchDataForTableView(){
         for recipeID in favoritesArray{
-            let urlPath = "https://api.spoonacular.com/recipes/\(recipeID)/information?includeNutrition=false" //where to put API key?
+            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey=174a30c36e1e448a85cdee1d897b0632"
             guard let url = URL(string: urlPath) else { return  }
             guard let data =  try?  Data(contentsOf: url) else { return }
             guard let theData = try? JSONDecoder().decode(Recipe.self, from: data) else {
                 print("error")
                 return }
             recipeResults.append(theData)
+            tableView.reloadData()
+            
+            //print(recipeResults.count)
         }
         
     }
@@ -68,18 +84,26 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                         let document = querySnapshot!.documents[0]
                         let data = document.data()
                         self.favoritesArray = data["favorites"] as? [Int] ?? []
+                        print("Favorites \(self.favoritesArray)")
+                        self.fetchDataForTableView()
                     }
             }
+        
         }
     
 
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipeResults.count
-    }
+     }
+     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("---A---")
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
-        cell.recipeName.text = recipeResults[indexPath.row].title
+        print("---B---")
+        cell.recipeTags.text = ""
+        cell.recipeName?.text = recipeResults[indexPath.row].title
+        print(recipeResults[indexPath.row].title)
         return cell
     }
 }

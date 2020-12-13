@@ -21,9 +21,11 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var shareButton: UIImageView!
+    @IBOutlet weak var commentText: UITextField!
     
     var recipeID = 0
     var image = UIImage()
+    var name = ""
     
     var favoritesArray: [Int] = []
     
@@ -63,11 +65,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         recipeImage.image = image
         getRecipeInformation()
+        
+        displayComments()
     }
     
 
     func getRecipeInformation(){
-        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey=61de2798dcdc47c88f2279d7c23dad64"
+        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/information?apiKey=174a30c36e1e448a85cdee1d897b0632"
         //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
         guard let url = URL(string: urlPath) else { return  }
         guard let data =  try?  Data(contentsOf: url) else { return }
@@ -172,6 +176,73 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             
                 }
         }
+    
+    
+    @IBAction func addComment(_ sender: Any) {
+        let comment = commentText.text ?? ""
+        let commentToPost = "\(name): \(comment)"
+        
+                
+        let docRef = db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
+        {
+            (querySnapshot, err) in
+            
+                if let err = err
+                {
+                    print("Error getting documents: \(err)")
+                }
+                else
+                {
+                    if(querySnapshot!.documents.count == 0)
+                    {
+                        //add document
+                        self.addDocument(commentToPost: commentToPost)
+                    }
+                    else {
+                        //append
+                        var comments = querySnapshot!.documents[0].data()["comments"]
+                        self.updateDocument(comments: comments as! [String], commentToPost: commentToPost)
+                    }
+                }
+        }
+        
+        
+    }
+    
+    func addDocument(commentToPost: String)
+    {
+        let data: [String: Any?] = ["id":recipeID, "comments":[commentToPost]]
+        db.collection("comments").document(String(recipeID) ?? "").setData(data) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
+    
+    func updateDocument(comments: [String], commentToPost: String)
+    {
+        var commentUpdate = comments
+        commentUpdate.append(commentToPost)
+        
+        let data: [String: Any?] = ["id":recipeID, "comments":commentUpdate]
+        db.collection("comments").document(String(recipeID) ?? "").setData(data) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        
+
+    }
+    
+    func displayComments()
+    {
+        //if they exist
+    }
+    
         
     }
     
