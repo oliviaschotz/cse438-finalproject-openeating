@@ -1036,6 +1036,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                                                     <constraint firstAttribute="height" constant="28" id="OQh-Tj-d28"/>
                                                 </constraints>
                                                 <state key="normal" image="wineGlass"/>
+                                                <connections>
+                                                    <segue destination="wSV-Ur-FyU" kind="show" identifier="toWineVC" id="9b8-Xh-9L5"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Similar Recipes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v1C-XC-01Y">
                                                 <rect key="frame" x="18" y="1743" width="215" height="35"/>
@@ -1188,7 +1191,6 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <outlet property="shareButton" destination="6XQ-SG-Sgk" id="cBg-bc-6jN"/>
                         <outlet property="summary" destination="s7u-uH-Dgi" id="AGw-bf-d8k"/>
                         <outlet property="tableView" destination="gDH-Ca-PTG" id="f78-m2-qnI"/>
-                        <segue destination="wSV-Ur-FyU" kind="show" identifier="recipeToWinePair" id="y1i-bx-2ao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNi-LC-jK8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1241,6 +1243,9 @@ Duis quam massa, efficitur quis fermentum ornare, iaculis sit amet neque. Cras f
                         <viewLayoutGuide key="safeArea" id="DKR-TO-w7t"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wine Pairings" id="uQc-Qd-iu0"/>
+                    <connections>
+                        <outlet property="tableView" destination="5ni-Id-64Y" id="cWz-NV-SOC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Dd-S4-Xni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

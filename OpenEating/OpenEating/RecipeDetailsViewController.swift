@@ -435,6 +435,27 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+           if(segue.identifier == "toWineVC") {
+
+               guard let wineVC = segue.destination as? WineViewController else {
+                   return
+               }
+               
+            
+            wineVC.cuisine = "American"
+            if(recipeTags.text != "")
+            {
+                wineVC.cuisine = recipeTags.text ?? "American"
+            }
+            if(recipeTags.text == "Mediterranean")
+            {
+                wineVC.cuisine = "Italian"
+            }
+           }
+       }
+    
 }
 
 
