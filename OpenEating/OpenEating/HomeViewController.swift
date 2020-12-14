@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var spinner = UIActivityIndicatorView(style: .large)
     var noResults: UILabel!
     
+    var first_load = true
+    
     let api_key = "c0dec883d5804d89bc70440f44cdd08c"
     var diet = ""
     var intolerances = ""
@@ -141,6 +143,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         if(intolerances.count > 0){
             let idx = intolerances.lastIndex(of: ",") ?? intolerances.endIndex
             intolerances = String(intolerances[..<idx])
+        }
+        
+        if(first_load){
+            cuisineData(cuisine: "american")
+            first_load = false
         }
         
     }
