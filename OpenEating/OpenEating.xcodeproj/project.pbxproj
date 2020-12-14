@@ -37,6 +37,7 @@
 		5579F83A2581434C008C4146 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		55DED9EC256EB17E00AF3A08 /* OpenEating.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenEating.entitlements; sourceTree = "<group>"; };
 		716D6CB83205A7A323BA4E7F /* Pods-OpenEating.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenEating.release.xcconfig"; path = "Target Support Files/Pods-OpenEating/Pods-OpenEating.release.xcconfig"; sourceTree = "<group>"; };
+		BBADF7292587309F003B53AC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C43F308763A9AD41FA2C581A /* Pods-OpenEating.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenEating.debug.xcconfig"; path = "Target Support Files/Pods-OpenEating/Pods-OpenEating.debug.xcconfig"; sourceTree = "<group>"; };
 		D74155F72564692500242998 /* OpenEating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenEating.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74155FA2564692500242998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 				D74156002564692500242998 /* Main.storyboard */,
 				FD38D50E257EFE6F00975F46 /* PrimaryApp.storyboard */,
 				FD45C2002586633700702DCA /* WineViewController.swift */,
+				BBADF7292587309F003B53AC /* README.md */,
 				FD169D0C2572E88F004EA4BD /* LogInViewController.swift */,
 				FDD5FC0F256ED154000A7512 /* RecipeDetailsViewController.swift */,
 				D76F25072586EAF2007B6547 /* SimilarViewController.swift */,
