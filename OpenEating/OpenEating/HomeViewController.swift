@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     
     var first_load = true
     
-    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
+    let api_key = "9d9dd708463f43c896abc64af541c052"
     var diet = ""
     var intolerances = ""
     let addRecipeInformation = true
@@ -191,6 +191,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchVal = searchBar.text ?? ""
+        searchVal = searchVal.replacingOccurrences(of: " ", with: "+")
         spinner.isHidden = false
         spinner.startAnimating()
         spinner.backgroundColor = UIColor.white
