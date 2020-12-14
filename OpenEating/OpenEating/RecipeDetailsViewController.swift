@@ -36,6 +36,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     var name = ""
     var ingredientsList: String = ""
     
+    @IBOutlet weak var favoriteButton: UIButton!
     var favoritesArray: [[String:Any]] = []
     /*favoritesArray example:
      [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
@@ -93,6 +94,35 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         recipeImage.image = image
         getRecipeInformation()
         getInitComments()
+        checkFavorite()
+    }
+    
+    func checkFavorite(){
+        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+        let email = info["email"]
+        
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments() {
+            (querySnapshot, err) in
+            if let err = err
+            { print("Error getting documents: \(err)") }
+            else
+            {
+                guard let queryS = querySnapshot else {
+                    return
+                }
+                let document = queryS.documents[0]
+                let data = document.data()["favorites"] as? [[String:Any]] ?? []
+                
+                for fav in data {
+                    if((fav["id"] as? Int ?? 0) == self.recipeID){
+                         self.favoriteButton.setTitle("Added to Favorites", for: .normal)
+                       self.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+                    }
+                }
+                
+                
+            }
+        }
     }
     
     
@@ -113,6 +143,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         if(theRecipe.cuisines?.count ?? -1 > 0){
             recipeTags.text = theRecipe.cuisines?[0]
         }
+        
         numLikes.text = String(describing: theRecipe.aggregateLikes ?? 0)
         
         recipeID = theRecipe.id ?? 0
@@ -239,7 +270,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 }
             }
             if self.favoritesArray.count == count{
-                let newFav: [String:Any] = ["name": self.recipeTitle,"id": self.recipeID, "image": self.imageURL ]
+                let newFav: [String:Any] = ["name": self.recipeTitle as Any,"id": self.recipeID as Any, "image": self.imageURL as Any, "tag": self.recipeTags.text as Any]
                 self.favoritesArray.append(newFav)
             }
             
@@ -264,6 +295,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                     if let err = err {
                         print("Error updating document: \(err)")
                     } else {
+                        self.favoriteButton.setTitle("Added to Favorites", for: .normal)
+                        self.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                         print("Document successfully updated")
                     }
                 }

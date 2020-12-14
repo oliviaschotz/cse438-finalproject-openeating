@@ -21,6 +21,7 @@ class SimilarViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     var theImageCache: [UIImage] = []
     var similarResults: [SimilarRecipe] = []
+    var recipeResults: [Recipe] = []
     
     //    have to go through and fetch all the recipes
     struct SimilarRecipe: Decodable {
@@ -96,6 +97,7 @@ class SimilarViewController: UIViewController, UICollectionViewDelegate, UIColle
                 print("IMAGE error")
                 return
             }
+            self.recipeResults.append(theRecipe)
             
             let imagePath = theRecipe.image ?? ""
             guard let imageUrl = URL(string: imagePath) else { return }
@@ -125,8 +127,11 @@ class SimilarViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? [String:String] ?? [:]
+        parentVC.name = userInfo["name"] ?? ""
         parentVC.recipeID = similarResults[indexPath.row].id ?? 0
         parentVC.image = theImageCache[indexPath.row]
+        parentVC.imageURL = recipeResults[indexPath.row].image ?? ""
         self.navigationController?.popToViewController(parentVC, animated: true)
     }
     
