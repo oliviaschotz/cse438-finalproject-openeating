@@ -22,8 +22,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeTags: UILabel!
     @IBOutlet weak var numLikes: UILabel!
-    @IBOutlet weak var summary: UILabel!
+//    @IBOutlet weak var summary: UILabel!
     //    @IBOutlet weak var instructions: UILabel!
+    @IBOutlet weak var summary: UITextView!
     @IBOutlet weak var instructions: UITextView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var commentText: UITextField!
