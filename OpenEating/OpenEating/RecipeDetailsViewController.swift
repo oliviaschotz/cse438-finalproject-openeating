@@ -263,7 +263,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             if count != 0{
                 for index in (0...count-1).reversed() {
                     if (self.favoritesArray[index]["id"] as? Int ?? 0) == self.recipeID{
+                        self.favoriteButton.setTitle("Add to Favorites", for: .normal)
+                        self.favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
                         self.favoritesArray.remove(at: index)
+                        print("Successfully removed from favorites")
                     }
                 }
             }
