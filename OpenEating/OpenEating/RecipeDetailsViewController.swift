@@ -16,7 +16,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
-    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
+    let api_key = "c0dec883d5804d89bc70440f44cdd08c"
     
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!
@@ -466,7 +466,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                }
                
             
-            wineVC.cuisine = "American"
+            wineVC.cuisine = "French"
             if(recipeTags.text != "")
             {
                 wineVC.cuisine = recipeTags.text ?? "American"
@@ -474,6 +474,10 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             if(recipeTags.text == "Mediterranean")
             {
                 wineVC.cuisine = "Italian"
+            }
+            else if(recipeTags.text == "American" || recipeTags.text == "British")
+            {
+                wineVC.cuisine = "French"
             }
            }
        }

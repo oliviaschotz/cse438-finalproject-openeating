@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     var spinner = UIActivityIndicatorView(style: .large)
     var noResults: UILabel!
     
-    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
+    let api_key = "c0dec883d5804d89bc70440f44cdd08c"
     var diet = ""
     var intolerances = ""
     let addRecipeInformation = true

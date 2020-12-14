@@ -1211,49 +1211,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5ni-Id-64Y">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wineCell" rowHeight="59" id="eeB-cp-faG" customClass="WineCell" customModule="OpenEating" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="59"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeB-cp-faG" id="qbR-k4-i0R">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wine Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPO-wa-xHB">
-                                                    <rect key="frame" x="15" y="12.666666666666664" width="345" height="34"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="28"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="iPO-wa-xHB" secondAttribute="trailing" constant="15" id="4zc-Th-uyV"/>
-                                                <constraint firstItem="iPO-wa-xHB" firstAttribute="centerY" secondItem="qbR-k4-i0R" secondAttribute="centerY" id="8CM-yk-GBa"/>
-                                                <constraint firstItem="iPO-wa-xHB" firstAttribute="leading" secondItem="qbR-k4-i0R" secondAttribute="leading" constant="15" id="Fw2-8X-avu"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="wineName" destination="iPO-wa-xHB" id="wVq-n3-CIA"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlQ-sq-cSE">
+                                <rect key="frame" x="20" y="274" width="339" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2r-xj-77D">
+                                <rect key="frame" x="36" y="26" width="303" height="232"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBH-GC-Znb">
+                                <rect key="frame" x="20" y="325" width="154" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" name="lightGreen"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEu-I8-ROL">
+                                <rect key="frame" x="20" y="368" width="339" height="160.66666666666669"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate feugiat vulputate. Quisque velit urna, pharetra sit amet felis ac, dignissim interdum turpis. Quisque accumsan, eros sit amet hendrerit pulvinar, ex mauris dignissim purus, ac pellentesque quam nisl efficitur ante. Nunc feugiat ex magna, nec lacinia nisi tempor non.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="5ni-Id-64Y" firstAttribute="leading" secondItem="DKR-TO-w7t" secondAttribute="leading" id="BzT-pD-isi"/>
-                            <constraint firstItem="5ni-Id-64Y" firstAttribute="bottom" secondItem="DKR-TO-w7t" secondAttribute="bottom" id="GYX-bT-5io"/>
-                            <constraint firstItem="5ni-Id-64Y" firstAttribute="top" secondItem="DKR-TO-w7t" secondAttribute="top" id="Ta4-p1-nXS"/>
-                            <constraint firstItem="5ni-Id-64Y" firstAttribute="trailing" secondItem="DKR-TO-w7t" secondAttribute="trailing" id="zYe-p3-8hA"/>
+                            <constraint firstItem="LlQ-sq-cSE" firstAttribute="centerX" secondItem="QUc-Ig-IKK" secondAttribute="centerX" constant="2" id="8Uh-X0-Lt7"/>
+                            <constraint firstItem="DKR-TO-w7t" firstAttribute="bottom" secondItem="g2r-xj-77D" secondAttribute="bottom" constant="383" id="9FJ-Sg-pgK"/>
+                            <constraint firstItem="g2r-xj-77D" firstAttribute="leading" secondItem="DKR-TO-w7t" secondAttribute="leading" constant="36" id="V6m-MJ-NEg"/>
+                            <constraint firstItem="LlQ-sq-cSE" firstAttribute="top" secondItem="DKR-TO-w7t" secondAttribute="top" constant="274" id="aqL-x1-3X9"/>
+                            <constraint firstItem="g2r-xj-77D" firstAttribute="centerX" secondItem="LlQ-sq-cSE" secondAttribute="centerX" constant="-2" id="dPg-wB-5Mg"/>
+                            <constraint firstItem="g2r-xj-77D" firstAttribute="top" secondItem="LlQ-sq-cSE" secondAttribute="bottom" constant="-274.33333333333331" id="gve-AI-BVg"/>
+                            <constraint firstItem="LlQ-sq-cSE" firstAttribute="leading" secondItem="DKR-TO-w7t" secondAttribute="leading" constant="20" id="mZG-u1-FwF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DKR-TO-w7t"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wine Pairings" id="uQc-Qd-iu0"/>
                     <connections>
-                        <outlet property="tableView" destination="5ni-Id-64Y" id="cWz-NV-SOC"/>
+                        <outlet property="descriptio" destination="GBH-GC-Znb" id="n8F-WQ-tLH"/>
+                        <outlet property="wineDescription" destination="nEu-I8-ROL" id="7LW-OL-KVy"/>
+                        <outlet property="wineImage" destination="g2r-xj-77D" id="fc6-Ag-G5y"/>
+                        <outlet property="wineName" destination="LlQ-sq-cSE" id="4Ms-da-da7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Dd-S4-Xni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

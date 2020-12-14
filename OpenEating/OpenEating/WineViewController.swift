@@ -10,26 +10,6 @@ import UIKit
 
 class WineViewController: UIViewController{
     
-    
-    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return wines.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        //let cell = tableView.dequeueReusableCell(withIdentifier: "wineCell", for: indexPath) as? WineCell ?? WineCell()
-//        //cell.recipeTags.text = ""
-//        cell.recipeName.text = wines[indexPath.row].title
-//        return cell
-//    }
-    
-
-    @IBOutlet weak var tableView: UITableView!
-    var cuisine: String = ""
-    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
-    var wines: [Wine] = []
-
-    
     struct WinePairings: Decodable {
         var pairedWines: [String]?
         var pairingText: String?
@@ -49,13 +29,21 @@ class WineViewController: UIViewController{
         
     }
     
+
+    @IBOutlet weak var wineImage: UIImageView!
+    @IBOutlet weak var wineName: UILabel!
+    @IBOutlet weak var wineDescription: UILabel!
+    @IBOutlet weak var descriptio: UILabel!
+    var cuisine: String = ""
+    let api_key = "c0dec883d5804d89bc70440f44cdd08c"
+    var wines: [Wine] = []
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(cuisine)
-        
-        //commented these next two lines out bc they were giving me build errors :( -Danielle
-//        tableView.dataSource = self
-//        tableView.delegate = self
         
        let urlPath = "https://api.spoonacular.com/food/wine/pairing?food=\(cuisine)&apiKey="+api_key
         print(urlPath)
@@ -66,7 +54,23 @@ class WineViewController: UIViewController{
             return
         }
         wines = wineResults.productMatches
-        print(wines)
+        if(wines.count > 0)
+        {
+            var wine: Wine = wines[0]
+            wineName.text = wine.title ?? "Wine #1"
+            wineDescription.text = wine.description ?? "No description available"
+            guard let url = URL(string: wine.imageUrl ?? "") else { return }
+            guard let data = try? Data(contentsOf: url) else { return }
+            wineImage.image = UIImage(data: data) 
+            print(wines)
+        }
+        else
+        {
+            descriptio.isHidden = true
+            wineName.text = "No wine pairing(s) available"
+            wineDescription.isHidden = true
+            wineImage.isHidden = true
+        }
         
         // Do any additional setup after loading the view.
     }
