@@ -108,7 +108,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 //        print(recipeResults[indexPath.row].title)
         
         cell.recipeName.text = favoritesArray[indexPath.row]["name"] as? String ?? ""
-        cell.recipeTags.text = favoritesArray[indexPath.row]["tag"] as? String ?? ""
+//        cell.recipeTags.text = favoritesArray[indexPath.row]["tag"] as? String ?? ""
         return cell
     }
     
