@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MessageUI
 
-class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     let db = Firestore.firestore()
@@ -23,7 +23,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var recipeTags: UILabel!
     @IBOutlet weak var numLikes: UILabel!
     @IBOutlet weak var summary: UILabel!
-//    @IBOutlet weak var instructions: UILabel!
+    //    @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var instructions: UITextView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var commentText: UITextField!
@@ -37,7 +37,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var favoritesArray: [[String:Any]] = []
     /*favoritesArray example:
-    [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
+     [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
      */
     var imageURL: String = ""
     
@@ -71,27 +71,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     var comments: [String] = []
     
     
-    var theImageCache: [UIImage] = []
-    var similarResults: [SimilarRecipe] = []
-    
-    //    https://api.spoonacular.com/recipes/{recipe_id}/similar
-    struct APIResults:Decodable {
-        let results: [SimilarRecipe]
-    }
-    
-    //    have to go through and fetch all the recipes
-    struct SimilarRecipe: Decodable {
-        let id: Int?
-        let title: String?
-        let imageType: String?
-    }
-    
-    struct Recipe: Decodable {
-        let id: Int?
-        let image: String?
-    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,22 +82,16 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "similarCell")
-        
         recipeImage.image = image
         getRecipeInformation()
-        
         getInitComments()
-        
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            self.getSimilarRecipes()
-//            DispatchQueue.main.async {
-//                print("----RELOADING-----")
-//                self.collectionView.reloadData()
-//            }
-//        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        how can i scroll to top of page??
+        recipeImage.image = image
+        getRecipeInformation()
+        getInitComments()
     }
     
     
@@ -137,9 +110,9 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         recipeTags.text = ""
         if(theRecipe.cuisines?.count ?? -1 > 0){
-        recipeTags.text = theRecipe.cuisines?[0]
+            recipeTags.text = theRecipe.cuisines?[0]
         }
-        numLikes.text = String(describing: theRecipe.aggregateLikes!)
+        numLikes.text = String(describing: theRecipe.aggregateLikes ?? 0)
         
         recipeID = theRecipe.id ?? 0
         recipeTitle = theRecipe.title ?? ""
@@ -156,7 +129,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("COMMENTS COUNT: \(comments.count)")
         if(tableView == self.tableView){
             return ingredients.count
         }
@@ -181,43 +153,45 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     //    for creating/using regex in swift: https://medium.com/@dkw5877/regular-expressions-in-swift-928561ad55c8
     func parseHTML(str:String?) -> String? {
         let pattern = "<[^\\r\\n\\>]+>"
-        let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) else {
+            return ""
+        }
         
         let parsedStr = regex.stringByReplacingMatches(in: str ?? "", options: [], range: NSRange(location: 0, length: str?.count ?? 0), withTemplate: " ") as NSString
         
         return parsedStr as String?
     }
     
-//    // This method isn't attached to anything right now
-//    // Import MFMessageComposeViewControllerDelegate into the class if you use this function
-//    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-//       if MFMessageComposeViewController.canSendText() {
-//            let composeVC = MFMessageComposeViewController()
-//            composeVC.messageComposeDelegate = self
-//
-//            // Configure the fields of the interface.
-//            composeVC.recipients = [""]
-//            composeVC.body = "\(recipeName.text ?? " ") Summary: \(summary.text ?? "No Summary") Ingredients: \(ingredientsList) Instructions: \(instructions.text ?? "No Instructions")"
-//
-//            // Present the view controller modally.
-//            self.present(composeVC, animated: true, completion: nil)
-//
-//            // dismisses the VC
-//            controller.dismiss(animated: true, completion: nil)
-//        } else {
-//            print("SMS services are not available")
-//        }
-////     Other things, might not be useful
-////        let smsComposer:MFMessageComposeViewController = MFMessageComposeViewController()
-////        present(smsComposer, animated: true)
-//    }
+    //    // This method isn't attached to anything right now
+    //    // Import MFMessageComposeViewControllerDelegate into the class if you use this function
+    //    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+    //       if MFMessageComposeViewController.canSendText() {
+    //            let composeVC = MFMessageComposeViewController()
+    //            composeVC.messageComposeDelegate = self
+    //
+    //            // Configure the fields of the interface.
+    //            composeVC.recipients = [""]
+    //            composeVC.body = "\(recipeName.text ?? " ") Summary: \(summary.text ?? "No Summary") Ingredients: \(ingredientsList) Instructions: \(instructions.text ?? "No Instructions")"
+    //
+    //            // Present the view controller modally.
+    //            self.present(composeVC, animated: true, completion: nil)
+    //
+    //            // dismisses the VC
+    //            controller.dismiss(animated: true, completion: nil)
+    //        } else {
+    //            print("SMS services are not available")
+    //        }
+    ////     Other things, might not be useful
+    ////        let smsComposer:MFMessageComposeViewController = MFMessageComposeViewController()
+    ////        present(smsComposer, animated: true)
+    //    }
     
     @IBAction func shareRecipe(_ sender: Any) {
         for ingredient in ingredients {
             // don't force unwrap this
             ingredientsList = "\(ingredientsList), \(ingredient.original ?? " ")"
         }
-
+        
         let recipeInfo: [String?] = [recipeName.text, " Summary: \(summary.text ?? "No Summary")", " Ingredients: \(ingredientsList)", " Instructions: \(instructions.text ?? "No Instructions")"]
         print(recipeInfo)
         
@@ -233,20 +207,23 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     /*favoritesArray example:
-    [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
+     [["name": "Chicken Caesar Salad", "id": ######, "image":"imageURL"],["name": "Mac and Cheese", "id": ######, "image":"imageURL"]]
      */
     
     func getFavorites () {
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
         
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments() {
             (querySnapshot, err) in
             if let err = err
             { print("Error getting documents: \(err)") }
             else
             {
-                let document = querySnapshot!.documents[0]
+                guard let queryS = querySnapshot else {
+                    return
+                }
+                let document = queryS.documents[0]
                 let data = document.data()
                 self.favoritesArray = data["favorites"] as? [[String:Any]] ?? []
             }
@@ -255,7 +232,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             let count = self.favoritesArray.count
             if count != 0{
                 for index in (0...count-1).reversed() {
-                    if self.favoritesArray[index]["id"] as! Int == self.recipeID{
+                    if (self.favoritesArray[index]["id"] as? Int ?? 0) == self.recipeID{
                         self.favoritesArray.remove(at: index)
                     }
                 }
@@ -273,13 +250,15 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
         
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments() {
             (querySnapshot, err) in
             if let err = err
             { print("Error getting documents: \(err)") }
             else {
-                print(querySnapshot!.documents)
-                let document = querySnapshot!.documents[0]
+                guard let queryS = querySnapshot else {
+                    return
+                }
+                let document = queryS.documents[0]
                 document.reference.updateData(["favorites":self.favoritesArray]) { err in
                     if let err = err {
                         print("Error updating document: \(err)")
@@ -293,68 +272,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     
-    
-    
-    func getSimilarRecipes(){
-        let urlPath = "https://api.spoonacular.com/recipes/"+String(recipeID)+"/similar?apiKey="+api_key
-        guard let url = URL(string: urlPath) else { return  }
-        guard let data =  try?  Data(contentsOf: url) else { return }
-        guard let theData = try? JSONDecoder().decode([SimilarRecipe].self, from: data) else {
-            print("SIMILAR error")
-            return }
-        
-        similarResults = theData
-        
-        print("----DONE WITH RECIPES-----")
-        
-        getSimilarRecipeImages()
-    }
-    
-    func getSimilarRecipeImages(){
-        
-        for recipe in similarResults {
-            let urlPath = "https://api.spoonacular.com/recipes/"+String(recipe.id ?? 0)+"/information?apiKey="+api_key
-            //Lainie- may need to add a line that allows for having spaces in the search query (I have this in my movie lab)
-            guard let url = URL(string: urlPath) else { return  }
-            guard let data =  try?  Data(contentsOf: url) else { return }
-            guard let theRecipe = try? JSONDecoder().decode(Recipe.self, from: data) else {
-                print("IMAGE error")
-                return
-            }
-            
-            let imagePath = theRecipe.image ?? ""
-            guard let imageUrl = URL(string: imagePath) else { return }
-            guard let imageData = try? Data(contentsOf: imageUrl) else { return }
-            guard let image = UIImage(data: imageData) else { return }
-            theImageCache.append(image)
-        }
-        
-        print("----DONE WITH IMAGES-----")
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("COLLECTION VIEW: \(similarResults.count)")
-        return similarResults.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("-----SETTING UP CELLS------")
-        print(similarResults[indexPath.row])
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "similarCell", for: indexPath) as? SimilarRecipeCell ?? SimilarRecipeCell()
-        
-//        cell.similarImage.image = theImageCache[indexPath.row]
-        cell.similarName.text = similarResults[indexPath.row].title
-    
-        return cell
-        
-    }
-    
-    
     @IBAction func addComment(_ sender: Any) {
         let comment = commentText.text ?? ""
         
@@ -362,7 +279,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             let commentToPost = "\(name): \(comment)"
             
             
-            let docRef = db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
+            db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
             {
                 (querySnapshot, err) in
                 
@@ -372,15 +289,21 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 else
                 {
-                    if(querySnapshot!.documents.count == 0)
+                    guard let queryS = querySnapshot else {
+                        return
+                    }
+                    if(queryS.documents.count == 0)
                     {
                         //add document
                         self.addDocument(commentToPost: commentToPost)
                     }
                     else {
                         //append
-                        var comments = querySnapshot!.documents[0].data()["comments"]
-                        self.updateDocument(comments: comments as! [String], commentToPost: commentToPost)
+                        guard let queryS = querySnapshot else {
+                            return
+                        }
+                        let comments = queryS.documents[0].data()["comments"]
+                        self.updateDocument(comments: comments as? [String] ?? [], commentToPost: commentToPost)
                     }
                 }
             }
@@ -391,7 +314,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     func getInitComments(){
-        let docRef = db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
+        db.collection("comments").whereField("id", isEqualTo: recipeID).getDocuments()
         {
             (querySnapshot, err) in
             
@@ -401,10 +324,13 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             }
             else
             {
-                if(querySnapshot!.documents.count != 0)
+                guard let queryS = querySnapshot else {
+                    return
+                }
+                if(queryS.documents.count != 0)
                 {
                     //add document
-                    self.comments = querySnapshot!.documents[0].data()["comments"] as? [String] ?? []
+                    self.comments = queryS.documents[0].data()["comments"] as? [String] ?? []
                     self.displayComments()
                 }
                 else {
@@ -421,7 +347,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         
         comments = [commentToPost]
         
-        db.collection("comments").document(String(recipeID) ?? "").setData(data) { err in
+        db.collection("comments").document(String(recipeID) ).setData(data as [String : Any]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -439,7 +365,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
         self.comments = commentUpdate
         
         let data: [String: Any?] = ["id":recipeID, "comments":commentUpdate]
-        db.collection("comments").document(String(recipeID) ?? "").setData(data) { err in
+        db.collection("comments").document(String(recipeID) ).setData(data as [String : Any]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
@@ -457,14 +383,14 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-           if(segue.identifier == "toWineVC") {
-
-               guard let wineVC = segue.destination as? WineViewController else {
-                   return
-               }
-               
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "toWineVC") {
+            
+            guard let wineVC = segue.destination as? WineViewController else {
+                return
+            }
+            
             
             wineVC.cuisine = "French"
             if(recipeTags.text != "")
@@ -479,21 +405,30 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             {
                 wineVC.cuisine = "French"
             }
-           }
-       }
+        }
+        else if(segue.identifier == "toSimilarVC") {
+            guard let similarVC = segue.destination as? SimilarViewController else {
+                return
+            }
+            
+            similarVC.recipeID = recipeID
+            similarVC.parentVC = self
+            
+        }
+        
+    }
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     
 }
-
-
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destination.
- // Pass the selected object to the new view controller.
- }
- */
-
-

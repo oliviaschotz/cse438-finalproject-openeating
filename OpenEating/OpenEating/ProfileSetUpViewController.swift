@@ -14,7 +14,7 @@ class ProfileSetUpViewController: UIViewController {
     
     let db = Firestore.firestore()
     var docRef: DocumentReference!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,28 +22,37 @@ class ProfileSetUpViewController: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
         
-//        HOW DO WE FORCE ORDER OF THESE CALLS?
+        //        HOW DO WE FORCE ORDER OF THESE CALLS?
     }
     
     
     
     
     @IBAction func clickCreateAcct(_ sender: UIButton) {
-        let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
-        let email = info["email"]
-        
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
-        {
+        if(Auth.auth().currentUser == nil){
+            let alertController = UIAlertController(title: "Error", message: "Please sign up through Google before continuing.", preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alertController, animated: true)
+        }
+        else {
+            let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
+            let email = info["email"]
             
-            (querySnapshot, err) in
-            
+            db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments()
+            {
+                
+                (querySnapshot, err) in
+                
                 if let err = err
                 {
                     print("Error getting documents: \(err)")
                 }
                 else
                 {
-                    if(querySnapshot!.documents.count > 0)
+                    guard let queryS = querySnapshot else {
+                        return
+                    }
+                    if(queryS.documents.count > 0)
                     {
                         let alertController = UIAlertController(title: "Error", message: "You already have an account! Please log in to use OpenEating.", preferredStyle: UIAlertController.Style.alert)
                         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
@@ -53,6 +62,7 @@ class ProfileSetUpViewController: UIViewController {
                         self.performSegue(withIdentifier: "ProfSUToDietaryPrefs", sender: UIButton.self)
                     }
                 }
+            }
         }
         
     }
@@ -61,13 +71,13 @@ class ProfileSetUpViewController: UIViewController {
         return .lightContent
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

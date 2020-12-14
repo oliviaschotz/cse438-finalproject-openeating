@@ -97,7 +97,7 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
         
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments()
         {
             (querySnapshot, err) in
                 if let err = err
@@ -106,8 +106,11 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
                 }
                 else
                 {
-                    let document = querySnapshot!.documents[0]
-                    self.userPreferences = document.data() as? Dictionary<String, Any> ?? [:]
+                    guard let queryS = querySnapshot else {
+                        return
+                    }
+                    let document = queryS.documents[0]
+                    self.userPreferences = document.data() as [String:Any]
                     self.formatOptions()
                     
                     
@@ -206,7 +209,9 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeCell else {
+            return RecipeCell()
+        }
         cell.recipeName.text = recipeResults[indexPath.row].title
         cell.recipeImage.image = theImageCache[indexPath.row]
         return cell
@@ -224,7 +229,10 @@ class HomeViewController: UIViewController, UISearchBarDelegate, UITableViewDele
 
         if(segue.identifier == "toRecipePage") {
 
-            guard let indexPaths=self.tableView!.indexPathsForSelectedRows else {
+            guard let tblView = self.tableView else {
+                return
+            }
+            guard let indexPaths = tblView.indexPathsForSelectedRows else {
                 return
             }
             let indexPath = indexPaths[0] as NSIndexPath

@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController {
         name.text = info["name"]
         let email = info["email"]
         
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments()
         {
             (querySnapshot, err) in
                 if let err = err
@@ -62,8 +62,11 @@ class ProfileViewController: UIViewController {
                 }
                 else
                 {
-                    let document = querySnapshot!.documents[0]
-                    self.preferences = document.data() as? [String: Any] ?? [:]
+                    guard let queryS = querySnapshot else {
+                        return
+                    }
+                    let document = queryS.documents[0]
+                    self.preferences = document.data()
                     self.addButtons()
                 }
         }

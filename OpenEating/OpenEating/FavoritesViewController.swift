@@ -55,15 +55,19 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
             
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments() {
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments() {
                 (querySnapshot, err) in
             if let err = err
                 { print("Error getting documents: \(err)") }
             else {
-                let document = querySnapshot!.documents[0]
+                
+                guard let queryS = querySnapshot else {
+                    return
+                }
+                let document = queryS.documents[0]
                 let data = document.data()
                 self.favoritesArray = data["favorites"] as? [[String:Any]] ?? []
-                self.name = data["name"] as! String
+                self.name = data["name"] as? String ?? ""
 //                self.fetchDataForTableView()
             }
             print(self.favoritesArray)
@@ -96,12 +100,14 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
      
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as? FavCell else {
+            return FavCell()
+        }
         //cell.recipeTags.text = ""
 //        cell.recipeName.text = recipeResults[indexPath.row].title
 //        print(recipeResults[indexPath.row].title)
         
-        cell.recipeName.text = favoritesArray[indexPath.row]["name"] as? String
+        cell.recipeName.text = favoritesArray[indexPath.row]["name"] as? String ?? ""
         return cell
     }
     
@@ -112,14 +118,17 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if(segue.identifier == "FavoritesToRecipe") {
-            guard let indexPaths=self.tableView!.indexPathsForSelectedRows else {
+            guard let tblView = self.tableView else {
+                return
+            }
+            guard let indexPaths=tblView.indexPathsForSelectedRows else {
                 return
             }
             let indexPath = indexPaths[0] as NSIndexPath
             let selectedRecipe = favoritesArray[indexPath.row]
             
             
-            let imagePath: String = selectedRecipe["image"] as! String
+            let imagePath: String = selectedRecipe["image"] as? String ?? ""
             if(imagePath.count != 0)
             {
                 guard let url = URL(string: imagePath) else { return }
@@ -132,7 +141,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
                 return
             }
             
-            recipeVC.recipeID = selectedRecipe["id"] as! Int
+            recipeVC.recipeID = selectedRecipe["id"] as? Int ?? 0
             recipeVC.image = recipeImage ?? UIImage()
             recipeVC.name = name
         }

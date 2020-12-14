@@ -32,7 +32,7 @@ class LogInViewController: UIViewController {
         let info = UserDefaults.standard.object(forKey: "userInfo") as? Dictionary<String, String> ?? [:]
         let email = info["email"]
         
-        let docRef = db.collection("users").whereField("email", isEqualTo: email).getDocuments()
+        db.collection("users").whereField("email", isEqualTo: email as Any).getDocuments()
         {
             
             (querySnapshot, err) in
@@ -43,7 +43,10 @@ class LogInViewController: UIViewController {
                 }
                 else
                 {
-                    if(querySnapshot!.documents.count == 0)
+                    guard let queryS = querySnapshot else {
+                        return
+                    }
+                    if(queryS.documents.count == 0)
                     {
                         let alertController = UIAlertController(title: "Error", message: "Please log in or create an account to access OpenEating", preferredStyle: UIAlertController.Style.alert)
                         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))

@@ -56,7 +56,7 @@ class WineViewController: UIViewController{
         wines = wineResults.productMatches
         if(wines.count > 0)
         {
-            var wine: Wine = wines[0]
+            let wine: Wine = wines[0]
             wineName.text = wine.title ?? "Wine #1"
             wineDescription.text = wine.description ?? "No description available"
             guard let url = URL(string: wine.imageUrl ?? "") else { return }

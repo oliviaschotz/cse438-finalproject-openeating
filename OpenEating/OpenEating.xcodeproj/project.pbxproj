@@ -16,6 +16,7 @@
 		D74156022564692500242998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156002564692500242998 /* Main.storyboard */; };
 		D74156042564692600242998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74156032564692600242998 /* Assets.xcassets */; };
 		D74156072564692600242998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74156052564692600242998 /* LaunchScreen.storyboard */; };
+		D76F25082586EAF2007B6547 /* SimilarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76F25072586EAF2007B6547 /* SimilarViewController.swift */; };
 		D7AA935F2586874900BE2E2A /* SimilarRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AA935E2586874900BE2E2A /* SimilarRecipeCell.swift */; };
 		D7F5CF7E257867CE00C4A7D0 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */; };
 		EA8548F52585B4CF005EFE2F /* FavCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8548F42585B4CF005EFE2F /* FavCell.swift */; };
@@ -46,6 +47,7 @@
 		D74156032564692600242998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D74156062564692600242998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D74156082564692600242998 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D76F25072586EAF2007B6547 /* SimilarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarViewController.swift; sourceTree = "<group>"; };
 		D7AA935E2586874900BE2E2A /* SimilarRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarRecipeCell.swift; sourceTree = "<group>"; };
 		D7F5CF7D257867CE00C4A7D0 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		EA8548F42585B4CF005EFE2F /* FavCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				FD169D0C2572E88F004EA4BD /* LogInViewController.swift */,
 				FDD5FC13256ED1AE000A7512 /* AcctDetailsViewController.swift */,
 				FDD5FC0F256ED154000A7512 /* RecipeDetailsViewController.swift */,
+				D76F25072586EAF2007B6547 /* SimilarViewController.swift */,
 				FD30391B256E310C00CBBDA2 /* ProfileSetUpViewController.swift */,
 				FD30391D256E311A00CBBDA2 /* DietaryPrefsViewController.swift */,
 				FDC1EFBB256708B0003D6C4E /* ProfileViewController.swift */,
@@ -287,6 +290,7 @@
 				D7AA935F2586874900BE2E2A /* SimilarRecipeCell.swift in Sources */,
 				FDC1EFBC256708B0003D6C4E /* ProfileViewController.swift in Sources */,
 				FDF4918C2565AFF6001CE8F5 /* FavoritesViewController.swift in Sources */,
+				D76F25082586EAF2007B6547 /* SimilarViewController.swift in Sources */,
 				D74155FD2564692500242998 /* SceneDelegate.swift in Sources */,
 				FD30391E256E311A00CBBDA2 /* DietaryPrefsViewController.swift in Sources */,
 			);
