@@ -16,7 +16,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
-    let api_key = "310d7b1a09564709a55a3672d7565eca"
+    let api_key = "52a8b2f02a4a4dc587d826e60058b56a"
     
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeName: UILabel!

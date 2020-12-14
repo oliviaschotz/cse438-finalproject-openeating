@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     //api website: https://spoonacular.com/food-api
     //api documentation: https://spoonacular.com/food-api/docs
     //example: https://api.spoonacular.com/recipes/716429/information?apiKey=61de2798dcdc47c88f2279d7c23dad64&includeNutrition=true
-    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
+    let api_key = "52a8b2f02a4a4dc587d826e60058b56a"
     
     var foodPreference: Bool = true
     var docRef: DocumentReference!

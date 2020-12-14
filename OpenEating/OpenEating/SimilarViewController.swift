@@ -10,7 +10,7 @@ import UIKit
 
 class SimilarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    let api_key = "310d7b1a09564709a55a3672d7565eca"
+    let api_key = "52a8b2f02a4a4dc587d826e60058b56a"
     
     var recipeID = 0
     var spinner = UIActivityIndicatorView(style: .large)
