@@ -16,7 +16,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     let db = Firestore.firestore()
     var docRef: DocumentReference!
     
-    let api_key = "9d9dd708463f43c896abc64af541c052"
+    let api_key = "310d7b1a09564709a55a3672d7565eca"
     
     var favoritesArray: [[String:Any]] = []{
         didSet{
