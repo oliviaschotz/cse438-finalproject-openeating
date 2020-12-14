@@ -273,6 +273,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             if self.favoritesArray.count == count{
                 let newFav: [String:Any] = ["name": self.recipeTitle as Any,"id": self.recipeID as Any, "image": self.imageURL as Any, "tag": self.recipeTags.text as Any]
                 self.favoritesArray.append(newFav)
+                self.favoriteButton.setTitle("Added to Favorites", for: .normal)
+                self.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
             }
             
             self.setFavorites()
@@ -296,8 +298,8 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
                     if let err = err {
                         print("Error updating document: \(err)")
                     } else {
-                        self.favoriteButton.setTitle("Added to Favorites", for: .normal)
-                        self.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+//                        self.favoriteButton.setTitle("Added to Favorites", for: .normal)
+//                        self.favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                         print("Document successfully updated")
                     }
                 }
