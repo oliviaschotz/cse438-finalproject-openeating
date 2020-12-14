@@ -312,7 +312,6 @@
                                                 <rect key="frame" x="25" y="212.99999999999997" width="276.66666666666669" height="114.66666666666666"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="114.66666666666666" id="FX5-gJ-jW6"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="276.67000000000002" id="Z9Z-of-2Vm"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
                                                 <color key="textColor" name="darkGray"/>
@@ -451,9 +450,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allergies &amp; Sensitivities" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tS-3b-4ux">
-                                                <rect key="frame" x="25" y="632" width="276.66666666666669" height="114.66666666666663"/>
+                                                <rect key="frame" x="25" y="632" width="274.66666666666669" height="114.66666666666663"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="276.67000000000002" id="0Mf-8g-ub6"/>
                                                     <constraint firstAttribute="height" constant="114.66666666666663" id="CJV-N8-gIh"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="48"/>
@@ -732,7 +730,7 @@
                                             <constraint firstItem="NDQ-zR-ekL" firstAttribute="centerY" secondItem="CoO-Bi-mje" secondAttribute="centerY" id="OxH-lE-Nru"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T44-Rd-h3k" secondAttribute="trailing" constant="20" symbolic="YES" id="P00-aB-5GB"/>
                                             <constraint firstItem="NDQ-zR-ekL" firstAttribute="leading" secondItem="T44-Rd-h3k" secondAttribute="leading" id="Pgq-Yv-aOh"/>
-                                            <constraint firstAttribute="trailing" secondItem="AOg-Xv-mlE" secondAttribute="trailing" constant="73.329999999999998" id="Qth-eK-3gp"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AOg-Xv-mlE" secondAttribute="trailing" constant="73.329999999999998" id="Qth-eK-3gp"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="N73-dn-bKo" secondAttribute="trailing" constant="20" symbolic="YES" id="Rlb-Qs-mYz"/>
                                             <constraint firstItem="gxZ-kZ-8mz" firstAttribute="top" secondItem="Xf8-HY-JeZ" secondAttribute="bottom" constant="20" id="SFF-dq-Gbd"/>
                                             <constraint firstItem="B7f-B0-HwX" firstAttribute="leading" secondItem="hIw-Y2-wWt" secondAttribute="leading" id="SLG-ze-iLZ"/>
@@ -777,6 +775,7 @@
                                             <constraint firstItem="n8z-gV-f8g" firstAttribute="centerY" secondItem="NTB-hW-HgS" secondAttribute="centerY" id="yE8-gg-h5d"/>
                                             <constraint firstItem="orq-5u-cXS" firstAttribute="leading" secondItem="T44-Rd-h3k" secondAttribute="leading" id="yNK-b5-ee3"/>
                                             <constraint firstItem="7Th-2q-0eM" firstAttribute="top" secondItem="AOg-Xv-mlE" secondAttribute="bottom" constant="29.329999999999998" id="z2B-6c-Ar2"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0tS-3b-4ux" secondAttribute="trailing" constant="73.329999999999998" id="zCB-96-HuU"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="orq-5u-cXS" secondAttribute="trailing" constant="20" symbolic="YES" id="zye-JA-ixX"/>
                                         </constraints>
                                     </view>
