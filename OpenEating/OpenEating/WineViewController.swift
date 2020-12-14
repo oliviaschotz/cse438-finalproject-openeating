@@ -35,7 +35,7 @@ class WineViewController: UIViewController{
     @IBOutlet weak var wineDescription: UILabel!
     @IBOutlet weak var descriptio: UILabel!
     var cuisine: String = ""
-    let api_key = "c0dec883d5804d89bc70440f44cdd08c"
+    let api_key = "725e6de7f0424a3aaf43d93459d1373e"
     var wines: [Wine] = []
 
     
