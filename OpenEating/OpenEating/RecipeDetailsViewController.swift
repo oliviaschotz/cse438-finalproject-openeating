@@ -22,8 +22,6 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var recipeName: UILabel!
     @IBOutlet weak var recipeTags: UILabel!
     @IBOutlet weak var numLikes: UILabel!
-//    @IBOutlet weak var summary: UILabel!
-    //    @IBOutlet weak var instructions: UILabel!
     @IBOutlet weak var summary: UITextView!
     @IBOutlet weak var instructions: UITextView!
     @IBOutlet weak var shareButton: UIButton!
@@ -109,7 +107,7 @@ class RecipeDetailsViewController: UIViewController, UITableViewDelegate, UITabl
             {
                 guard let queryS = querySnapshot else {
                     return
-                }
+                } 
                 let document = queryS.documents[0]
                 let data = document.data()["favorites"] as? [[String:Any]] ?? []
                 
